@@ -5,7 +5,7 @@
 A command in Feather is a sentence-like instruction composed of clauses, modules, literals, and modifiers. Commands may span single or multiple lines but always end with a dot (.) terminator.
 
 ```
-[Clause] [Module] [Actions] [Modifiers / Lenses] [Signatures] .
+[Clause] [Module] [Actions] [Modifiers / Lenses] [Signatures] -> Result
 ```
 
 | Part       | Example       | Description                    |

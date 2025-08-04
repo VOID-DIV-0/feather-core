@@ -1,4 +1,4 @@
-![display my file](./~.png)
+![logo](./~.png)
 
 # What is Feather?
 
@@ -35,14 +35,11 @@ Feather is designed around a few core principles that shape every part of its sy
 
 Feather should feel intuitive: you can pick it up without memorizing a manual. It is designed to solve 80% of everyday tasks cleanly. When it cannot, you can gracefully fall back to native `script` commands without breaking your flow.
 
-# Syntax
+# Documentation
 
-## Clauses
+The documentation is available in the docs folder. see Feather [docs](./docs/index.md)
 
-See [clauses](docs/syntax/clauses.md)
+# Contributions
 
-## Instructions
-
-Instructions are simply commands specific to desired operations. Each instruction have their own unique functionality.
-
-See [instructions](docs/syntax/instructions.md).
+Contributions are welcome!
+All contributions will be reviewed and must be approved by the project maintainer before being merged.
