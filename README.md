@@ -9,7 +9,7 @@ It is designed to be embedded in applications or used as a standalone, elegant, 
 
 To create an elegant, fast and reliable library and REPL to make scripting easy, intuitive and simple. Even if feather might not be able to do anything, the goal is to make everything in the best possible way
 
-# Philosophy
+# Syntax Philosophy
 
 Feather is built on a simple idea:
 
@@ -20,6 +20,19 @@ We prioritize:
 - Clarity over cleverness
 - Consistency over conciseness
 - Composability over complexity
+
+# Performance Philosophy
+
+Feather is not designed to compete with low-level scripting engines or compiled languages in raw speed. Instead, it prioritizes clarity, safety, and composability — values that matter most in real-world automation and tooling workflows.
+
+We deliberately accept a slight performance tradeoff to provide:
+
+- Explicit and readable logic
+- Secure-by-default operations (`vault`, `safe`, `elevated`)
+- Predictable behavior with minimal surprises
+- Easier onboarding for non-programmers and junior developers
+
+Feather's goal is not to win benchmarks. And at the end of the day, when you need raw control or edge-case performance, you can always fall back to native script execution using the script module.
 
 # Golden Rules
 
