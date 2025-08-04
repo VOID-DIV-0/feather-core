@@ -1,0 +1,3 @@
+[workspace]
+members = ["modules/feather-core-language", "modules/feather-core-cabinet"]
+name = "feather-core"
