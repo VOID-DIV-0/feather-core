@@ -14,7 +14,6 @@ Welcome to the Feather documentation. Here you'll find guides and references for
 - **WIP** [Functions](./syntax/functions.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Lenses](./syntax/lenses.md) — Ephemeral views and type conversions.
 - **WIP** [Modifiers](./syntax/modifiers.md) — Enhancing commands with options (with, without, filter).
-- **WIP** [Operators](./syntax/operators.md) — Supported operators and their usage.
 - **WIP** [Signatures](./syntax/signatures.md) — Platform targeting, telemetry, and execution control.
 
 # Modules

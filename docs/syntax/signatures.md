@@ -1,45 +1,65 @@
 # Signatures
 
-- Control data flow or execution logic across instructions.
-- Typically at the end or in fixed positions.
-- Tend to be verbs or control structures.
+Signatures are the last instructions of a command. It provides meta logic related to the overall command.
 
-silent, memo, profile
+The following signatures are:
 
 1. `on`
-2. `memo`
+2. `trace`
 3. `chronos`
-
-   • Logging tags (telemetry):
+4. `silent`
+5. `timeout`
 
 ## `on`
 
 `on` is a signature to indicate that the execution will be done only if the machine is from the specified OS family.
 
-Supported instructions: `mac`, `windows`, `linux`, `unix`
+Supported instructions: `mac`, `windows`, `linux`.
 
-### Example
+### Examples
 
-#### .sky Script
+**Script**
 
 ```sky
-say 'I am on linux' on linux.
-say 'I am on mac' on mac.
-say 'I am on windows' on windows.
-say 'I am on BSD' on unix.
+say 'I am on linux.' on linux.
+say 'I am on mac.' on mac.
+say 'I am on windows.' on windows.
 success 'This has run on a mac desktop>'.
 ```
 
+**Output**
+
 ```
-~ [INFO] I am on mac
+~ [INFO] I am on mac.
 ~ [SUCC] This has run on mac desktop.
 ```
 
-## `memento`
+## `trace`
+
+The instruction `trace` forces the printing of the actual command. it's use mostly to investigate a script to make sure everything is going well or just track the command process.
+
+**Script**
+
+```sky
+say 'I am on linux.' trace on linux.
+say 'I am on mac.' trace on mac.
+say 'I am on windows.' trace on windows.
+success 'This has run on a mac desktop>'.
+```
+
+**Output**
+
+```
+~ [TRCE] Say 'I am on linux' trace on linux.
+~ [TRCE] Say 'I am on mac' trace on mac.
+~ [INFO] I am on mac
+~ [TRCE] Say 'I am on windows' trace on windows.
+~ [SUCC] This has run on mac desktop.
+```
 
 ## `chrono`
 
-## timeout
+## `timeout`
 
 Track the time it took to execute the command.
 

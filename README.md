@@ -5,21 +5,23 @@
 Feather is a lightweight scripting and automation language with a built-in interactive mode called Sky.
 It is designed to be embedded in applications or used as a standalone, elegant, and fast scripting interface. It is written in Rust.
 
+# Why Feather?
+
+Feather's strength lies in its core architectural principles and design choices that emphasize clarity, safety, and composability. The language enforces strong type safety and includes secure-by-default features that protect users from common scripting pitfalls. Its readability-first rules make scripts accessible and maintainable, even for those unfamiliar with Feather.
+
+While this design approach makes Feather scripts harder to write quickly, it makes them much easier to read, understand, and maintain over time. This balance ensures that Feather is a reliable tool for automation and scripting tasks, fostering confidence and reducing errors.
+
+Key principles behind Feather's design include:
+
+- Clear and explicit logic that prioritizes understanding over brevity
+- Strong type safety to catch errors early
+- Secure-by-default operations to enhance script safety
+- Composability that encourages building complex workflows from simple, understandable parts
+- Readability-first rules that make scripts approachable for all users
+
 # Goals
 
 To create an elegant, fast and reliable library and REPL to make scripting easy, intuitive and simple. Even if feather might not be able to do anything, the goal is to make everything in the best possible way
-
-# Syntax Philosophy
-
-Feather is built on a simple idea:
-
-> Scripting shouldn’t feel like deciphering a puzzle. It should feels as if you are explaining steps to a machine.
-
-We prioritize:
-
-- Clarity over cleverness
-- Consistency over conciseness
-- Composability over complexity
 
 # Performance Philosophy
 
