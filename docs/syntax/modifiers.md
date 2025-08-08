@@ -20,7 +20,7 @@ cabinet file list
   with depth '3'
   with hidden
   without extension
-  filter '[A-z]'
+  filter '[A-z]'.
 ```
 
 This replaces obscure flags with self-explanatory modifiers. You can also chain them inline:
