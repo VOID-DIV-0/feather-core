@@ -109,7 +109,11 @@ Copy-Item -Recurse -Force ./project "backups/project_$dt"
 
 ```sky
 time now format 'YYYY-MM-DD' into @dt.
-cabinet copy folder './project' to 'backups/project_@{dt}'.
+path join 'backups' 'project_@{dt}' into @dst.
+
+safe cabinet copy folder './project' with recursivity 
+                                     with force 
+                                     to @dst chrono.
 success 'backup complete'.
 ```
 

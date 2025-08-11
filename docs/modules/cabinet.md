@@ -1,4 +1,4 @@
-# Cabinet
+# Module `cabinet`
 
 ## Description
 
