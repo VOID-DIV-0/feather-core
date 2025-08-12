@@ -9,7 +9,7 @@ Welcome to the Feather documentation. Here you'll find guides and references for
 - **WIP** [Actions](./syntax/actions.md) — Built-in instructions for controlling script flow and output.
 - **WIP** [Clauses](./syntax/clauses.md) — Modifiers that change command behavior (safe, sensitive, elevated).
 - **WIP** [Clusters](./syntax/clusters.md) — Grouping clauses for batch effect.
-- [Data](./syntax/data.md) — Literals, records, containers, and data handling.
+- **WIP** [Data](./syntax/data.md) — Literals, records, containers, and data handling.
 - **WIP** [Flow](./syntax/flow.md) — Conditionals, loops, and control flow.
 - **WIP** [Functions](./syntax/functions.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Lenses](./syntax/lenses.md) — Ephemeral views and type conversions.
@@ -39,8 +39,8 @@ Welcome to the Feather documentation. Here you'll find guides and references for
 ## Containers
 
 - **WIP** [Decimal](./modules/decimal.md) — Decimal type.
-- **WIP** [Binary](./modules/binary.md) — Binary Type manipulation.
-- [Bool](./modules/bool.md) — Boolean Type and operations.
+- [Binary](./modules/binary.md) — Binary module operations.
+- [Bool](./modules/bool.md) — Boolean module operations.
 - **WIP** [Text](./modules/text.md) — Text manipulation and utilities.
 - **WIP** [Time](./modules/time.md) — Time and date operations.
 - **WIP** [Path](./modules/path.md) — Path manipulation and utilities.

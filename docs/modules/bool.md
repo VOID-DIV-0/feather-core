@@ -9,17 +9,17 @@ The `bool` module enables boolean logic operations on record or container values
 - Evaluate boolean conditions using expressions.
 - Combine multiple boolean values using `all` or `any`.
 
-## Instructions and modifiers list
+## Instructions and Modifiers List
 
-- `eval <expression>`
-- `any @parameter1 @parameter2 @...`
-- `all @parameter1 @parameter2 @....`
+- `eval <expression> into @value`
+- `any @parameter1 @parameter2 @... into @value`
+- `all @parameter1 @parameter2 @... into @value`
 
 ### `eval`
 
 `eval` evaluates a boolean expression, combining results from other modules or boolean variables.
 
-Supported eval keywords: `and`, `or`, `xor`, `is`, `is not`, `(<command>)`
+Supported eval keywords: `and`, `or`, `xor`, `is`, `is not`, `(<sub command>)`
 
 ```
 bool eval (math compare @a > @b)
@@ -50,8 +50,8 @@ Note: Flow statements like `if` and `while` only accept boolean values. Always c
 '5.5' as decimal into ::a.
 '4.5' as decimal into ::b.
 
-math floor ::a into ::a. ~'5'
-math floor ::b into ::b. ~'4'
+math floor ::a into ::a. ~'5'.
+math floor ::b into ::b. ~'4'.
 
 math compare ::a > ::b into @is_bigger. ~ 'true'
 
@@ -103,3 +103,27 @@ say ::boolean2:verbose. ~ 'false'
 say ::boolean2:binary. ~ '0'
 say ::boolean2:value. ~ '0'
 ```
+
+### Using container projections with bool
+
+Inputs to `bool all` (and similar commands like `bool any`) should typically be record values, which can be obtained from container projections such as `:value`.
+
+For example:
+
+1. Output as record:
+
+```
+bool all ::is_ok:value ::is_valid:value into @final.
+```
+
+This produces a record with value `'true'` or `'false'`.
+
+2. Output as container:
+
+```
+bool all ::is_ok:value ::is_valid:value into ::final.
+```
+
+This produces a `::bool` container with all projections (`verbose`, `binary`, `value`) available.
+
+The output type is determined by the `into` target sigil: `@` for record and `::` for container. This avoids ambiguity between container and record namespaces.

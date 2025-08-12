@@ -7,7 +7,7 @@ Feather scripts must explicitly declare their outcome. This keeps scripts predic
 - Use `success` to mark the script as completed successfully.
 - Use `failure` to mark the script as failed.
 
-Both instructions can optionally include a literal, record or container (see [data](./syntax/data.md) for more information).
+Both instructions can optionally include a literal, record or container (see [data](./data.md) for more information).
 
 ```
 success.
@@ -25,7 +25,7 @@ If a Feather script or function reaches the end **without calling `success`**, i
 
 The `safe` modifier integrates with this pattern: any instructions of a command marked `safe` will not stop the script if it fails.
 
-The result pattern is also applicable to [functions](./syntax/functions.md).
+The result pattern is also applicable to [functions](./functions.md).
 
 ### `success`
 
@@ -105,7 +105,7 @@ This example shows how to return a container as the result of a function and acc
 ~
 ~ ~ Calling our function to obtain json
 ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~ #read_file as result into ::my_json_result.
+~ #read_file into ::my_json_result.
 ~
 ~ say 'my function result state is: ' + ::my_json_result:state.
 ~ say 'my function result type is: ' + ::my_json_result:type.
@@ -139,5 +139,5 @@ End
 
 **Accessing Result Data:**
 
-- Use `into` to assign the result to a variable or container. 
+- Use `into` to assign the result to a variable or container.
 - Use lenses (`as`) or direct access (`::Result:key`) to extract values
