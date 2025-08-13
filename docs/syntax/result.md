@@ -58,8 +58,8 @@ This example shows what happens if you do not declare a result in your script.
 **Output:**
 
 ```text
-~ [INFO] Hello World!
-~ [ERRO] The script has failed, no result defined.
+[INFO] Hello World!
+[ERRO] The script has failed, no result defined.
 ```
 
 #### Example 2: Result with a record or a literal
@@ -81,7 +81,7 @@ failure.
 **Output:**
 
 ```text
-~ [SUCC] The script has been successful, Result: 'true'.
+[SUCC] The script has been successful, Result: 'true'.
 ```
 
 #### Example 3: Full example using container
@@ -117,12 +117,12 @@ This example shows how to return a container as the result of a function and acc
 **Output:**
 
 ```text
-~ [INFO] Cabinet has successfully read "my_file.json" into a json.
-~ [SUCC] The script "#read_file" has been successful.
-~ [INFO] my function result state is: success
-~ [INFO] my function result type is: container
-~ [INFO] my function result value is: { "user": "Mr.Doe", "name": "John" }.
-~ [SUCC] The script has been successful, Result: 'Json successfully read'.
+[INFO] Cabinet has successfully read "my_file.json" into a json.
+[SUCC] The script "#read_file" has been successful.
+[INFO] my function result state is: success
+[INFO] my function result type is: container
+[INFO] my function result value is: { "user": "Mr.Doe", "name": "John" }.
+[SUCC] The script has been successful, Result: 'Json successfully read'.
 ```
 
 ### Anatomy of Result structure

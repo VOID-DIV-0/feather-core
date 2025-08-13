@@ -52,10 +52,10 @@ success
 ```
 
 ```text
-~ [WARN] [SAFE] Parameter 3 is unknown in function "print_name".
-~ [INFO] My name is John Feather Doe.
-~ [SUCC] The funciton has been successful, Result: "Name has been printed out".
-~ [SUCC] The script has been successful.
+[WARN] [SAFE] Parameter 3 is unknown in function "print_name".
+[INFO] My name is John Feather Doe.
+[SUCC] The funciton has been successful, Result: "Name has been printed out".
+[SUCC] The script has been successful.
 ```
 
 ## Example 3

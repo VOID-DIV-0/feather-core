@@ -28,7 +28,7 @@ success.
 ##### Output
 
 ```text
-~ [INFO] This is a single line string.
+[INFO] This is a single line string.
 ```
 
 #### Multiline Literals
@@ -62,9 +62,9 @@ Records are immutable and constant "variable" that act as string content. record
 ##### Output
 
 ```text
-~ [INFO] 3333.45
-~ [INFO] -1
-~ [SUCC] The script has been successful, Result: 'This is a string'.
+[INFO] 3333.45
+[INFO] -1
+[SUCC] The script has been successful, Result: 'This is a string'.
 ```
 
 ### Vaulted Records

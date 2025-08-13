@@ -1,0 +1,47 @@
+command = { module ~ signatures? ~ terminator }
+
+module = { module_name ~ module_args? }
+
+module_name = { 
+    "bool" | "text" | "path" | "record" | "decimal" |
+    "math" | "ask" | "say" |
+    "cabinet"
+}
+
+module_args = { (data_text | data_record | data_container)* }
+
+say_module = { "say" ~ (data_text | data_record) ~ "." }
+
+assign_instructions = { data_text ~ "into" ~ variable ~ "." }
+
+data_text = { "'" ~ data_text_inner* ~ "'" }
+data_text_inner = { !("'" | "\\") ~ ANY | escape }
+data_record = { "@" ~ identifier }
+data_container = { "::" ~ identifier }
+data_container_branch = { "::" ~ identifier ~ (":" ~ identifier)? } 
+
+
+variable = { data_record | data_container }
+identifier = { ASCII_ALPHA ~ (ASCII_ALPHA | ASCII_DIGIT | "_")* }
+
+signatures = { (signature_trace | signature_elapsed | signature_silent | signature_timeout)* ~ signature_on? }
+signature_on = { "on" ~ ("mac" | "windows" | "linux") }
+signature_trace = { "trace" }
+signature_elapsed = { "elapsed" }
+signature_silent = { "silent" }
+signature_timeout = { "timeout" ~ number ~ unit_time }
+
+unit_time = { unit_hours | unit_minutes | unit_seconds }
+unit_seconds = { "seconds" | "sec" }
+unit_minutes = { "minutes" | "min" }
+unit_hours = { "hours" | "hr" }
+
+terminator = { "." }
+
+escape = { "\\'" | "\\\\" }
+number = { ASCII_DIGIT+ ~ ("." ~ ASCII_DIGIT+)? }
+
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+
+ASCII_ALPHA = _{ 'a'..'z' | 'A'..'Z' }
+ASCII_DIGIT = _{ '0'..'9' }

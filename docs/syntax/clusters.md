@@ -52,8 +52,8 @@ end
 #### Output
 
 ```
-~ [INFO][SENS][RISK] my password 'my password'
-~ [INFO][SENS][RISK] my credential 'my cred'
+[INFO][SENS][RISK] my password 'my password'
+[INFO][SENS][RISK] my credential 'my cred'
 ```
 
 ### Example 2
@@ -69,9 +69,9 @@ end
 #### Output
 
 ```
-~ [WARN] 'this' is not recognized as an instruction.
-~ [WARN] 'this' is not recognized as an instruction.
-~ [WARN] 'this' is not recognized as an instruction.
-~ [WARN] 'this' is not recognized as an instruction.
-~ [WARN] 'this' is not recognized as an instruction.
+[WARN] 'this' is not recognized as an instruction.
+[WARN] 'this' is not recognized as an instruction.
+[WARN] 'this' is not recognized as an instruction.
+[WARN] 'this' is not recognized as an instruction.
+[WARN] 'this' is not recognized as an instruction.
 ```

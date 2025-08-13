@@ -35,13 +35,13 @@ success
 #### Output
 
 ```
-~ [WARN][SAFE] Cannot run "safe script 'pmset -g batt' on mac", the operating system is not mac.
-~ [WARN][SAFE] Cannot run "safe script 'WMIC Path Win32_Battery Get EstimatedChargeRemaining'", the operating system is not windows.
-~ [INFO] Battery 0: Discharging, 85%, 02:15:00 remaining
-~ [WARN][SAFE] Cannot run "safe script 'pmset -g batt' on mac", the operating system is not mac.
-~ [WARN][SAFE] Cannot run "safe script 'WMIC Path Win32_Battery Get EstimatedChargeRemaining'", the operating system is not windows.
-~ [INFO] Battery 0: Discharging, 85%, 02:15:00 remaining
-~ [SUCC] The script has been successful.
+[WARN][SAFE] Cannot run "safe script 'pmset -g batt' on mac", the operating system is not mac.
+[WARN][SAFE] Cannot run "safe script 'WMIC Path Win32_Battery Get EstimatedChargeRemaining'", the operating system is not windows.
+[INFO] Battery 0: Discharging, 85%, 02:15:00 remaining
+[WARN][SAFE] Cannot run "safe script 'pmset -g batt' on mac", the operating system is not mac.
+[WARN][SAFE] Cannot run "safe script 'WMIC Path Win32_Battery Get EstimatedChargeRemaining'", the operating system is not windows.
+[INFO] Battery 0: Discharging, 85%, 02:15:00 remaining
+[SUCC] The script has been successful.
 ```
 
 ### Example 2
@@ -62,10 +62,10 @@ success '3'.
 #### Output
 
 ```
-~ [WARN][SAFE] Script "this_command_does_not_exist" has not been found.
-~ [INFO][SAFE] Hello World!
-~ [INFO] This line still runs because of safe.
-~ [SUCC] The script has been successful, Result: '3'.
+[WARN][SAFE] Script "this_command_does_not_exist" has not been found.
+[INFO][SAFE] Hello World!
+[INFO] This line still runs because of safe.
+[SUCC] The script has been successful, Result: '3'.
 ```
 
 ## `sensitive`
@@ -88,8 +88,8 @@ success
 #### Output
 
 ```
-~ [ERRO] Cannot use sensitive vaulted variable "my password".
-~ [FAIL] Error at line 3 of the .sky.
+[ERRO] Cannot use sensitive vaulted variable "my password".
+[FAIL] Error at line 3 of the .sky.
 ```
 
 ### Example 2
@@ -108,8 +108,8 @@ success
 #### Output
 
 ```
-~ [INFO][SENS] ***********
-~ [SUCC]
+[INFO][SENS] ***********
+[SUCC]
 ```
 
 ### Example 3
@@ -128,8 +128,8 @@ success
 #### Output
 
 ```
-~ [INFO][SENS][RISK] Password123$
-~ [FAIL] Success
+[INFO][SENS][RISK] Password123$
+[FAIL] Success
 ```
 
 ## `elevated`
