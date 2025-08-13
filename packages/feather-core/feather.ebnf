@@ -1,0 +1,18 @@
+Command     = SayModule | AssignModule ;
+
+SayModule  = "say" ( StringLiteral | Record ) "." ;
+
+AssignModule = StringLiteral "into" Variable "." ;
+
+(* Data Types *)
+DataText = "'" { character } "'" ;
+DataRecord = "@" Identifier ;
+DataContainer = "::" Identifier ;
+
+
+Identifier    = letter { letter | digit | "_" } ;
+
+character = ? any Unicode character except ' and \\ ? | "\\'" | "\\\\" ;
+symbol = "!" | "@" | "#" | "$" | "%" | "^" | "&" | "*" | "(" | ")" | "-" | "+" | "=" | "{" | "}" | "[" | "]" | ":" | ";" | "'" | "\"" | "<" | ">" | "," | "." | "/" | "?" | "~" ;  (* List all allowed symbols except ' *)
+letter        = "A" | "B" | "C" | "D" | ... | "z" ;
+digit         = "0" | "1" | "2" | "3" | ... | "9" ;
