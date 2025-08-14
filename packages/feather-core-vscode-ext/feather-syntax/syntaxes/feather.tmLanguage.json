@@ -12,8 +12,16 @@
       "match": "\\b(if|else|else if|end|repeat|while|increase|decrease|success|failure|set|say|script|next|as|format|with|without|filter|into|on|safe)\\b"
     },
     {
-      "name": "variable.other.feather",
-      "match": "@[a-zA-Z_][a-zA-Z0-9_]*"
+      "name": "variable.scalar.feather",
+      "match": "@[a-zA-Z_][a-zA-Z0-9_]*|::[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*"
+    },
+    {
+      "name": "variable.object.feather",
+      "match": "::[a-zA-Z_][a-zA-Z0-9_]*"
+    },
+    {
+      "name": "support.function.signature.feather",
+      "match": "\\b(trace|elapsed|timeout|silent|on)\\b"
     },
     {
       "name": "string.quoted.single.feather",
