@@ -9,11 +9,18 @@ The `bool` module enables boolean logic operations on record or container values
 - Evaluate boolean conditions using expressions.
 - Combine multiple boolean values using `all` or `any`.
 
-## Instructions and Modifiers List
+## Instructions and Modifiers Table
 
-- `eval <expression> into @value`
-- `any @parameter1 @parameter2 @... into @value`
-- `all @parameter1 @parameter2 @... into @value`
+| Instruction             | Modifiers / Options | Description                       |
+| ----------------------- | ------------------- | --------------------------------- |
+| `eval <expression>`     | `into @value`       | Evaluate a boolean expression     |
+| `any <val1> <val2> ...` | `into @value`       | True if any value is true         |
+| `all <val1> <val2> ...` | `into @value`       | True if all values are true       |
+| `as bool`               |                     | Convert literal to bool container |
+
+---
+
+See below for detailed examples and usage notes.
 
 ### `eval`
 
