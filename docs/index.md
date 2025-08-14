@@ -14,7 +14,7 @@ Welcome to the Feather documentation. Here you'll find guides and references for
 - **WIP** [Functions](./syntax/functions.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Lenses](./syntax/lenses.md) — Ephemeral views and type conversions.
 - **WIP** [Modifiers](./syntax/modifiers.md) — Enhancing commands with options (with, without, filter).
-- **WIP** [Signatures](./syntax/signatures.md) — Platform targeting, telemetry, and execution control.
+- [Signatures](./syntax/signatures.md) — Platform targeting, telemetry, and execution control.
 
 # Modules
 
@@ -50,3 +50,7 @@ Welcome to the Feather documentation. Here you'll find guides and references for
 # Quickstart
 
 - **WIP** [Quickstart Guide](./quickstart.md) — Get started with Feather scripting in minutes.
+
+# Examples
+
+- **WIP** [Examples](./examples.md) — Short examples for inspiration and quick view of feather syntax.
