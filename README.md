@@ -25,59 +25,7 @@ To create an elegant, fast and reliable library and REPL to make scripting easy,
 
 # Demo
 
-```
-cabinet read file 'user_config.json' as json into ::config.
-
-~ Extract username and password
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-vault lock 'user'   with value ::config:content:user.
-vault lock 'pwd'    with value ::config:content:pass.
-vault lock 'secret' with env 'SYS_SECRET'.
-vault lock 'admin'  with env 'MACHINE_ADMIN'.
-
-~ Unlock (values are now tainted; taint propagates)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-vault unlock 'user'   into @user.
-vault unlock 'pwd'    into @password.
-vault unlock 'admin'  into @admin.
-vault unlock 'secret' into @secret.
-
-~ Validate credentials (no need to mark 'sensitive' here)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-text lower @user  into @user_lc.
-text lower @admin into @admin_lc.
-text compare @user_lc is @admin_lc without case into @is_valid_user.
-text compare @password is @secret into @is_valid_password.
-
-time now format 'YYYY-MM-DD HH:mm:ss' into @timestamp.
-
-bool all @is_valid_user @is_valid_password into @ok.
-
-if @ok
-  ~ Egress: require 'with risk' because arguments are tainted
-  say 'Login successful for @{user} at @{timestamp}.' with risk.
-
-  ~ Backup config (no secret in path—no risk)
-  cabinet copy file 'user_config.json' to 'backups/user_config_@{timestamp}.json'.
-
-  ~ Log success (contains user → tainted) → with risk
-  text concat 'SUCCESS: ' @timestamp ' User: ' @user into @log_entry.
-  cabinet append file 'login.log' with @log_entry with risk.
-
-  success 'User authenticated and config backed up.'
-else
-  say 'Login failed for @{user} at @{timestamp}.' with risk.
-
-  text concat 'FAILURE: ' @timestamp ' User: ' @user into @log_entry.
-  cabinet append file 'login.log' with @log_entry with risk.
-
-  http post 'https://notify.example.com'
-    with { 'user': @user, 'status': 'failed', 'time': @timestamp } with risk
-    into @notify_result.
-
-  failure 'Authentication failed.'
-end
-```
+![example](example.png)
 
 # Performance Philosophy
 
