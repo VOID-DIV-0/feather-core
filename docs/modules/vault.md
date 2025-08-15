@@ -140,3 +140,5 @@ sensitive 'prefix-@{salt}' into @hash_base
 - **Auditable**: reviewers can `grep with risk` to find all egress points.
 - **Masked logs**: CI logs are safe even during risk operations.
 - **Extensible**: new modules can integrate with Vault by respecting taint and using the core egress API.
+
+for 30 seconds.
