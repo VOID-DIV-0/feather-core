@@ -1,0 +1,49 @@
+~ Signature coverage script for VSCode TML (v0.0.1)
+~ Uses: trace, elapsed, timeout, silent, on (on must be last)
+
+~ Basic echo
+say 'Signature coverage start.'.
+
+~ trace only
+say 'This line is traced.' trace.
+
+~ elapsed only
+cabinet copy file '/tmp/a.txt' to '/tmp/b.txt' elapsed.
+
+~ timeout only (seconds)
+cabinet read file '/tmp/large.txt' timeout 5 seconds.
+
+~ timeout using minutes (for unit highlighting)
+cabinet read file '/tmp/another_large.txt' timeout 1 minutes.
+
+~ timeout using hours
+cabinet read file '/tmp/very_large.txt' timeout 1 hours.
+
+~ silent only
+cabinet delete file '/tmp/old.log' silent.
+
+~ combine: trace + elapsed + timeout (order flexible; on must be last)
+system health into @stats 
+  trace 
+  elapsed 
+  timeout 10 seconds.
+
+~ use of @record and ::container:slot for highlighting
+enum 'cpu' 'mem' 'disk' into ::metrics.
+table ::metrics into @table_view trace.
+
+~ combine silent + timeout + on (on last)
+cabinet move file '/tmp/maybe.lock' to '/tmp/maybe.lock.bak' 
+  silent 
+  timeout 2 seconds on mac.
+
+~ per‑OS echo with on last
+say 'I am on mac.' trace on mac.
+say 'I am on linux.' elapsed on linux.
+say 'I am on windows.' timeout 3 seconds on windows.
+
+~ show that silent still prints errors/results
+cabinet delete file '/tmp/does_not_exist' silent.
+
+~ final success
+success 'Signature coverage complete.'.

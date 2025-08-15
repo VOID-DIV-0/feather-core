@@ -4,16 +4,45 @@
   "fileTypes": ["sky"],
   "patterns": [
     {
+      "name": "string.quoted.single.feather",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "variable.scalar.interpolation.feather",
+          "begin": "@\\{",
+          "end": "\\}",
+          "patterns": [
+            {
+              "name": "variable.scalar.interpolation.inner.feather",
+              "match": "[a-zA-Z_][a-zA-Z0-9_]*"
+            }
+          ]
+        },
+        {
+          "name": "variable.projection.interpolation.feather",
+          "begin": "::\\{",
+          "end": "\\}",
+          "patterns": [
+            {
+              "name": "variable.projection.interpolation.inner.feather",
+              "match": "[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "comment.line.tilde.feather",
       "match": "~.*$"
     },
     {
       "name": "entity.name.namespace.module.feather",
-      "match": "\\b(text|math|bool|path|json|yaml|time|binary|vault|cabinet|environment|http|resilience)\\b"
+      "match": "\\b(system|enum|say|text|math|bool|path|json|yaml|time|binary|vault|cabinet|environment|http|resilience)\\b"
     },
     {
       "name": "keyword.control.feather",
-      "match": "\\b(if|else|else if|end|repeat|while|increase|decrease|success|failure|set|say|script|next|as|format|with|without|filter|into|safe)\\b"
+      "match": "\\b(if|else|else if|end|repeat|while|increase|decrease|success|failure|into|with|without)\\b"
     },
     {
       "name": "variable.scalar.feather",
@@ -32,8 +61,12 @@
       "match": "\\b(is)\\b"
     },
     {
-      "name": "constant.language.os.feather",
+      "name": "constant.language.keyword_os.feather",
       "match": "(?<=\\bon\\s)(mac|windows|linux)\\b"
+    },
+    {
+      "name": "constant.language.keyword_time.feather",
+      "match": "\\b(seconds|minutes|hours)\\b"
     },
     {
       "name": "punctuation.terminator.feather",
@@ -42,11 +75,6 @@
     {
       "name": "support.function.signature.feather",
       "match": "\\b(trace|elapsed|timeout|silent|on)\\b"
-    },
-    {
-      "name": "string.quoted.single.feather",
-      "begin": "'",
-      "end": "'"
     }
   ],
   "uuid": "b1e7f1e2-7e8a-4b2a-9c0e-1a2b3c4d5e6f"

@@ -14,8 +14,8 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Flow](./syntax/flow.md) — Conditionals, loops, and control flow.
 - **WIP** [Functions](./syntax/functions.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Lenses](./syntax/lenses.md) — Ephemeral views and type conversions.
-- **WIP** [Modifiers](./syntax/modifiers.md) — Enhancing commands with options (with, without, filter).
-- [Signatures **v0.0.1** ](./basics/signature/0.0.1.md) — Platform targeting, telemetry, and execution control.
+- **WIP** [Modifiers](./syntax/modifiers.md) — Enhancing commands with options (with, without).
+- [Signatures **v0.0.1** ](./basics/signatures/0.0.1.md) — Platform targeting, telemetry, and execution control.
 
 # Modules
 
@@ -47,7 +47,7 @@ Only "versioned" component means they are "final" documentation
 ## Containers & Types
 
 - **WIP** [Decimal](./modules/decimal.md) — Decimal type.
-- **WIP** [Binary](./modules/binary.md) — Binary module operations.
+- [Binary **v0.0.1**](./modules/binary/0.0.1.md) — Binary module operations.
 - **WIP** [Bool](./modules/bool.md) — Boolean module operations.
 - **WIP** [Text](./modules/text.md) — Text manipulation and utilities.
 - **WIP** [Time](./modules/time.md) — Time and date operations.

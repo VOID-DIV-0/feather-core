@@ -34,7 +34,8 @@ if @ok
 
   ~ Log success (contains user → tainted) → with risk
   text concat 'SUCCESS: ' @timestamp ' User: ' @user into @log_entry.
-  cabinet append file 'login.log' with @log_entry with risk elapsed.
+
+  cabinet append file 'login.log' with @log_entry with risk elapsed timeout 5 seconds.
 
   success 'User authenticated and config backed up.'
 else
