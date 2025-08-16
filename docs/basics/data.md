@@ -189,3 +189,62 @@ say @my_number as integer + '5' ~ It would be 10
 ```
 
 ```
+
+
+#### Example 3: Full example using container
+
+This example shows how to return a container as the result of a function and access its fields.
+
+**Script:**
+
+```sky
+~ ~ open json file and add John name
+~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ function #read_file
+~  cabinet read file 'my_file.json' as json into ::jsonfile.
+~
+~   open container ::jsonfile:content
+~     add map 'name' 'John'.
+~   end
+~
+~   success ::jsonfile:content.
+~ end
+~
+~ ~ Calling our function to obtain json
+~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ #read_file into ::my_json_result.
+~
+~ say 'my function result state is: ' + ::my_json_result:state.
+~ say 'my function result type is: ' + ::my_json_result:type.
+~ say 'my function result value is: ' + ::my_json_result:value.
+~
+~ success 'Json successfully read'.
+```
+
+**Output:**
+
+```text
+[INFO] Cabinet has successfully read "my_file.json" into a json.
+[SUCC] The script "#read_file" has been successful.
+[INFO] my function result state is: success
+[INFO] my function result type is: container
+[INFO] my function result value is: { "user": "Mr.Doe", "name": "John" }.
+[SUCC] The script has been successful, Result: 'Json successfully read'.
+```
+
+### Anatomy of Result structure
+
+A result container in Feather is a predefined structure that holds the outcome of a script or function. You can access its fields using lenses or direct keys.
+
+```
+Container ::Result
+    'state': ['success' | 'failure']
+    'type': ['literal' | 'record' | 'container']
+    'value': '<content>'
+End
+```
+
+**Accessing Result Data:**
+
+- Use `into` to assign the result to a variable or container.
+- Use lenses (`as`) or direct access (`::Result:key`) to extract values

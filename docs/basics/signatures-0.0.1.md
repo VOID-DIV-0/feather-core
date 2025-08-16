@@ -105,13 +105,13 @@ success 'File copied.'
 
 ---
 
-#### `timeout value <keyword_time>`
+#### `timeout {value} <keyword_time>`
 
 Sets a maximum allowed execution time for a command. If the command does not complete within the specified time, it will be interrupted and marked as failed.
 
 **_Properties_**
 
-- `value [@|:|text|numerical]`: Must be a **non-negative integer** or a reference/object projection resolving to one.
+- `value [@|:|numerical]`: Must be a **non-negative integer** or a reference/object projection resolving to one.
 - `<keyword_time>`: Represents the unit for the timeout value, can be either `seconds` `minutes` or `hours`.
 
 **_Examples_**
@@ -172,11 +172,5 @@ success 'Cleanup done.'
 
 ## Related Pages
 
-- [Commands **v0.0.1**](../commands/0.0.1.md)
-- [Modifiers **v0.0.1**](../modifiers/0.0.1.md)
-
----
-
-## Version
-
-v0.0.1
+- [Commands **v0.0.1**](../commands-0.0.1.md)
+- [Modifiers **v0.0.1**](../modifiers-0.0.1.md)

@@ -3,10 +3,14 @@
 Welcome to the Feather documentation. Here you'll find guides and references for all major language features and modules.
 Only "versioned" component means they are "final" documentation
 
+# Quickstart
+
+- **WIP** [Quickstart Guide](./quickstart.md) — Get started with Feather scripting in minutes.
+
 # Basics
 
 - **WIP** [Commands](./syntax/commands.md) — The structure and anatomy of Feather commands.
-- **WIP** [Result](./syntax/result.md) — How Feather handles script outcomes and result patterns.
+- [Results **v0.0.1** ](./syntax/results-0.0.1.md) — How Feather handles script outcomes and result patterns.
 - **WIP** [Actions](./syntax/actions.md) — Built-in instructions for controlling script flow and output.
 - **WIP** [Clauses](./syntax/clauses.md) — Modifiers that change command behavior (safe, sensitive, elevated).
 - **WIP** [Clusters](./syntax/clusters.md) — Grouping clauses for batch effect.
@@ -15,7 +19,7 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Functions](./syntax/functions.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Lenses](./syntax/lenses.md) — Ephemeral views and type conversions.
 - **WIP** [Modifiers](./syntax/modifiers.md) — Enhancing commands with options (with, without).
-- [Signatures **v0.0.1** ](./basics/signatures/0.0.1.md) — Platform targeting, telemetry, and execution control.
+- [Signatures **v0.0.1** ](./basics/signatures-0.0.1.md) — Platform targeting, telemetry, and execution control.
 
 # Modules
 
@@ -54,10 +58,6 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Path](./modules/path.md) — Path manipulation and utilities.
 - **WIP** [Json]
 - **WIP** [xml]
-
-# Quickstart
-
-- **WIP** [Quickstart Guide](./quickstart.md) — Get started with Feather scripting in minutes.
 
 # Examples
 
