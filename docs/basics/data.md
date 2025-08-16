@@ -86,6 +86,20 @@ When using the vault, records are immediately turned into sensitive and the sens
 Even if most of the time string are use on the superficial way, most instruction will use
 
 ```sky
+container create 'user'
+  add item 'id' value 'alex_00001'
+
+  add map 'phones'
+    with key 'home' value '000.0000.000'
+    with key 'cell' value '111.11111.111'
+
+  add container 'hello_world'
+    add item 'greeting' value 'hello world'
+  end
+end
+```
+
+```sky
 container into ::my_list
   add item 'a'.
   add item 'b'.
@@ -190,7 +204,6 @@ say @my_number as integer + '5' ~ It would be 10
 
 ```
 
-
 #### Example 3: Full example using container
 
 This example shows how to return a container as the result of a function and access its fields.
@@ -248,3 +261,20 @@ End
 
 - Use `into` to assign the result to a variable or container.
 - Use lenses (`as`) or direct access (`::Result:key`) to extract values
+
+container create 'user'
+add item 'id' value 'alex_00001'
+
+add map 'phones'
+with key 'home' value '000.0000.000'
+with key 'cell' value '111.11111.111'
+
+add container 'hello_world'
+add item 'greeting' value 'hello world'
+end
+end
+
+list create 'my_array' with 'a' 'b' 'c'.
+
+say ::my_array:0. ~ 'a'
+say ::my_array:(0). ~ 'a'

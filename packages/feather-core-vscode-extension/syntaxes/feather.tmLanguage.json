@@ -37,12 +37,32 @@
       "match": "~.*$"
     },
     {
-      "name": "entity.name.namespace.module.feather",
-      "match": "\\b(system|enum|say|text|math|bool|path|json|yaml|time|binary|vault|cabinet|environment|http|resilience)\\b"
+      "name": "support.function.signature.feather",
+      "match": "[ \\t]*\\b(trace|elapsed|timeout|silent|on)\\b"
     },
     {
       "name": "keyword.control.feather",
-      "match": "\\b(if|else|else if|end|repeat|while|increase|decrease|success|failure|into|with|without)\\b"
+      "match": "[ \\t]*\\b(if|else|else if|end|repeat|while|increase|decrease|success|failure)\\b"
+    },
+    {
+      "name": "keyword.special.feather",
+      "match": "[ \\t]*\\b(is|as|into|with|without)\\b"
+    },
+    {
+      "name": "entity.name.namespace.module.feather",
+      "match": "^[ \\t]*([a-zA-Z][a-zA-Z0-9_-]*)"
+    },
+    {
+      "name": "constant.language.boolean.feather",
+      "match": "\\b(true|false)\\b"
+    },
+    {
+      "name": "constant.numeric.feather",
+      "match": "\\b\\d+\\b"
+    },
+    {
+      "name": "constant.numeric.decimal.feather",
+      "match": "\\b\\d+\\.\\d+\\b"
     },
     {
       "name": "variable.scalar.feather",
@@ -61,20 +81,8 @@
       "match": "\\b(is)\\b"
     },
     {
-      "name": "constant.language.keyword_os.feather",
-      "match": "(?<=\\bon\\s)(mac|windows|linux)\\b"
-    },
-    {
-      "name": "constant.language.keyword_time.feather",
-      "match": "\\b(seconds|minutes|hours)\\b"
-    },
-    {
       "name": "punctuation.terminator.feather",
       "match": "\\.(?=\\s*$)"
-    },
-    {
-      "name": "support.function.signature.feather",
-      "match": "\\b(trace|elapsed|timeout|silent|on)\\b"
     }
   ],
   "uuid": "b1e7f1e2-7e8a-4b2a-9c0e-1a2b3c4d5e6f"

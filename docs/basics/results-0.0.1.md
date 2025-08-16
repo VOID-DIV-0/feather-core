@@ -9,14 +9,14 @@ Feather scripts must explicitly declare their outcome. This keeps scripts predic
 
 > [!Tip]
 >
-> Data object: Success support any Feather values, including scalars, text, containers, and container projections. See [data](./data-0.0.1.md) for details.
+> Result value: `success` and `failure` support any kind of result value, including scalars, text, containers, and container projections. See [data](./data-0.0.1.md) for more details.
 
 ## Summary Table
 
-| Result  | Syntax Example            | Effect                         | Notes                   |
-| ------- | ------------------------- | ------------------------------ | ----------------------- |
-| success | `success 'Hello World!'`  | Run only on specified OS       | Must be last signature  |
-| failure | `failure ::error:message` | Print command before execution | Can combine with others |
+| Result  | Syntax Example            | Effect                                         | Notes                   |
+| ------- | ------------------------- | ---------------------------------------------- | ----------------------- |
+| success | `success 'Hello World!'`  | Stops execution and marks script as successful | Must be last signature  |
+| failure | `failure ::error:message` | Stops execution and marks script as failed     | Can combine with others |
 
 If a Feather script or function reaches the end **without calling `success`**, it will automatically be marked as a failure. This enforces explicit intent and ensures that scripts never exit silently.
 
@@ -32,11 +32,11 @@ The `success` instruction marks the script or the function as successfully compl
 - It can return either a literal, a record or a container.
 - If a Feather script does not call `success` anywhere, it will automatically be marked as a failure when it reaches the end.
 
-Use `success` to explicitly signal that the script or the function has finished and everything went was expected.
+Use `success` to explicitly signal that the script or the function has finished and everything worked as expected.
 
 **_Properties_**
 
-- `value [@|:]`: Can be pretty much anything, from scalar, text, object and object projection.
+- `value [ANY]`: Result content of the success.
 
 **_Examples_**
 
@@ -57,6 +57,8 @@ failure.
 > [SUCC] The script has been successful, Result: 'true'.
 ```
 
+---
+
 ### `failure {value}`
 
 The `failure` instruction indicates the script or the function as failed either due to an error.
@@ -65,7 +67,7 @@ If the result is not defined at the end of a sky script or of a function, it's a
 
 **_Properties_**
 
-- `value [@|:]`: Can be pretty much anything, from scalar, text, object and object projection.
+- `value [ANY]`: Result content of the failure.
 
 **_Examples_**
 
@@ -85,7 +87,7 @@ say 'Hello World!'. ~ script will fails due to missing success.
 ~ Script.sky
 ~~~~~~~~~~~~~
 
-say 'Hello World!'. ~ script will fails due to missing success.
+say 'Hello World!'. ~ script will succeed because of the success call.
 success.
 ```
 

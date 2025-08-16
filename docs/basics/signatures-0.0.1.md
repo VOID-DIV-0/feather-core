@@ -111,7 +111,7 @@ Sets a maximum allowed execution time for a command. If the command does not com
 
 **_Properties_**
 
-- `value [@|:|numerical]`: Must be a **non-negative integer** or a reference/object projection resolving to one.
+- `value [number | 'literal' | @record | ::container:field]`: Must resolve to a positive non-negative integer at runtime.
 - `<keyword_time>`: Represents the unit for the timeout value, can be either `seconds` `minutes` or `hours`.
 
 **_Examples_**

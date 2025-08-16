@@ -1,0 +1,40 @@
+global require modules 'input' 'rule' 'say'.
+
+input required 'is_enabled' into @is_enabled.
+~ -OR- input required parameter 0 into @is_enabled.
+
+input optional 'is_multiline' default false into @is_multiline.
+~ -OR- input optional parameter 1 default false into @is_multiline.
+
+rule 'is_enabled' is boolean. ~verify that they are valid boolean
+rule 'is_multiline' is boolean. ~verify that they are valid boolean
+
+function hello_world
+  input required parameter 1 into @hello.
+  input required parameter 2 into @world.
+  ~ parameter 3 is ignored.
+  say @hello @world.
+end
+—
+function hello_world_multiline
+  input required 'hello' into @hello.
+  ::input:world into @world.
+  input required parameter 3 into @exclamation.
+
+  say @hello.
+  say @world.
+  say @exclamation. 
+end
+
+if @is_enabled
+  if not @is_multiline
+    hello_world with 'Hello' 'World' '!'.
+  else
+    hello_world_multiline with map key 'hello' value 'Hello'
+                          with map key 'world' value 'world'
+                          with map item '!'.
+  end
+
+end
+
+success.

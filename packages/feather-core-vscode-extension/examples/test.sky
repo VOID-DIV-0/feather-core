@@ -1,3 +1,5 @@
+global require modules 'cabinet' 'text' 'bool' 'vault' 'say'.
+
 cabinet read file 'user_config.json' as json into ::config.
 
 ~ Extract username and password
@@ -45,7 +47,8 @@ else
   cabinet append file 'login.log' with @log_entry with risk.
 
   http post 'https://notify.example.com'
-    with { 'user': @user, 'status': 'failed', 'time': @timestamp } with risk
+    with { 'user': @user, 'status': 'failed', 'time': @timestamp } 
+    with risk
     into @notify_result.
 
   failure 'Authentication failed.'

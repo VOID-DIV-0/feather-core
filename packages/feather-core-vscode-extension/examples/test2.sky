@@ -1,6 +1,8 @@
 ~ Signature coverage script for VSCode TML (v0.0.1)
 ~ Uses: trace, elapsed, timeout, silent, on (on must be last)
 
+global require modules 'cabinet' 'text' 'bool' 'vault' 'say' 'system'.
+
 ~ Basic echo
 say 'Signature coverage start.'.
 

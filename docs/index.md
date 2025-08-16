@@ -9,16 +9,16 @@ Only "versioned" component means they are "final" documentation
 
 # Basics
 
-- **WIP** [Commands](./syntax/commands.md) — The structure and anatomy of Feather commands.
-- [Results **v0.0.1** ](./syntax/results-0.0.1.md) — How Feather handles script outcomes and result patterns.
-- **WIP** [Actions](./syntax/actions.md) — Built-in instructions for controlling script flow and output.
-- **WIP** [Clauses](./syntax/clauses.md) — Modifiers that change command behavior (safe, sensitive, elevated).
-- **WIP** [Clusters](./syntax/clusters.md) — Grouping clauses for batch effect.
-- **WIP** [Data](./syntax/data.md) — Literals, records, containers, and data handling.
-- **WIP** [Flow](./syntax/flow.md) — Conditionals, loops, and control flow.
-- **WIP** [Functions](./syntax/functions.md) — Defining and using functions, parameters, and return values.
-- **WIP** [Lenses](./syntax/lenses.md) — Ephemeral views and type conversions.
-- **WIP** [Modifiers](./syntax/modifiers.md) — Enhancing commands with options (with, without).
+- **WIP** [Commands](./basics/commands.md) — The structure and anatomy of Feather commands.
+- [Results **v0.0.1** ](./basics/results-0.0.1.md) — How Feather handles script outcomes and result patterns.
+- **WIP** [Actions](./basics/actions.md) — Built-in instructions for controlling script flow and output.
+- **WIP** [Clauses](./basics/clauses.md) — Modifiers that change command behavior (safe, sensitive, elevated).
+- **WIP** [Clusters](./basics/clusters.md) — Grouping clauses for batch effect.
+- **WIP** [Data](./basics/data.md) — Literals, records, containers, and data handling.
+- **WIP** [Flow](./basics/flow.md) — Conditionals, loops, and control flow.
+- **WIP** [Functions](./basics/functions.md) — Defining and using functions, parameters, and return values.
+- **WIP** [Lenses](./basics/lenses.md) — Ephemeral views and type conversions.
+- **WIP** [Modifiers](./basics/modifiers.md) — Enhancing commands with options (with, without).
 - [Signatures **v0.0.1** ](./basics/signatures-0.0.1.md) — Platform targeting, telemetry, and execution control.
 
 # Modules
@@ -38,6 +38,7 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Script](./modules/script.md) — Running native scripts and commands.
 - **WIP** [Program](./modules/program.md) — Program execution and management.
 - **WIP** [System](./modules/system.md) — System-level operations and information.
+- [Global](./modules/globals-0.0.1.md) — Global-level definition for feather's script.
 
 ## Data Processing & Utilities
 
