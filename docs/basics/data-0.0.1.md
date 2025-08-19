@@ -1,14 +1,13 @@
 # Data
 
-## Introduction
-
 For feather, the goal was to simplify the experience of manipulating scripting data without losing security, type safety and simplicity.
 
-There is 3 type of data:
+There is 4 type of data:
 
 - Literals
 - Records
 - Containers
+- Schema
 
 Records and Literals are immutable strings that will always be interpreted into a structure `container` when fed into an instruction.
 
@@ -18,67 +17,83 @@ Records and Literals are immutable strings that will always be interpreted into 
 
 Data can be in a form of literals. All literals must be wrapped around single quotes `' '` and interpreted as a string.
 
-##### Example
+> [!Note]
+>
+> Use escape charact '\' when using single quote.
+
+**_Example_**
 
 ```sky
-~ say 'this is a single line literals'.
+say 'this is a single line \'literals\''.
+
 success.
 ```
 
-##### Output
-
-```text
-[INFO] This is a single line string.
-```
-
-#### Multiline Literals
+### Multiline Literals
 
 Feather also supports **multiline literals** using the same single-quote syntax:
 
+**_Example_**
+
 ```sky
-~ 'This is
-~ a multiline
-~ string.' into @text_block.
+'This is
+a multiline
+string.' into @text_block.
+
+success.
 ```
+
+### Numerical/Decimal Literals
+
+Feather supports numerical literals. They do not require the string quote syntax but internally are processed as string.
+
+**_Example_**
+
+```sky
+say 0.1.
+say '4'.
+
+success.
+```
+
+### boolean Literals
+
+Feather supports boolean literals. They do not require the string quote syntax but internally are processed as string.
+
+**_Example_**
+
+```sky
+say true.
+say 'true'.
+
+success.
+```
+
+---
 
 ## Records
 
 ### Definition
 
-Records are immutable and constant "variable" that act as string content. records are defined with the `@` symbol and cannot be modified. Record can use alphanumerical symbole and underscores (`_`).
+Records are immutable and constant "variable" that act as string content. records are defined with the `@` symbol and cannot be modified. Record can be composed of alphanumerical symbol and underscores (`_`).
 
-##### Example
+**_Example_**
 
 ```sky
-~ '3333.45' into @var_1.
-~ '-1' into @var_2.
-~ 'This is a string' into @var_3.
-~
-~ say @var_1.
-~ say @var_2.
-~ success @var_3.
-```
+3333.45 into @var_1.
+-1 into @var_2.
+'This is a string' into @var_3.
 
-##### Output
+say @var_1.
+say @var_2.
+
+success @var_3.
+```
 
 ```text
 [INFO] 3333.45
 [INFO] -1
 [SUCC] The script has been successful, Result: 'This is a string'.
-```
-
-### Vaulted Records
-
-When using the vault, records are immediately turned into sensitive and the sensitive concept "contaminate" everything it touch. Requiring to use [safe](clauses.md) clause.
-
-```sky
-~ parameter '1' into vault @secret
-~ cabinet write file '.mysecret' with content @secret ~ this is unsafe! Error.
-```
-
-```sky
-~ parameter '1' into vault @secret
-~ safe cabinet write file '.mysecret' with content @secret ~ this is safe!
 ```
 
 ## Containers

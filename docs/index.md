@@ -49,7 +49,7 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Network](./modules/network.md) — Networking tools and commands.
 - **WIP** [Http](./modules/http.md) — HTTP requests and web communication.
 
-## Containers & Types
+## Type
 
 - **WIP** [Decimal](./modules/decimal.md) — Decimal type.
 - [Binary **v0.0.1**](./modules/binary/0.0.1.md) — Binary module operations.
@@ -59,6 +59,10 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Path](./modules/path.md) — Path manipulation and utilities.
 - **WIP** [Json]
 - **WIP** [xml]
+
+## Schemas
+
+- [#bool **v0.0.1**] (./schemas/#bool-0.0.1.md)
 
 # Examples
 

@@ -79,7 +79,11 @@ This example shows what happens if you forget to use `sensitive` with a vault se
 #### Command
 
 ```sky
-'Password123$' into vault 'my_password'.
+sensitive input required 'my_password' into @ephemeral_pw.
+```
+
+```sky
+sensitive 'Password123$' into vault 'my_password'.
 
 say @{vault 'my_password'} ~ will fail due to using vault without sensitive.
 success

@@ -6,8 +6,8 @@ input required 'is_enabled' into @is_enabled.
 input optional 'is_multiline' default false into @is_multiline.
 ~ -OR- input optional parameter 1 default false into @is_multiline.
 
-rule 'is_enabled' is boolean. ~verify that they are valid boolean
-rule 'is_multiline' is boolean. ~verify that they are valid boolean
+@is_enabled is &bool. ~verify that they are valid boolean
+@is_multiline is &bool. ~verify that they are valid boolean
 
 function hello_world
   input required parameter 1 into @hello.

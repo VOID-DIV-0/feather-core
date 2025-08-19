@@ -1,7 +1,5 @@
 # Input
 
-## Description
-
 Input module is an extension of the reserve container `::input`. It provides additional feature to simplify the access of the script or function arguments.
 
 ## Summary Table

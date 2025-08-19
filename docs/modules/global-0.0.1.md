@@ -1,7 +1,5 @@
 # Global
 
-## Description
-
 Feather supports a module that provide modifier options that have effects on the whole script. Some are unique keywords, other related to existing module. They applies the moment you enable the feature.
 
 ## Summary Table
