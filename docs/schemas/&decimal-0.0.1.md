@@ -4,7 +4,7 @@ Decimal is a primitive scalar schema for floating point number.
 
 ## Declaration
 
-`&decimal`: +- ~+1.8×10^308
+`&decimal`: ±1.8×10^308 (rust's `f64`)
 
 **_Examples_**
 
@@ -24,4 +24,4 @@ safe @my_var4 is &decimal. ~skipped, my_var4 is NOT a decimal
 ## Related Pages
 
 - [bool **v0.0.1**](../modules/bool-0.0.1.md)
-- [clauses **v0.0.1**] (../basics/clauses-0.0.1.md)
+- [clauses **v0.0.1**](../basics/clauses-0.0.1.md)
