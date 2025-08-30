@@ -15,13 +15,18 @@ The `resilience` module provides advanced error handling and reliability feature
 ### Retry with Backoff and Error Evaluation
 
 ```sky
-resilience retry
-  times '3'
-  backoff 'exponential'
-  delay '500' ms
-  jitter '20' percent
-  evaluate ['E_TIMEOUT','E_5XX']
-  do ( http get 'https://api.example.com/status' into ::res )
+
+function fn_status
+  http get 'https://api.example.com/status' into ::res.
+  success ::res.
+end
+
+resilience retry do fn_status
+  with times '3'
+  with backoff 'exponential'
+  with delay '500' ms
+  with jitter '20' percent
+  with evaluate ['E_TIMEOUT','E_5XX']
 into ::attempt.
 
 if ::attempt:ok
@@ -34,9 +39,13 @@ end
 ### Timeout
 
 ```sky
-resilience timeout '2s'
-  do ( http post 'https://slow.example.com' with @payload into ::res )
-into ::timed.
+
+function fn_post
+  http post 'https://slow.example.com' with @payload into ::res.
+  success ::res.
+end
+
+resilience do fn_status with timeout '2s' into ::timed.
 
 if ::timed:ok
   say 'posted'.
@@ -48,9 +57,20 @@ end
 ### Fallback
 
 ```sky
+
+function fn_primary
+  http get 'https://primary/api' into ::result.
+  success ::result.
+end
+
+function fn_secondary
+  http get 'https://backup/api' into ::result.
+  success ::result.
+end
+
 resilience fallback
-  primary ( http get 'https://primary/api' into ::r1 )
-  secondary ( http get 'https://backup/api' into ::r2 )
+  primary fn_primary
+  secondary fn_secondary
 into ::final.
 
 if ::final:ok
@@ -63,10 +83,15 @@ end
 ### Circuit Breaker
 
 ```sky
-resilience circuit 'payments-api'
-  failure-threshold 5 in '30s'
-  cool-down '60s'
-  do ( http get 'https://pay.example.com' into ::res )
+
+function fn_pay
+  http get 'https://backup/api' into ::result.
+  success ::result.
+end
+
+resilience circuit do fn_pay
+  with threshold 5 in '30s'
+  with cooldown '60s'
 into ::cb.
 
 if ::cb:code is 'E_OPEN_CIRCUIT'

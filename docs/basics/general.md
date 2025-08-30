@@ -1,24 +1,4 @@
-# Commands
-
-## What is a command?
-
-A command in Feather is a sentence-like sequence of instructions composed of clauses, modules, literals, and modifiers, etc. Commands may span single or multiple lines but always end with a dot (.) terminator.
-
-```
-[Clause] [Module] [Actions] [Modifiers / Lenses] [Signatures]. -> [Result<[@record | ::Container]>]
-```
-
-| Instructions | Example       | Description                    |
-| ------------ | ------------- | ------------------------------ |
-| Clause       | `safe`        | Modifies behavior or handling  |
-| Module       | `cabinet`     | Defines the logical context    |
-| Actions      | `delete file` | Action to perform              |
-| Modifier     | `with force`  | Enhances or alters behavior    |
-| Lens         | `as result`   | Converts or inspects value     |
-| Signature    | `on linux`    | Platform, target, or condition |
-| Terminator   | `.`           | Required to end any command    |
-
-# Result Pattern
+# General
 
 ## Comments
 

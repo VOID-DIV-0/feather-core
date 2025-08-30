@@ -5,10 +5,13 @@
 - `repeat`
 - `if/else/elseif`
 - `iterate by until`
+- Lambdas `do ... end`
 
 ## Conditionals and Loops
 
 Feather supports straightforward flow control with English-like keywords.
+
+### alll
 
 ### `if` / `else if` / `else`
 

@@ -29,6 +29,3 @@ This replaces obscure flags with self-explanatory modifiers. You can also chain 
 cabinet file list with depth '3' with hidden without extension filter '[A-z]'
 ```
 
-### `filter`
-
-### `next`

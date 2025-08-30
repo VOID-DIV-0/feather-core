@@ -11,6 +11,7 @@ record lens @rec as integer into @out. # throws if invalid
 record try-lens @rec as integer into @out ok @ok. # sets @ok true/false
 record lens @rec as decimal into @out.
 record lens @rec as json into ::container.
+record ensure @a default 'my_default_value' overwrite @a
 
 • Destination / slot: the place after into.
 • Scalar slot: @name (always text). (single value)
