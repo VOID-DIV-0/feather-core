@@ -4,7 +4,7 @@ Decimal is a primitive scalar schema for floating point number.
 
 ## Declaration
 
-`&decimal`: ±1.8×10^308 (rust's `f64`)
+`decimal`: ±1.8×10^308 (rust's `f64`)
 
 **_Examples_**
 
@@ -15,10 +15,10 @@ Decimal is a primitive scalar schema for floating point number.
 'test' into @my_var4.
 
 ~ basic validation
-@my_var is &decimal.
-@my_var2 is &decimal.
-@my_var3 is &decimal.
-safe @my_var4 is &decimal. ~skipped, my_var4 is NOT a decimal
+@my_var is decimal.
+@my_var2 is decimal.
+@my_var3 is decimal.
+safe @my_var4 is decimal. ~skipped, my_var4 is NOT a decimal
 ```
 
 ## Related Pages

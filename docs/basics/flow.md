@@ -1,26 +1,55 @@
-> WIP
+# Flow
+
+In feather, the usage of "flow" instructions enable to control the logic based on conditions. Compared to many languages, it's not allowed to embbed condition inside the conditional statement.
+
+---
+
+## Summary Table
+
+### Conditional
+
+| Instruction                           | Syntax Example | Effect | Notes |
+| ------------------------------------- | -------------- | ------ | ----- |
+| if/else if {condition} ... end        | ``             |        |       |
+| any {condition1} {condition2} ... end | ``             |        |       |
+| all {condition1} {condition2} ... end | ``             |        |       |
+
+### Loops
+
+| Instruction                                        | Syntax Example | Effect | Notes |
+| -------------------------------------------------- | -------------- | ------ | ----- |
+| while {condition} ... end                          | ``             |        |       |
+| do ... while {condition} end                       | ``             |        |       |
+| repeat {value} ... end                             | ``             |        |       |
+| increase {iterator} by {value} to {target} ... end | ``             |        |       |
+| decrease {iterator} by {value} to {target} ... end | ``             |        |       |
+| foreach from ::container into {iterator} ... end   | ``             |        |       |
 
 - `any`
 - `all`
 - `repeat`
 - `if/else/elseif`
 - `iterate by until`
-- Lambdas `do ... end`
+- `stop`
 
 ## Conditionals and Loops
 
 Feather supports straightforward flow control with English-like keywords.
 
-### alll
+### all
 
 ### `if` / `else if` / `else`
 
 Use `if` for conditional logic. `else if` and `else` can be used for additional branches. Always close the block with `end`.
 
 ```sky
-if @value > 10
+
+bool eval @value > 10 into @greater_than_10.
+bool eval @value > 5 into @greater_than_5.
+
+if @greater_than_10
   say 'Value is greater than 10'
-else if @value > 5
+else if @greater_than_5
   say 'Value is greater than 5'
 else
   say 'Value is 5 or less'

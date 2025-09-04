@@ -68,6 +68,8 @@ success '3'.
 [SUCC] The script has been successful, Result: '3'.
 ```
 
+## `async`
+
 ## `sensitive`
 
 See [vault](../vault.md) for more information. Since Feather has an embedded password management system, any time you use a vault variable it will fail unless you explicitly agree to "pass" the variable into the command using the `sensitive` clause.

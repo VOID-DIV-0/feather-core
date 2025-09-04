@@ -21,7 +21,8 @@ function fn_status
   success ::res.
 end
 
-resilience retry do fn_status
+resilience retry
+  do fn_status
   with times '3'
   with backoff 'exponential'
   with delay '500' ms
@@ -69,8 +70,8 @@ function fn_secondary
 end
 
 resilience fallback
-  primary fn_primary
-  secondary fn_secondary
+  primary do fn_primary
+  secondary do fn_secondary
 into ::final.
 
 if ::final:ok

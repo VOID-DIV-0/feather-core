@@ -4,7 +4,7 @@ Bool is a primitive scalar (numerical/textual) [schema](../basics/schema-0.0.1.m
 
 ## Declaration
 
-`&bool`: [`true`| `false`]
+`bool`: [`true`| `false`]
 
 **_Examples_**
 
@@ -14,9 +14,9 @@ Bool is a primitive scalar (numerical/textual) [schema](../basics/schema-0.0.1.m
 'True' into @my_var3.
 
 ~ basic validation
-@my_var is &bool.
-safe @my_var2 is &bool . ~invalid! -- skipped due to safe.
-safe @my_var3 is &bool. ~invalid! -- skipped due to safe.
+@my_var is bool.
+safe @my_var2 is bool . ~invalid! -- skipped due to safe.
+safe @my_var3 is bool. ~invalid! -- skipped due to safe.
 
 bool coerce @my_var2 into override @my_var2. ~ '1' -> 'true'
 bool coerce @my_var3 into override @my_var3. ~ 'True' -> 'true'

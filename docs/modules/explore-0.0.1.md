@@ -85,31 +85,31 @@ The `into` clause specifies how query results are saved or applied:
 
 ```feather
 explore from users
-where age > 18
-select id, name, email
-order by name asc
-take 10
+        where age > 18
+        select id, name, email
+        order by name asc
+        take 10.
 ```
 
 ### Using Joins and Group By
 
 ```feather
 explore from orders
-join users on orders.user_id = users.id
-where orders.status = "completed"
-group by users.country
-select users.country, count(orders.id) as order_count
-order by order_count desc into ::content
+        join users on orders.user_id = users.id
+        where orders.status = "completed"
+        group by users.country
+        select users.country, count(orders.id) as order_count
+        order by order_count desc into ::content.
 ```
 
 ### Using Reducers and Destination
 
 ```feather
 explore  from sales
-where date >= "2023-01-01"
-group by product_id
-select product_id, sum(amount) as total_sales
-into @monthly_sales_summary
+        where date >= "2023-01-01"
+        group by product_id
+        select product_id, sum(amount) as total_sales
+        into @monthly_sales_summary.
 ```
 
 ## Error Model

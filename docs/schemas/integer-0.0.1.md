@@ -4,7 +4,7 @@ Decimal is a primitive scalar schema for floating point number.
 
 ## Declaration
 
-`&integer`: ±9,223,372,036,854,775,807 (rust `i64`)
+`integer`: ±9,223,372,036,854,775,807 (rust `i64`)
 
 **_Examples_**
 
@@ -15,10 +15,10 @@ Decimal is a primitive scalar schema for floating point number.
 'test' into @my_var4.
 
 ~ basic validation
-@my_var is &integer.
-@my_var2 is &integer.
-safe @my_var3 is &integer. ~skipped, my_Var3 is NOT an integer.
-safe @my_var4 is &integer. ~skipped, my_var4 is NOT an integer.
+@my_var is integer.
+@my_var2 is integer.
+safe @my_var3 is integer. ~skipped, my_Var3 is NOT an integer.
+safe @my_var4 is integer. ~skipped, my_var4 is NOT an integer.
 ```
 
 ## Related Pages
