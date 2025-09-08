@@ -1,8 +1,10 @@
 # Clauses
 
-Clauses are optional instruction placed at the start of a command to modify the entire command. It's major
+## Description
 
-The order of clauses is important. This ensures commands are quickly understood, easier to read, and makes it immediately clear if a clause is unused. Clauses always appear at the beginning of a command and must follow the order: `safe`, `elevated`, `sensitive`
+Clauses are optional instruction placed at the start of a command. Clauses modify the entire command until the the terminator.
+
+Clauses must always be at the beginning before any command.
 
 ## `safe`
 
@@ -68,7 +70,49 @@ success '3'.
 [SUCC] The script has been successful, Result: '3'.
 ```
 
-## `async`
+## `async 'literal'`
+
+### Description
+
+The async clauses launches the command as parallel. It's possible to tag by using `async 'tag_name'`.
+
+> ! Important
+>
+> The scope never finish before
+
+```sky
+function fn_world
+  wait 5 seconds.
+  say 'world'.
+end
+
+async fn_world.
+say 'hello'.
+
+wait 'world'.
+success.
+```
+
+`wait all`
+
+```sky
+async 'read file 1' cabinet read file 'my_file1.txt'.
+async 'read file 2' cabinet read file 'my_file2.txt'.
+
+until all 'read file 1' 'read file 2'.
+success.
+```
+
+`wait any`
+
+```sky
+async 'read file 1' cabinet read file 'my_file1.txt'.
+async 'read file 2' cabinet read file 'my_file2.txt'.
+
+wait any 'read file 1' 'read file 2'.
+stop
+success.
+```
 
 ## `sensitive`
 

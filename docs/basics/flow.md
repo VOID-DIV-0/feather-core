@@ -30,7 +30,7 @@ In feather, the usage of "flow" instructions enable to control the logic based o
 - `repeat`
 - `if/else/elseif`
 - `iterate by until`
-- `stop`
+- `foreach`
 
 ## Conditionals and Loops
 
@@ -44,15 +44,15 @@ Use `if` for conditional logic. `else if` and `else` can be used for additional 
 
 ```sky
 
-bool eval @value > 10 into @greater_than_10.
-bool eval @value > 5 into @greater_than_5.
+solve @value > 10 into @greater_than_10.
+solve @value > 5 into @greater_than_5.
 
 if @greater_than_10
-  say 'Value is greater than 10'
+  say 'Value is greater than 10'.
 else if @greater_than_5
-  say 'Value is greater than 5'
+  say 'Value is greater than 5'.
 else
-  say 'Value is 5 or less'
+  say 'Value is 5 or less'.
 end
 ```
 
