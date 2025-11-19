@@ -2,15 +2,30 @@
 
 ## Description
 
-Clauses are optional instruction placed at the start of a command. Clauses modify the entire command until the the terminator.
+Clauses are optional instruction placed at the start of a command. They acts as alterant for the entire targeted command until the terminator.
 
 Clauses must always be at the beginning before any command.
 
-## `safe`
+Clauses let you control error handling, parallelism, security, and permissions for each command in a simple, readable way.
 
-Use the `safe` clause when you want instructions to not stop the flow if a function or instruction returns failed result. This modifier is only valid at the beginning and must follow the clause priority order.
+Clauses can be applied to both built-in commands and user-defined functions.
 
-### Example 1
+## `safe <command>`
+
+Use the `safe` clause when you want command to not stop the flow when a function or an instruction fails. This modifier is only valid at the beginning and must follow the clause priority order.
+
+Normally, if a module or a function fails during processing, it will stop the runtime and will forward to the failure to the exit return value. But with `safe`, it will ignore the result and continue on.
+
+**_Properties_**
+
+- `<command>`: Target source (`environment`, `system`, or `remote`).
+
+**_Modifiers_**
+
+- `with filter {glob}`: Include only names matching glob.
+- `with regex {regex}`: Include only names matching regex.
+
+**_Examples_**
 
 This example prints the battery value twice in a row and safely continues if any unsupported OS script fails.
 
@@ -70,7 +85,7 @@ success '3'.
 [SUCC] The script has been successful, Result: '3'.
 ```
 
-## `async 'literal'`
+## `async 'literal' <command>`
 
 ### Description
 
@@ -114,7 +129,7 @@ stop
 success.
 ```
 
-## `sensitive`
+## `sensitive <command>`/
 
 See [vault](../vault.md) for more information. Since Feather has an embedded password management system, any time you use a vault variable it will fail unless you explicitly agree to "pass" the variable into the command using the `sensitive` clause.
 
@@ -185,6 +200,8 @@ success
 ## `elevated`
 
 Use the `elevated` clause to provide administrative rights to a command. Only use this when necessary, and document why elevation is required for clarity and security.
+
+If elevated is used in an unelevated context, the script will fail.
 
 ## Clauses Cluster
 

@@ -1,6 +1,6 @@
 # Functions
 
-Functions in Feather allow you to define reusable logic blocks with parameters, optional arguments, and clear success/failure signaling.
+Functions in Feather allow you to define reusable logic blocks with parameters, optional parameters and clear success/failure signaling.
 
 ---
 
@@ -8,9 +8,10 @@ Functions in Feather allow you to define reusable logic blocks with parameters, 
 
 Declare a function using the `function ... end` block:
 
-```sky
+```feather
 function my_func
   # function body here
+  success.
 end
 ```
 

@@ -1,17 +1,14 @@
-> WIP
-
 ## Modifiers
-
-> **Note:** Use `into` with `set` to assign values. Parentheses should be reserved for grouping complex logic only, not for simple assignments.
 
 ### `with` / `without`
 
-Feather eliminates cryptic flags like `-d`, `-ls`, or `--help`. Instead, you can chain readable `with` and `without` modifiers.
+Feather uses readable keywords alongside `with` / `without` so modifiers stay intuitive, memorable, and easy to chain.
+
+Modifier options differ for each module or core component.
 
 - Use `with <option>` to enable an option or specify its value.
 - Use `without <option>` to disable an option.
-
-These can be chained for clarity and read like English.
+- Repeating the same option (for example `with depth '3'` followed by `with depth '5'`) is a compile-time error.
 
 Examples:
 
@@ -20,12 +17,11 @@ cabinet file list
   with depth '3'
   with hidden
   without extension
-  filter '[A-z]'.
+  filter '[A-Za-z]'.
 ```
 
 This replaces obscure flags with self-explanatory modifiers. You can also chain them inline:
 
 ```sky
-cabinet file list with depth '3' with hidden without extension filter '[A-z]'
+cabinet file list with depth '3' with hidden without extension filter '[A-Za-z]'
 ```
-
