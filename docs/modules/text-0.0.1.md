@@ -1,18 +1,32 @@
 # Text
 
 ## Description
+Unified string and pattern operations: create, transform, inspect, match, and format textual values.
 
-`text concat [{value} ...] into @concatenated`
-`text join #list with ', ' into @csv`
-`text split @s by ',' into ::parts`
-text replace @s 'from' 'to' into @t
-text contains @s 'needle' into @has
-text startswith|endswith @s 'pre/suf' into @ok
-text trim|lower|upper @s into @out
-text length @s into @len
-text slice @s from '2' to '5' into @sub
-text format 'Hello {name}' with name @n into @msg
-text match @s 'regex' into ::matches
+## Summary Table
+| Category    | Instruction                                 | Output          |
+|-------------|---------------------------------------------|-----------------|
+| Basic       | text concat 'a' 'b' into @out.              | record          |
+| Basic       | text length @s into @len.                   | record (number) |
+| Basic       | text upper @s into @u.                      | record          |
+| Structural  | text split @s by ',' into ::parts.          | container(list) |
+| Structural  | text join ::parts with ', ' into @csv.      | record          |
+| Pattern     | text match @s 'regex' into @has.            | boolean record  |
+| Pattern     | text replace @s 'from' 'to' into @new.      | record          |
+| Pattern     | text capture @s '([A-Z]+)-(\\d+)' into ::cap.| container       |
+| Format      | text format 'Hello {name}' with name @n into @msg. | record |
+| Slice       | text slice @s from '2' to '5' into @sub.    | record          |
 
-Optional / separate:
-• assert @ok 'message'. → fails the script if @ok is false (side-effect; not a bool op)
+## Categories
+### 1. Basic
+(…)
+### 2. Structural
+(…)
+### 3. Pattern & Matching
+(…)
+### 4. Formatting
+(…)
+### 5. Slice & Range
+(…)
+### 6. Edge Cases & Performance
+(…)

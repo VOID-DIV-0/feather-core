@@ -1,161 +1,137 @@
-# Expression Keywords
+---
+title: Solve
+slug: solve
+category: basics
+status: stable
+version: 0.1.0
+summary: Arithmetic and comparison intrinsic for numeric expressions.
+tags: [arithmetic, comparison, intrinsic]
+---
 
-Feather provides three domain-specific keywords for handling expressions: `solve` for mathematics, `eval` for logic, and `text` for string operations.
+# Solve
+
+## Description
+
+`solve` is Feather's intrinsic for evaluating arithmetic expressions and performing comparisons. It is used to compute numeric results or to compare values, producing either a numeric record or a boolean record. All logic and string operations are handled elsewhere—`solve` is strictly for numbers and comparisons.
 
 ---
 
-## `solve` - Mathematical Expressions
+## Philosophy
 
-**Purpose:** Handle arithmetic and numerical comparisons.
+Feather separates arithmetic and comparison from logic and string manipulation. Use `solve` for all numeric calculations and direct comparisons. Use `decide` for boolean logic, and the `text` module for any string operations.
 
-### Operators
-
-- `+`, `-`, `*`, `/`, `%` - Basic arithmetic
-- `>`, `<`, `>=`, `<=` - Numerical comparisons
-- `==`, `!=` - Equality/inequality
-
-### Examples
-
-```sky
-solve 5 + 3 into @sum.                    ~ 8
-solve @price * @quantity into @total.     ~ Multiplication
-solve @balance - @cost into @remaining.   ~ Subtraction
-solve @age >= 18 into @is_adult.          ~ true/false
-solve @a == @b into @same.                ~ Equality check
-```
-
-### Type Rules
-
-- All operands must be numbers (or convertible to numbers)
-- Unquoted literals are treated as numbers: `5`, `3.14`, `-10`
-- Variables containing string numbers are auto-converted: `'5'` becomes `5`
+- **Explicit:** Only numeric operations and comparisons are allowed.
+- **Minimal:** No string concatenation, no boolean logic, no side effects.
+- **Readable:** Each `solve` line does one thing—compute a number or compare values.
 
 ---
 
-## `eval` - Logical Expressions
+## Syntax
 
-**Purpose:** Handle boolean logic and conditions.
-
-### Operators
-
-- `and`, `or`, `xor` - Logical operations
-- `not` - Logical negation
-- `==`, `!=` - Boolean equality
-
-### Examples
-
-```sky
-eval true and false into @result.         ~ false
-eval @is_valid or @is_backup into @ok.    ~ Boolean OR
-eval not @failed into @success.           ~ Negation
-eval @logged_in and @has_permission into @can_access.
+```
+solve <arithmetic_expr> into <@result>.
+solve <comparison_expr> into <@result>.
 ```
 
-### Type Rules
+Where:
+- `<arithmetic_expr>` uses numbers, records, and arithmetic operators: `+ - * / %`
+- `<comparison_expr>` uses numbers, records, and comparison operators: `> < >= <= == !=`
 
-- All operands must be booleans: `true`, `false`
-- Variables are evaluated as booleans: `0`/`''` = false, everything else = true
+No parentheses are supported. For complex calculations, break into multiple lines.
 
 ---
 
-## `text` - String Operations
+## Supported Operators
 
-**Purpose:** Handle string concatenation and manipulation.
-
-### Operators
-
-- `+` - String concatenation
-- `==`, `!=` - String equality
-
-### Examples
-
-```sky
-text 'Hello' + ' world' into @greeting.   ~ 'Hello world'
-text @name + ': ' + @message into @log.   ~ Name: message format
-text 'User ' + @id + ' logged in' into @event.
-text @first == @second into @same_text.   ~ String comparison
-```
-
-### Type Rules
-
-- All operands must be strings
-- Quoted literals are strings: `'hello'`, `"world"`
-- Variables are treated as strings (no auto-conversion)
+| Operator | Meaning           | Example                  |
+|----------|-------------------|--------------------------|
+| +        | Addition          | `@a + @b`                |
+| -        | Subtraction       | `@a - @b`                |
+| *        | Multiplication    | `@a * @b`                |
+| /        | Division          | `@a / @b`                |
+| %        | Modulus           | `@a % @b`                |
+| >        | Greater than      | `@a > @b`                |
+| <        | Less than         | `@a < @b`                |
+| >=       | Greater or equal  | `@a >= @b`               |
+| <=       | Less or equal     | `@a <= @b`               |
+| ==       | Equality          | `@a == @b`               |
+| !=       | Inequality        | `@a != @b`               |
 
 ---
 
-## Type Casting with `as`
+## Type Rules
 
-When you need to convert between types, use the `as &schema` syntax:
+- All operands must be numeric (unquoted numbers or records containing numbers).
+- Comparisons may be performed between numbers or numeric records.
+- Mixing non-numeric types results in an error (`E-SOLVE-NONNUM`).
+- Division by zero results in an error (`E-SOLVE-DIVZERO`).
+- Only one comparison operator is allowed per `solve` line.
+- No boolean logic (`and`, `or`, `not`) is allowed—use `decide` for logic.
 
-```sky
-~ Convert for mathematical operations
-solve @age as &number + 1 into @next_age.
+---
 
-~ Convert for text operations
-text 'Count: ' + @number as &string into @message.
+## Examples
 
-~ Convert for logical operations
-eval @value as &boolean and @flag into @result.
-```
-
-## Complex Examples
+### Arithmetic
 
 ```sky
-~ Mixed operations using different keywords
-solve @price * @quantity into @subtotal.
-solve @subtotal * 0.08 into @tax.
-solve @subtotal + @tax into @total.
-
-text 'Order total: $' + @total as &string into @receipt.
-
-eval @total > 100 into @free_shipping.
-eval @free_shipping and @is_member into @apply_discount.
+solve 5 + 3 into @sum.              ~ 8
+solve @price * @qty into @total.
+solve @balance - @cost into @remain.
+solve 10 % 3 into @mod.             ~ 1
+solve 100 / 4 into @quarter.        ~ 25
 ```
+
+### Comparison
+
+```sky
+solve @a > @b into @is_greater.
+solve @score == 100 into @perfect.
+solve @x + @y <= 10 into @within_limit.
+```
+
+### Chaining Calculations
+
+```sky
+solve @a + @b into @sum.
+solve @sum * 2 into @double.
+solve @double == 20 into @is_twenty.
+```
+
+---
 
 ## Best Practices
 
-1. **Use the right keyword for the data type:**
-
-   - `solve` for numbers and math
-   - `eval` for booleans and logic
-   - `text` for strings and concatenation
-
-2. **Cast explicitly when needed** using `as &schema`
-
-3. **Keep expressions simple** - prefer multiple lines over complex nested expressions
-
-4. **Use modules for advanced operations:**
-   - `math round`, `math pow` for complex math
-   - `text regex`, `text interpolate` for advanced string work
-   - `bool all`, `bool any` for advanced logic
+1. **Keep each calculation simple:** Break complex expressions into multiple lines.
+2. **Use only numeric operands:** Cast or convert values before using them in `solve`.
+3. **Perform comparisons in `solve`, logic in `decide`:** Do not use boolean operators in `solve`.
+4. **Handle errors explicitly:** Check for division by zero and type mismatches.
 
 ---
 
-## Wait, Stop, and Async Control
+## Error Handling
 
-```sky
-async 'upload' http post 'https://api.example.com/file' body @file.
-say 'Upload started...'.
+| Error Code           | Description                                      |
+|----------------------|--------------------------------------------------|
+| E-SOLVE-NONNUM       | Non-numeric operand in arithmetic                |
+| E-SOLVE-DIVZERO      | Division by zero                                 |
+| E-SOLVE-CHAIN        | Multiple comparison operators in one expression  |
+| E-SOLVE-BADOP        | Unsupported operator                             |
+| E-SOLVE-TYPEMISMATCH | Incompatible types in comparison                 |
 
-~ Cancel the async operation
-stop 'upload'.
+---
 
-~ Wait for completion
-wait 'upload'.
-```
+## Related Pages
 
-**Keywords:**
+- [Decide (boolean logic)](./decide.md)
+- [Math Module (advanced math)](../modules/math.md)
+- [Flow Control](./flow.md)
+- [Data Types](./data.md)
 
-- `wait` - Wait for async operation to complete
-- `stop` - Cancel async operation
-- `until all` - Wait for all operations in group
-- `until any` - Wait for any operation in group to complete
+---
 
-```
-async 'upload' http post 'https://api.example.com/file' body @f.
+## Version
 
-say 'launching…'.
+- 0.1.0 — Arithmetic and comparison only; all string and logic operations removed.
 
-stop 'upload'. ~ cancel async group named 'upload'
-```
+---
