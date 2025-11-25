@@ -85,7 +85,8 @@ decide @has_funds and @active or @override into @can_proceed.
 solve @score >= 90 into @high_score.
 solve @bonus == 'yes' into @has_bonus.
 
-decide not @blocked and (@high_score xor @has_bonus) into @award.
+bool xor @high_score @has_bonus into @has_either.
+decide not @blocked and @has_either into @award.
 ```
 
 ### 4. Chaining for Readability
