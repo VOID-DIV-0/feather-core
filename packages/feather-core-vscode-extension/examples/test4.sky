@@ -1,0 +1,66 @@
+~ Feather Deployment Script Example
+
+~ Step 1: Load configuration and secrets
+cabinet read file 'config/env.txt' into @env_raw.
+text split @env_raw by '\n' into ::env_lines.
+text filter ::env_lines where not text startswith ::env_lines:item '#' into ::env.
+vault unlock 'deploy_api_key' into @api_key.
+
+~ Step 2: Check if build is needed
+cabinet list in 'src/' with pattern '*.js' into ::src_files.
+cabinet read file 'build/.last_build' into @last_build_time safe.
+
+function needs_rebuild
+  parameter 1 into ::files.
+  parameter 2 into @last_time.
+
+  ~ Check if any file is newer than last build
+  repeat ::files
+    cabinet stat file ::files:item into ::stat.
+    solve ::stat:modified > @last_time into @is_newer.
+    if @is_newer
+      success 'rebuild needed'.
+    end
+  end
+  failure 'no rebuild needed'.
+end
+
+needs_rebuild ::src_files @last_build_time into @should_build.
+
+~ Step 3: Build if needed
+if @should_build == 'rebuild needed'
+  say 'Building artifact...'.
+  program run 'npm run build' into @build_result.
+  decide @build_result == 'success' into @build_ok.
+  if not @build_ok
+    say 'Build failed. Aborting.'.
+    stop.
+  end
+  cabinet write file 'build/.last_build' with content now().
+
+else
+  say 'No build needed.'.
+end
+
+~ Step 4: Upload artifact (async)
+async 'upload' http post 'https://deploy.example.com/api/upload'
+  header 'Authorization' 'Bearer @{api_key}'
+  file 'build/artifact.zip'
+  into @upload_result.
+
+wait 'upload'.
+
+decide @upload_result == 'success' into @upload_ok.
+
+~ Step 5: Notify
+if @upload_ok
+  text concat 'Deployment succeeded at ' now() into @msg.
+  http post 'https://hooks.example.com/success' body @msg.
+  say 'Deployment complete.'.
+else
+  text concat 'Deployment failed at ' now() into @msg.
+  http post 'https://hooks.example.com/failure' body @msg.
+  say 'Deployment failed.'.
+end
+
+success 'Pipeline finished.'.

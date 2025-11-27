@@ -1,0 +1,15 @@
+{
+  "grammars": [
+    {
+      "name": "feather",
+      "camelcase": "Feather",
+      "scope": "source.feather",
+      "file-types": ["sky"],
+      "path": ".",
+      "external-files": []
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1"
+  }
+}

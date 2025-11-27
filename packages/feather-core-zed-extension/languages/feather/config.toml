@@ -1,0 +1,4 @@
+name = "Feather"
+grammar = "feather"
+path_suffixes = ["sky"]
+line_comments = ["~"]

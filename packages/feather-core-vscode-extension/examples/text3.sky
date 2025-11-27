@@ -23,7 +23,7 @@ function hello_world_multiline
 
   say @hello.
   say @world.
-  say @exclamation. 
+  say @exclamation.
 end
 
 if @is_enabled

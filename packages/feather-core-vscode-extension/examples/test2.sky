@@ -25,9 +25,9 @@ cabinet read file '/tmp/very_large.txt' timeout 1 hours.
 cabinet delete file '/tmp/old.log' silent.
 
 ~ combine: trace + elapsed + timeout (order flexible; on must be last)
-system health into @stats 
-  trace 
-  elapsed 
+system health into @stats
+  trace
+  elapsed
   timeout 10 seconds.
 
 ~ use of @record and ::container:slot for highlighting
@@ -35,8 +35,8 @@ enum 'cpu' 'mem' 'disk' into ::metrics.
 table ::metrics into @table_view trace.
 
 ~ combine silent + timeout + on (on last)
-cabinet move file '/tmp/maybe.lock' to '/tmp/maybe.lock.bak' 
-  silent 
+cabinet move file '/tmp/maybe.lock' to '/tmp/maybe.lock.bak'
+  silent
   timeout 2 seconds on mac.
 
 ~ per‑OS echo with on last
