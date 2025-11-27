@@ -1,7 +1,7 @@
 ---
 title: Solve
 slug: solve
-category: basics
+category: core
 status: stable
 version: 0.1.0
 summary: Arithmetic and comparison intrinsic for numeric expressions.

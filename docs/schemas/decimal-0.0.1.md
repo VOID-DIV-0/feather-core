@@ -24,4 +24,4 @@ safe @my_var4 is decimal. ~skipped, my_var4 is NOT a decimal
 ## Related Pages
 
 - [bool **v0.0.1**](../modules/bool-0.0.1.md)
-- [clauses **v0.0.1**](../basics/clauses-0.0.1.md)
+- [clauses **v0.0.1**](../core/clauses-0.0.1.md)

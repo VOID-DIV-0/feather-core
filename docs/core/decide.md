@@ -1,7 +1,7 @@
 ---
 title: Decide
 slug: decide
-category: basics
+category: core
 status: stable
 version: 0.1.0
 summary: Boolean logic composition and decision-making intrinsic.

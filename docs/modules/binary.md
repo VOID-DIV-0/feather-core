@@ -5,7 +5,7 @@
 Instructions for manipulating binary data: encoding, decoding, bitwise operations, and format conversion. Useful for files, network packets, and low‑level data.
 
 > **Sink rule**  
-> `binary` instructions are **producers**. Bind results with a **sink**: `into`, `update`, or `save` (see `basics/sinks.md`).  
+> `binary` instructions are **producers**. Bind results with a **sink**: `into`, `update`, or `save` (see `core/sinks.md`).  
 > Destinations must be **`@name` (scalar)** or **`::name` (container)**; projections `::name:…` are **not** valid sink targets.
 >
 > - `into @/::` → create new binding (error if it exists)

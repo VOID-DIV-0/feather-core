@@ -1,100 +1,71 @@
-# GitHub Copilot Instructions
+# GitHub Copilot Instructions for Feather
 
-This project uses **Feather**, a custom Domain Specific Language (DSL) for scripting and automation with a focus on readability, safety, and cross-platform compatibility.
+This repository implements **Feather**, a custom DSL for scripting and automation, prioritizing readability, safety, and cross-platform compatibility. AI agents should follow these project-specific conventions and workflows to be productive immediately.
 
-## Core Principles
+## Architecture & Structure
 
-- English-like syntax with minimal symbols
-- Explicit over implicit (no embedded conditionals)
-- Strong type safety: records (`@variable`) and containers (`::container`)
-- Security-first with `vault`, `sensitive`, and `with risk`
-- All commands end with `.`
+- **Feather scripts** use `.sky` files (see `packages/feather-core-vscode-extension/examples/` for real scripts).
+- **Core language**: Rust crates in `packages/feather-core/` (tokenizer, parser, grammar), with a modular design for extensibility.
+- **Modules**: Each feature (e.g., `cabinet`, `vault`, `math`) is documented in `docs/modules/` and implemented as a language module.
+- **VS Code extension**: Syntax highlighting and language support in `packages/feather-core-vscode-extension/`.
+- **Documentation**: All language rules, patterns, and module APIs are in `docs/` (see especially `core/` and `modules/`).
 
-## When Suggesting Code
+## Feather Language Conventions
 
-**Assume:**
+- **English-like, minimal symbols**: Avoid brackets, semicolons, or embedded conditionals.
+- **Explicit logic**: Compute conditions first, then use `if`/`else`/`end` blocks.
+- **Type safety**: Use `@variable` for records (scalars), `::container` for structured data, and projections like `::container:field`.
+- **Security**: Use `vault`, `sensitive` for secrets and sensitive data.
+- **All commands end with `.`**
+- **Clauses**: `safe`, `sensitive`, `elevated`, `async` must appear at the start of a command.
+- **Signatures**: `trace`, `elapsed`, `timeout`, `silent`, `on <os>` can be combined at the end of commands (see `docs/core/signatures.md`).
+- **No embedded conditionals**: Always compute and store results before using them in flow control.
 
-- User is writing Feather DSL in `.sky` files
-- Refer to `docs/` for patterns and examples
-- Check `packages/feather-core-vscode-extension/examples/` for real usage
+## Developer Workflows
 
-**Follow Feather Syntax:**
+- **Build**: Use Cargo for Rust crates (`cargo build` in each `packages/feather-core-*` directory).
+- **Test**: Run `cargo test` in the relevant package directory. See `tests/` for Rust and `.sky` for script examples.
+- **Debug**: Use Rust's standard debugging tools for core, and VS Code for `.sky` scripts (with the extension).
+- **Extension packaging**: See `packages/feather-core-vscode-extension/README.md` for VSIX build/install steps.
 
-- Records: `@variable` (scalar values)
-- Containers: `::container` (structured data)
-- Projections: `::container:field`
-- Schema: `&schema_name`
-- Sealed: `!@constant` or `!::container:field`
-- Comments: `~` for single line
-- Keywords: `into`, `with`, `without`, `as`, `is`, `from`, `to`
-- Flow: `if`/`else`/`end`, `repeat`, `while`, `function`/`end`
-- Signatures: `trace`, `elapsed`, `timeout`, `silent`, `on <os>`
-- Clauses: `safe`, `sensitive`, `elevated`, `async`
+## Project-Specific Patterns
 
-**Do NOT Suggest:**
+- **Variable assignment**:
+  ```sky
+  'hello' into @text.
+  42 into @number.
+  ```
+- **Conditionals** (must compute first):
+  ```sky
+  math compare @value > '10' into @is_greater.
+  if @is_greater
+    say 'Value is greater than 10'.
+  end
+  ```
+- **Sensitive data**:
+  ```sky
+  vault lock 'password' with secret @pw.
+  vault unlock 'password' into @pw.
+  sensitive say @pw with risk.
+  ```
+- **Functions**:
+  ```sky
+  function greet
+    parameter 1 into @name.
+    say 'Hello, @{name}!'.
+    success.
+  end
+  greet 'Alice'.
+  ```
+- **Module calls with signatures**:
+  ```sky
+  cabinet read file 'data.txt' into @content trace elapsed timeout 5 seconds on linux.
+  ```
 
-- Embedded conditionals: ❌ `if @a > 5` → ✅ `math compare @a > '5' into @result.`
-- Python/JS/shell syntax unless explicitly requested
-- Semicolons or other terminators (except `.`)
-- Brackets except in specific contexts
+## Key Files & References
 
-## Common Patterns
+- `docs/` — Language rules, module APIs, and core patterns (see `core/` and `modules/` subfolders)
+- `packages/feather-core-vscode-extension/examples/` — Real Feather scripts
+- `README.md` — Project philosophy and goals
 
-### Variable Assignment
-
-```sky
-'hello' into @text.
-42 into @number.
-```
-
-### Conditionals (Must compute first)
-
-```sky
-math compare @value > '10' into @is_greater.
-if @is_greater
-  say 'Value is greater than 10'.
-end
-```
-
-### Module Calls with Signatures
-
-```sky
-cabinet read file 'data.txt' into @content trace elapsed timeout 5 seconds on linux.
-```
-
-### Sensitive Data
-
-```sky
-vault lock 'password' with secret @pw.
-vault unlock 'password' into @pw.
-sensitive say @pw with risk.
-```
-
-### Functions
-
-```sky
-function greet
-  parameter 1 into @name.
-  say 'Hello, @{name}!'.
-  success.
-end
-
-greet 'Alice'.
-```
-
-## Example Snippets
-
-- `cabinet append file 'login.log' with @log_entry with risk elapsed timeout 5 seconds.`
-- `table ::metrics into @table_view trace.`
-- `say 'I am on linux.' elapsed on linux.`
-- `text concat 'Hello' ' ' 'World' into @greeting.`
-- `bool all @condition1 @condition2 into @result.`
-
-## Key Documentation
-
-- [Basics](./docs/basics/) - Language fundamentals
-- [Modules](./docs/modules/) - Built-in modules
-- [Schemas](./docs/schemas/) - Type system
-- [Examples](./packages/feather-core-vscode-extension/examples/) - Real scripts
-
-For best results, always consult documentation before suggesting complex patterns.
+**For advanced patterns, always consult the relevant `docs/` page before suggesting code.**

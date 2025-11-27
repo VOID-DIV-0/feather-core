@@ -1,6 +1,6 @@
 # Schema `bool`
 
-Bool is a primitive scalar (numerical/textual) [schema](../basics/schema-0.0.1.md). It's expected to have either 'true', 'false' scalar value.
+Bool is a primitive scalar (numerical/textual) [schema](../core/schema-0.0.1.md). It's expected to have either 'true', 'false' scalar value.
 
 ## Declaration
 
@@ -30,6 +30,6 @@ say @my_var3. ~true
 ## Related Pages
 
 - [Module `bool` **v0.0.1**](../modules/bool-0.0.1.md)
-- [Clauses **v0.0.1**](../basics/clauses-0.0.1.md)
-- [Records **v0.0.1**](../basics/records-0.0.1.md)
-- [Schemas **v0.0.1**](../basics/schemas-0.0.1.md)
+- [Clauses **v0.0.1**](../core/clauses-0.0.1.md)
+- [Records **v0.0.1**](../core/records-0.0.1.md)
+- [Schemas **v0.0.1**](../core/schemas-0.0.1.md)

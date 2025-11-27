@@ -7,19 +7,19 @@ Only "versioned" component means they are "final" documentation
 
 - **WIP** [Quickstart Guide](./quickstart.md) — Get started with Feather scripting in minutes.
 
-# Basics
+# Core
 
-- **WIP** [Commands](./basics/commands.md) — The structure and anatomy of Feather commands.
-- [Results **v0.0.1** ](./basics/results.md) — How Feather handles script outcomes and result patterns.
-- **WIP** [Actions](./basics/actions.md) — Built-in instructions for controlling script flow and output.
-- **WIP** [Clauses](./basics/clauses.md) — Modifiers that change command behavior (safe, sensitive, elevated).
-- **WIP** [Clusters](./basics/clusters.md) — Grouping clauses for batch effect.
-- **WIP** [Data](./basics/data.md) — Literals, records, containers, and data handling.
-- **WIP** [Flow](./basics/flow.md) — Conditionals, loops, and control flow.
-- **WIP** [Functions](./basics/functions.md) — Defining and using functions, parameters, and return values.
-- **WIP** [Lenses](./basics/lenses.md) — Ephemeral views and type conversions.
-- **WIP** [Modifiers](./basics/modifiers.md) — Enhancing commands with options (with, without).
-- [Signatures **v0.0.1** ](./basics/signatures.md) — Platform targeting, telemetry, and execution control.
+- **WIP** [Clause](./core/clause.md) — Modifiers that change command behavior (safe, sensitive, elevated).
+- **WIP** [Commands](./core/commands.md) — The structure and anatomy of Feather commands.
+- [Results **v0.0.1** ](./core/results.md) — How Feather handles script outcomes and result patterns.
+- **WIP** [Actions](./core/actions.md) — Built-in instructions for controlling script flow and output.
+- **WIP** [Clusters](./core/clusters.md) — Grouping clauses for batch effect.
+- **WIP** [Data](./core/data.md) — Literals, records, containers, and data handling.
+- **WIP** [Flow](./core/flow.md) — Conditionals, loops, and control flow.
+- **WIP** [Functions](./core/functions.md) — Defining and using functions, parameters, and return values.
+- **WIP** [Lenses](./core/lenses.md) — Ephemeral views and type conversions.
+- **WIP** [Modifiers](./core/modifiers.md) — Enhancing commands with options (with, without).
+- [Signatures **v0.0.1** ](./core/signatures.md) — Platform targeting, telemetry, and execution control.
 
 # Modules
 
@@ -39,7 +39,7 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Script](./modules/script.md) — Running native scripts and commands.
 - **WIP** [Program](./modules/program.md) — Program execution and management.
 - **WIP** [System](./modules/system.md) — System-level operations and information.
-- [Global](./modules/globals.md) — Global-level definition for feather's script.
+- **WIP** [Global](./modules/globals.md) — Global-level definition for feather's script.
 
 ## Data Processing & Utilities
 
@@ -53,7 +53,7 @@ Only "versioned" component means they are "final" documentation
 ## Type
 
 - **WIP** [Decimal](./modules/decimal.md) — Decimal type.
-- [Binary **v0.0.1**](./modules/binary.md) — Binary module operations.
+- **WIP** [Binary **v0.0.1**](./modules/binary.md) — Binary module operations.
 - **WIP** [Bool](./modules/bool.md) — Boolean module operations.
 - **WIP** [Text](./modules/text.md) — Text manipulation and utilities.
 - **WIP** [Time](./modules/time.md) — Time and date operations.
@@ -63,9 +63,9 @@ Only "versioned" component means they are "final" documentation
 
 ## Schemas
 
-- [Bool **v0.0.1**](./schemas/bool.md)
-- [Integer **v0.0.1**](./schemas/integer.md)
-- [Decimal **v0.0.1**](./schemas/decimal.md)
+- **WIP** [Bool **v0.0.1**](./schemas/bool.md)
+- **WIP** [Integer **v0.0.1**](./schemas/integer.md)
+- **WIP** [Decimal **v0.0.1**](./schemas/decimal.md)
 
 # Examples
 
