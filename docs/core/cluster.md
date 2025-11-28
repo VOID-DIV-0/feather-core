@@ -1,3 +1,5 @@
+# Cluster
+
 Clause clusters must be flat. Nesting a clause cluster within another is not allowed.  
 If you need multiple clauses, combine them into a single cluster using multiple clause keywords:
 

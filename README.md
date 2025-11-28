@@ -4,7 +4,7 @@
 
 # What is Nekonomicon?
 
-It is a human readable language designed to be embedded in applications or used as a standalone, elegant, and fast scripting interface. It is written in Rust.
+Nekonomicon is a high-level scripting language designed for clarity, safety, and composability. It aims to make automation and scripting tasks straightforward and accessible, even for those without extensive programming experience. With its English-like syntax and strong type safety, nekonomicon prioritizes readability and maintainability over brevity or cryptic shorthand.
 
 # Why use Nekonomicon?
 
@@ -15,14 +15,13 @@ While this design approach makes nekonomicon scripts harder to write quickly, it
 Key principles behind nekonomicon's design include:
 
 - Clear and explicit logic that prioritizes understanding over brevity
-- Strong type safety to catch errors early
 - Secure-by-default operations to enhance script safety
-- Composability that encourages building complex workflows from simple, understandable parts
-- Readability-first rules that make scripts approachable for all users
+- Predictable behavior with minimal surprises by avoiding complex one-liners
+- Easy onboarding for non-programmers and junior developers through English-like syntax
 
 # Goals
 
-To create an elegant, fast and reliable library and REPL to make scripting easy, intuitive and simple. Even if nekonomicon might not be able to do anything, the goal is to make everything in the best possible way
+To create an elegant, fast and reliable library and REPL to make scripting easy, intuitive and simple. Even if nekonomicon might not be able to do anything, the goal is to make everything in the best possible way. The vision is to use it mostly for automation, scripting and devops tasks.
 
 # Demo
 
@@ -30,7 +29,7 @@ To create an elegant, fast and reliable library and REPL to make scripting easy,
 
 # Performance Philosophy
 
-nekonomicon is not designed to compete with low-level scripting engines or compiled languages in raw speed. Instead, it prioritizes clarity, safety, and composability — values that matter most in real-world automation and tooling workflows.
+Nekonomicon is **not** designed to compete with low-level scripting engines or compiled languages in raw speed. Instead, it prioritizes clarity, safety, and composability — values that matter most in real-world automation and tooling workflows.
 
 We deliberately accept a slight performance tradeoff to provide:
 

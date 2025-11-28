@@ -76,7 +76,7 @@ success.
 
 The result would be something like this on a Mac:
 
-```log
+```spell
 [WARN][FAIL] Command 'WMIC Path Win32_Battery Get EstimatedChargeRemaining' must be run on Windows.
 [WARN][FAIL] Command 'acpi -b' must be run on Linux.
 Now checking battery status...
