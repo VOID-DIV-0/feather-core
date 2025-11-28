@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="./logo.png" width="33%" height="33%" alt="Nekonomicon Logo">
+  <img src="./logo.png" width="50%" height="33%" alt="Nekonomicon Logo">
 </div>
+
+> **!Important:** The image is generated using [DALL·E](https://openai.com/dall-e-2) for the purpose of temporary concept illustration.
 
 # What is Nekonomicon?
 
@@ -18,6 +20,8 @@ Key principles behind nekonomicon's design include:
 - Secure-by-default operations to enhance script safety
 - Predictable behavior with minimal surprises by avoiding complex one-liners
 - Easy onboarding for non-programmers and junior developers through English-like syntax
+
+> **!Note:** Nekonomicon is currently in early development. The language and its features are subject to change as we refine the design and gather user feedback. Also its currently unusable since the documentation is the primary focus at this stage.
 
 # Goals
 

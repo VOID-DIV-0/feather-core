@@ -6,6 +6,20 @@ status: stable
 
 # CLI Usage
 
+## Overview
+
+| Command         | Description                              |
+| --------------- | ---------------------------------------- |
+| `neko purr`     | Get the version of the neko interpreter  |
+| `neko help`     | Display help information                 |
+| `neko conjure`  | Run a nekonomicon script (.spell file)   |
+| `neko summon`   | Install a nekonomicon module             |
+| `neko unsummon` | Uninstall a nekonomicon module           |
+| `neko grimoire` | List installed nekonomicon modules       |
+| `neko groom`    | Validate/lint a nekonomicon script       |
+| `neko attune`   | Format a nekonomicon script or directory |
+| `neko brew`     | Start the interactive nekonomicon REPL   |
+
 ## Getting Version Info
 
 To check the version of the neko interpreter installed on your system, use the following command:
