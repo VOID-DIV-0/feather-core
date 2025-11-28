@@ -1,13 +1,14 @@
-![logo](./~.png)
+<div align="center">
+  <img src="./logo.png" width="33%" height="33%" alt="Nekonomicon Logo">
+</div>
 
-# What is nekonomicon?
+# What is Nekonomicon?
 
-nekonomicon is a lightweight scripting and automation language with a built-in interactive mode called Sky.
-It is designed to be embedded in applications or used as a standalone, elegant, and fast scripting interface. It is written in Rust.
+It is a human readable language designed to be embedded in applications or used as a standalone, elegant, and fast scripting interface. It is written in Rust.
 
-# Why nekonomicon?
+# Why use Nekonomicon?
 
-nekonomicon's strength lies in its core architectural principles and design choices that emphasize clarity, safety, and composability. The language enforces strong type safety and includes secure-by-default features that protect users from common scripting pitfalls. Its readability-first rules make scripts accessible and maintainable, even for those unfamiliar with nekonomicon.
+Nekonomicon's strength lies in its core architectural principles and design choices that emphasize clarity, safety, and composability. The language enforces strong type safety and includes secure-by-default features that protect users from common scripting pitfalls. Its readability-first rules make scripts accessible and maintainable, even for those unfamiliar with nekonomicon.
 
 While this design approach makes nekonomicon scripts harder to write quickly, it makes them much easier to read, understand, and maintain over time. This balance ensures that nekonomicon is a reliable tool for automation and scripting tasks, fostering confidence and reducing errors.
 

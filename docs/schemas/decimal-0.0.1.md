@@ -8,7 +8,7 @@ Decimal is a primitive scalar schema for floating point number.
 
 **_Examples_**
 
-```sky
+```spell
 4.5 into @my_var.
 -9999.0 into @my_var2.
 '0' into @my_var3.

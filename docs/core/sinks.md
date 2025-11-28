@@ -16,7 +16,7 @@ When you seal a container using !::container, all projections (fields, elements)
 
 **Binding into an unsealed variable**
 
-```sky
+```spell
 'hello' into @greeting.
 say @greeting.              ~ Output: hello
 
@@ -26,7 +26,7 @@ say @greeting.              ~ Output: hi
 
 **Binding into a sealed variable**
 
-```sky
+```spell
 'hello' into !@hello. ~ Make the variable hello sealed.
 string concat !@hello ' world' into @result. ~ OK: Reading from sealed variable
 'new' into !@hello. ~ ERROR: Cannot modify sealed variable
@@ -34,7 +34,7 @@ string concat !@hello ' world' into @result. ~ OK: Reading from sealed variable
 
 **Binding into an unsealed container**
 
-```sky
+```spell
 array create 'a', 'b', 'c' into ::my_array.
 say ::my_array:(0). ~ Output: a
 say ::my_array:(1). ~ Output: b
@@ -43,7 +43,7 @@ say ::my_array:(2). ~ Output: c
 
 **Binding into a sealed container**
 
-```sky
+```spell
 array create 'a', 'b', 'c' into !::my_array.
 say !::my_array:(0). ~ Output: a (reading is OK)
 say !::my_array:(1). ~ Output: b
@@ -52,7 +52,7 @@ say !::my_array:(1). ~ Output: b
 
 **Binding into a projection**
 
-```sky
+```spell
 'localhost' into ::config:database:host.
 say ::config:database:host. ~ Output: localhost
 
@@ -74,33 +74,33 @@ When combined with `into`, validation and assignment happen atomically - only va
 
 **Basic validation:**
 
-```sky
+```spell
 @config is &settings_schema.         ~ Fails script if @config doesn't match schema
 ```
 
 **Container validation:**
 
-```sky
+```spell
 ::user_data is &user_schema.         ~ Validates entire container
 ::config:database is &db_schema.     ~ Validates specific field
 ```
 
 **Validation with error handling:**
 
-```sky
+```spell
 safe @input is &input_schema.        ~ Continue on validation failure
 ```
 
 **Validation errors:**
 
-```sky
+```spell
 @invalid_data is &user_schema.       ~ ERROR: Script fails if validation fails
 safe @invalid_data is &user_schema.  ~ Script continues, validation result in return code
 ```
 
 **Combining with other sinks:**
 
-```sky
+```spell
 'john@example.com' into @email.
 @email is &email_schema.             ~ Validate after assignment
 
@@ -110,7 +110,7 @@ safe @invalid_data is &user_schema.  ~ Script continues, validation result in re
 
 **Validate-and-assign (atomic operation):**
 
-```sky
+```spell
 user_input 'email' is &email_schema into @email.           ~ Validate then assign to mutable
 config_read 'api_key' is &api_key_schema into !@api_key.   ~ Validate then seal
 safe @raw_data is &data_schema into @clean_data.           ~ Continue on validation failure
@@ -134,14 +134,14 @@ safe @raw_data is &data_schema into @clean_data.           ~ Continue on validat
 
 ### Double Sealing
 
-```sky
+```spell
 'value' into !@constant.
 'new' into !@constant.    ~ ERROR: Cannot modify sealed binding
 ```
 
 ### Validation with Assignment
 
-```sky
+```spell
 'invalid' is &user_schema into @user.         ~ ERROR: Validation fails, @user not created
 safe 'invalid' is &user_schema into @user.    ~ Script continues, @user remains unset
 'valid_data' is &user_schema into !@user.     ~ Validates then seals the binding
@@ -149,7 +149,7 @@ safe 'invalid' is &user_schema into @user.    ~ Script continues, @user remains 
 
 ### Reading vs Writing Sealed Bindings
 
-```sky
+```spell
 'data' into !@sealed.
 say !@sealed.             ~ OK: Reading with ! prefix
 say @sealed.              ~ OK: Reading without ! prefix (both work)
@@ -158,7 +158,7 @@ say @sealed.              ~ OK: Reading without ! prefix (both work)
 
 ### Projection Access Rules
 
-```sky
+```spell
 'host' into !::config:database:host.     ~ ERROR: Cannot seal projection directly
 'host' into ::config:database:host.      ~ OK: Mutable projection
 array create into !::data.               ~ Sealed container
@@ -170,7 +170,7 @@ say !::data:(0).                         ~ OK: Reading from sealed container
 
 ## Complete Example
 
-```sky
+```spell
 ~ Configuration (immutable)
 'https://api.example.com' is &url_schema into !@api_base.    ~ Validate and seal
 'production' is &environment_schema into !@environment.     ~ Validate and seal

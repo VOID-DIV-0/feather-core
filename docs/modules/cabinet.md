@@ -41,38 +41,38 @@ It provides a simple, composable interface for common filesystem operations—su
 
 ### List Files
 
-```sky
+```spell
 cabinet list in '/Users/alex/Documents' with hidden with depth '2' filter '[.txt]'
 ```
 
 ### Read a File
 
-```sky
+```spell
 cabinet read file '/Users/alex/Documents/notes.txt' into @content
 say @content
 ```
 
 ### Write to a File
 
-```sky
+```spell
 cabinet write file '/Users/alex/Documents/notes.txt' with content 'Hello, nekonomicon!'
 ```
 
 ### Delete a File
 
-```sky
+```spell
 safe cabinet delete file '/Users/alex/Documents/old.txt'
 ```
 
 ### Create a Directory
 
-```sky
+```spell
 cabinet create folder '/Users/alex/Documents/new_folder'
 ```
 
 ### Move or Copy Files
 
-```sky
+```spell
 cabinet move file '/Users/alex/Documents/a.txt' to '/Users/alex/Documents/b.txt'
 cabinet copy file '/Users/alex/Documents/a.txt' to '/Users/alex/Documents/copy.txt'
 ```

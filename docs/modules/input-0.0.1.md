@@ -12,7 +12,7 @@ Input module is an extension of the reserve container `::input`. It provides add
 
 # Examples
 
-```sky
+```spell
 ~ HelloWorld.purr
 ~~~~~~~~~~~~~~~~~
 global require modules 'input' 'rule' 'say'.

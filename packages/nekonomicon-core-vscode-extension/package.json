@@ -1,7 +1,7 @@
 {
   "name": "nekonomicon-syntax",
-  "displayName": "nekonomicon Sky Syntax",
-  "description": "TextMate grammar for nekonomicon (.sky) scripting language.",
+  "displayName": "nekonomicon spell Syntax",
+  "description": "TextMate grammar for nekonomicon (.spell) scripting language.",
   "version": "0.0.3",
   "publisher": "your-name",
   "engines": {
@@ -13,7 +13,7 @@
       {
         "id": "nekonomicon",
         "aliases": ["nekonomicon", "nekonomicon"],
-        "extensions": [".sky"],
+        "extensions": [".spell"],
         "configuration": "./language-configuration.json"
       }
     ],

@@ -45,7 +45,7 @@ end
 
 ### 1. Positional Parameters
 
-```sky
+```spell
 function add
   parameter 1 into @a.
   parameter 2 into @b.
@@ -59,7 +59,7 @@ add 5 10.  # Simple, ordered arguments
 
 ### 2. Named Parameters
 
-```sky
+```spell
 function deploy_service
   parameter environment into !@env.
   parameter version into !@ver.
@@ -76,7 +76,7 @@ deploy_service with environment 'production'
 
 ### 3. Mixed Parameters
 
-```sky
+```spell
 function greet
   parameter 1 into !@name.          # Required positional
   parameter 2 into @surname.        # Required positional
@@ -91,7 +91,7 @@ greet 'John' 'Doe' with title 'Dr.' with formal true. # All parameters
 
 ### 4. Optional Parameters
 
-```sky
+```spell
 function connect_db
   parameter 1 into !@host.
   safe parameter 2 into @port.      # Optional positional
@@ -114,7 +114,7 @@ connect_db 'localhost' with timeout '30s'.    # Default port, custom timeout
 
 ### 5. Sealed Parameters and Validation
 
-```sky
+```spell
 import assert.
 
 function secure_operation

@@ -10,7 +10,7 @@ status: stable
 
 Clauses are optional instructions placed at the start of a command. They alter the behavior of the targeted command until the terminator. Clauses let you control error handling, parallelism, security, and permissions for each command in a simple, readable way.
 
-Clauses can be applied to both built-in commands and user-defined functions. They can also be grouped into [clusters](./clusters.md) for applying the same behavior to multiple commands.
+Clauses can be applied to both built-in commands and user-defined functions. They can also be grouped with [clusters](./clusters.md) for applying the same behavior to multiple commands.
 
 ## Summary Table
 
@@ -26,7 +26,7 @@ Clauses can be applied to both built-in commands and user-defined functions. The
 
 ## Anatomy
 
-`[clause1, clauseN ...] <command>.`: Clauses must always be at the beginning of a command. Multiple clauses can be grouped as a [cluster](./clusters.md). There is no order requirement when using multiple clauses, but it is recommended to keep a consistent order for readability. Clause effects end at the command terminator.
+There is no order requirement when using multiple clauses, but it is recommended to keep a consistent order for readability. Clause effects end at the command terminator.
 
 The recommended order is:
 
@@ -39,7 +39,7 @@ The recommended order is:
 
 Clauses can be combined in a single command:
 
-```sky
+```spell
 sensitive safe async elevated cabinet read file '/secure/data.txt' into @sensitive_content.
 ```
 
@@ -60,7 +60,7 @@ Safe clause allows a command to fail without halting the entire script. Instead 
 
 Here's an example of using the `safe` clause to check battery status across different operating systems without halting the script if a command fails:
 
-```sky
+```spell
 2 into !@count. ~ sealed record.
 
 ~ While loop to check battery status every 5 seconds.
@@ -100,7 +100,7 @@ When a command is marked with `async`, it starts executing immediately, and the 
 
 Here is an example of using the `async` clause to run two long-running tasks in parallel, the wait command is used to wait all currently running async tasks to complete before proceeding:
 
-```sky
+```spell
 async 'task1' script 'long_running_task_1.sh'.
 async 'task2' script 'long_running_task_2.sh'.
 say 'Both tasks started asynchronously.'.
@@ -110,7 +110,7 @@ success.
 
 Here's an example of using the `async` clause to run commands in parallel. This example demonstrates fetching data from two different URLs simultaneously:
 
-```sky
+```spell
 function fn_world
   wait 5 seconds.
   say 'world'.
@@ -135,7 +135,7 @@ It's possible to wait for a specific set of async tasks to complete using `wait 
 
 Here are examples of both:
 
-```sky
+```spell
 import cabinet.
 
 async 'file1' cabinet read file 'my_file1.txt'.
@@ -144,7 +144,7 @@ wait all 'file1' 'file2'.
 success.
 ```
 
-```sky
+```spell
 import cabinet.
 
 async 'file1' cabinet read file 'my_file1.txt'.
@@ -177,7 +177,7 @@ By default, all commands are treated as egress-hostile, which is unsafe for hand
 
 The `sensitive` clause is used to explicitly mark commands that handle sensitive data, allowing the use of vaulted variables and ensuring that such data is treated with the necessary security precautions. It helps prevent accidental exposure of sensitive information by enforcing restrictions on how and where this data can be used.
 
-```sky
+```spell
 import text.
 
 sensitive ask 'What is my password?' with mask into !@ephemeral_pw.
@@ -190,7 +190,7 @@ sensitive text length !@ephemeral_pw into !@length.
 success.
 ```
 
-```sky
+```spell
 sensitive vault lock 'my_password' with 'Password123$'.
 
 sensitive vault unlock 'my_password' into !@retrieved_password.
@@ -226,7 +226,7 @@ When nekonomicon encounters an `elevated` command:
 
 ### Examples
 
-```sky
+```spell
 ~ Install system packages with elevated permissions
 elevated script 'apt update && apt install curl -y' on linux.
 elevated script 'choco install curl -y' on windows.
@@ -249,7 +249,7 @@ If the script is not running with elevated privileges, it will fail with:
 ## Platform Considerations
 
 - **`safe` with `on <os>`**: Failures on non-matching platforms are automatically ignored without needing `safe`
-  ```sky
+  ```spell
   safe script 'pmset -g batt' on mac.  ~ Safe + platform filter
   ```
 - **`async` limitations**: Some modules may not support async execution. Check module documentation.

@@ -8,7 +8,7 @@ Bool is a primitive scalar (numerical/textual) [schema](../core/schema-0.0.1.md)
 
 **_Examples_**
 
-```sky
+```spell
 'true' into @my_var.
 '1' into @my_var2.
 'True' into @my_var3.

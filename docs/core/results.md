@@ -38,7 +38,7 @@ Use `success` to explicitly signal that the script or the function has finished 
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 global require modules 'bool' 'say'.
@@ -62,7 +62,7 @@ fail.
 
 The `fail` instruction indicates the script or the function as failed either due to an error.
 
-If the result is not defined at the end of a sky script or of a function, it's automatically assumed that it was a fail.
+If the result is not defined at the end of a spell script or of a function, it's automatically assumed that it was a fail.
 
 **_Properties_**
 
@@ -70,7 +70,7 @@ If the result is not defined at the end of a sky script or of a function, it's a
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 global require modules 'say'.
@@ -83,7 +83,7 @@ say 'Hello World!'. ~ script will fails due to missing success.
 [ERRO] The script has failed, no result defined.
 ```
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 global require modules 'say'.

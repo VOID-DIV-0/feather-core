@@ -1,7 +1,7 @@
 {
   "name": "nekonomicon",
   "scopeName": "source.nekonomicon",
-  "fileTypes": ["sky"],
+  "fileTypes": ["spell"],
   "patterns": [
     {
       "name": "string.quoted.single.nekonomicon",

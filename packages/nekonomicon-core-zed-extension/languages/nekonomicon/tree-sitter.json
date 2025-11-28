@@ -4,7 +4,7 @@
       "name": "nekonomicon",
       "camelcase": "nekonomicon",
       "scope": "source.nekonomicon",
-      "file-types": ["sky"],
+      "file-types": ["spell"],
       "path": ".",
       "external-files": []
     }

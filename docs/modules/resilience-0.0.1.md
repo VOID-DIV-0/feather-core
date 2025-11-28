@@ -14,7 +14,7 @@ The `resilience` module provides advanced error handling and reliability feature
 
 ### Retry with Backoff and Error Evaluation
 
-```sky
+```spell
 
 function fn_status
   http get 'https://api.example.com/status' into ::res.
@@ -39,7 +39,7 @@ end
 
 ### Timeout
 
-```sky
+```spell
 
 function fn_post
   http post 'https://slow.example.com' with @payload into ::res.
@@ -57,7 +57,7 @@ end
 
 ### Fallback
 
-```sky
+```spell
 
 function fn_primary
   http get 'https://primary/api' into ::result.
@@ -83,7 +83,7 @@ end
 
 ### Circuit Breaker
 
-```sky
+```spell
 
 function fn_pay
   http get 'https://backup/api' into ::result.

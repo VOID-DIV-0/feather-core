@@ -14,7 +14,7 @@ Examples:
 
 nekonomicon supports multiline commands using indentation. All commands, whether single or multiline, must end with a dot (.) to mark completion.
 
-```sky
+```spell
 safe sensitive cabinet delete file '/root/very/long/folder' with force as result into ::operation_result silent chrono on linux.
 say 'that is a long command!'.
 success.
@@ -22,7 +22,7 @@ success.
 
 Compared to
 
-```sky
+```spell
 safe sensitive cabinet delete file '/root/very/long/folder' with force
                                                             into ::result
                                                             silent chrono

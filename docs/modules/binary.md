@@ -30,14 +30,14 @@ Instructions for manipulating binary data: encoding, decoding, bitwise operation
 
 ### Encode → string
 
-```sky
+```spell
 binary encode 'Hello World!' format 'base64' into @encoded.
 say @encoded.  ~ 'SGVsbG8gV29ybGQh'.
 ```
 
 ### Encode → binary container (multiple projections)
 
-```sky
+```spell
 binary encode 'Hello World!' into ::bin.
 say ::bin:base64. ~ 'SGVsbG8gV29ybGQh'.
 say ::bin:hex.    ~ '48656c6c6f20576f726c6421'.
@@ -46,28 +46,28 @@ say ::bin:raw.    ~ 'Hello World!'.
 
 ### Decode base64 to text
 
-```sky
+```spell
 binary decode 'SGVsbG8gV29ybGQh' format 'base64' into @decoded.
 say @decoded. ~ 'Hello World!'.
 ```
 
 ### Bitwise AND
 
-```sky
+```spell
 binary bitwise and '10101010' '11001100' into @result.
 say @result. ~ '10001000'.
 ```
 
 ### Bitwise NOT
 
-```sky
+```spell
 binary not '10101010' into @result.
 say @result. ~ '01010101'.
 ```
 
 ### Shift left
 
-```sky
+```spell
 binary shift '10101010' left 2 into @result.
 say @result. ~ '1010101000'.
 ```
@@ -78,7 +78,7 @@ say @result. ~ '1010101000'.
 
 A binary container holds raw data plus common projections.
 
-```sky
+```spell
 schema &Binary
   'hex'     @hex_value
   'raw'     @raw_value

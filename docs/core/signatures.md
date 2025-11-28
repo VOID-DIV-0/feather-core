@@ -40,7 +40,7 @@ Restricts command execution to a specific operating system. Only runs the comman
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 
@@ -63,7 +63,7 @@ Prints the command and its arguments before execution. Useful for debugging and 
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 
@@ -89,7 +89,7 @@ Measures and reports the time taken to execute a command. Useful for profiling a
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 
@@ -116,7 +116,7 @@ Sets a maximum allowed execution time for a command. If the command does not com
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 
@@ -139,7 +139,7 @@ Silent provide a way to reduce the noise of the output by hiding the output when
 
 **_Examples_**
 
-```sky
+```spell
 ~ Script.purr
 ~~~~~~~~~~~~~
 

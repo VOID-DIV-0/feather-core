@@ -28,9 +28,9 @@ Show the basic syntax or command structure.
 
 ### Examples
 
-Provide one or more code examples (use `sky` code block for nekonomicon scripts).
+Provide one or more code examples (use `spell` code block for nekonomicon scripts).
 
-```sky
+```spell
 example code here
 ```
 

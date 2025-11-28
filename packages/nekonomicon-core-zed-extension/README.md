@@ -1,10 +1,10 @@
 # nekonomicon Syntax Extension for Zed
 
-Syntax highlighting and language support for nekonomicon (`.sky`) scripting language in [Zed](https://zed.dev/).
+Syntax highlighting and language support for nekonomicon (`.spell`) scripting language in [Zed](https://zed.dev/).
 
 ## Features
 
-- Syntax highlighting for `.sky` files
+- Syntax highlighting for `.spell` files
 - Comment support (line comments with `~`)
 - Recognition of:
   - Keywords: `if`, `else`, `end`, `repeat`, `while`, `success`, `failure`
@@ -41,11 +41,11 @@ Once published to the Zed extension registry:
 
 ## Usage
 
-Open any `.sky` file in Zed and the syntax highlighting will be automatically applied.
+Open any `.spell` file in Zed and the syntax highlighting will be automatically applied.
 
 ### Example nekonomicon Code
 
-```sky
+```spell
 ~ This is a comment
 'Hello, World!' into @greeting.
 

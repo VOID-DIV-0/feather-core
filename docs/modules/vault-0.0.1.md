@@ -60,26 +60,26 @@ Thi
 
 ### Store secret in Vault for reuse
 
-```sky
+```spell
 vault lock 'PASSWORD_DEV' with secret @ephemeral_pw.
 ```
 
 ### Bind ENV variables starting with DB\_ into Vault
 
-```sky
+```spell
 vault bind environment with filter 'DB_*'.
 ```
 
 ### Retrieve secrets from Vault
 
-```sky
+```spell
 vault unlock 'PASSWORD_DEV' into @user_password.
 vault unlock 'DB_PASS' into @db_secret.
 ```
 
 ### Egress requires with risk
 
-```sky
+```spell
 sensitive say @user_password with risk.
 sensitive say @db_secret with risk.
 ```

@@ -3,7 +3,7 @@ If you need multiple clauses, combine them into a single cluster using multiple 
 
 ✅ Valid:
 
-```sky
+```spell
 safe sensitive
   script ...
 end
@@ -17,7 +17,7 @@ end
 
 ### ✅ Valid Clause with Control Flow
 
-```sky
+```spell
 safe while true
   script 'do thing'
 end
@@ -25,7 +25,7 @@ end
 
 ### ❌ Invalid Clause Cluster with Control Flow
 
-```sky
+```spell
 safe
   while true
     script 'do thing'
@@ -39,7 +39,7 @@ Clause clusters are not a general-purpose block wrapper. They are a shorthand fo
 
 #### Script
 
-```sky
+```spell
 'my password' into vault 'pass'
 'my cred' into vault 'cred'
 
@@ -60,7 +60,7 @@ end
 
 #### Script
 
-```sky
+```spell
 safe repeat 5
    this is invalid instruction
 end

@@ -75,7 +75,7 @@ No parentheses are supported. For complex calculations, break into multiple line
 
 ### Arithmetic
 
-```sky
+```spell
 solve 5 + 3 into @sum.              ~ 8
 solve @price * @qty into @total.
 solve @balance - @cost into @remain.
@@ -85,7 +85,7 @@ solve 100 / 4 into @quarter.        ~ 25
 
 ### Comparison
 
-```sky
+```spell
 solve @a > @b into @is_greater.
 solve @score == 100 into @perfect.
 solve @x + @y <= 10 into @within_limit.
@@ -93,7 +93,7 @@ solve @x + @y <= 10 into @within_limit.
 
 ### Chaining Calculations
 
-```sky
+```spell
 solve @a + @b into @sum.
 solve @sum * 2 into @double.
 solve @double == 20 into @is_twenty.

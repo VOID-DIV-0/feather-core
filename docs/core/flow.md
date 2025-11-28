@@ -42,7 +42,7 @@ nekonomicon supports straightforward flow control with English-like keywords.
 
 Use `if` for conditional logic. `else if` and `else` can be used for additional branches. Always close the block with `end`.
 
-```sky
+```spell
 
 solve @value > 10 into @greater_than_10.
 solve @value > 5 into @greater_than_5.
@@ -64,7 +64,7 @@ end
 
 Repeat a block a fixed number of times. Close with `end`.
 
-```sky
+```spell
 repeat @count
   say 'looping'
 end
@@ -74,7 +74,7 @@ end
 
 Repeat a block while a condition is true.
 
-```sky
+```spell
 while @count > '0'
   say 'count is @{count}'
   decrease @count to '1'
@@ -85,7 +85,7 @@ end
 
 Increment or decrease a value up to or down to a target, executing the block each step.
 
-```sky
+```spell
 increase @i by '2' to '10'
   say 'increase: @{i}'
 end

@@ -18,7 +18,7 @@ nekonomicon supports a module that provide modifier options that have effects on
 
 **_Examples_**
 
-```sky
+```spell
 global require nekonomicon >= '0.0.1'.
 ```
 
@@ -32,7 +32,7 @@ global require nekonomicon >= '0.0.1'.
 
 **_Examples_**
 
-```sky
+```spell
 global require 'cabinet' >= '0.0.1'.
 global require 'text' >= '1.5.0'.
 ```
@@ -55,7 +55,7 @@ global require 'text' >= '1.5.0'.
 
 **_Examples_**
 
-```sky
+```spell
 global set silent to true.
 global set timeout to 5 seconds.
 global set safe to true.
@@ -79,7 +79,7 @@ global set safe to true.
 
 **_Examples_**
 
-```sky
+```spell
 global set trace to true.
 
 ~ ...

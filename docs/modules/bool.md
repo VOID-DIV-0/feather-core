@@ -98,7 +98,7 @@ Here its structure
   - binary: ['1'|'0']
   - value: ['true' | 'false' | '1' | '0']
 
-```sky
+```spell
 'true' as bool into ::boolean1.
 '0' as bool into ::boolean2.
 

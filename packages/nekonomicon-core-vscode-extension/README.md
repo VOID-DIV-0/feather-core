@@ -1,6 +1,6 @@
-# nekonomicon Sky Syntax
+# nekonomicon spell Syntax
 
-TextMate grammar for nekonomicon scripting language (`.sky` files).
+TextMate grammar for nekonomicon scripting language (`.spell` files).
 
 - Place this folder in your VS Code extensions directory or open as a project and run via the Extension Development Host.
 - Provides basic highlighting for keywords, variables, strings, and comments.

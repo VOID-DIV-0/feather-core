@@ -23,7 +23,7 @@ Data can be in a form of literals. All literals must be wrapped around single qu
 
 **_Example_**
 
-```sky
+```spell
 say 'this is a single line \'literals\''.
 
 success.
@@ -35,7 +35,7 @@ nekonomicon also supports **multiline literals** using the same single-quote syn
 
 **_Example_**
 
-```sky
+```spell
 'This is
 a multiline
 string.' into @text_block.
@@ -49,7 +49,7 @@ nekonomicon supports numerical literals. They do not require the string quote sy
 
 **_Example_**
 
-```sky
+```spell
 say 0.1.
 say '4'.
 
@@ -62,7 +62,7 @@ nekonomicon supports boolean literals. They do not require the string quote synt
 
 **_Example_**
 
-```sky
+```spell
 say true.
 say 'true'.
 
@@ -79,7 +79,7 @@ Records are immutable and constant "variable" that act as string content. record
 
 **_Example_**
 
-```sky
+```spell
 3333.45 into @var_1.
 -1 into @var_2.
 'This is a string' into @var_3.
@@ -110,7 +110,7 @@ success @var_3.
 
 Even if most of the time string are use on the superficial way, most instruction will use
 
-```sky
+```spell
 container create 'user'
   add item 'id' value 'alex_00001'
 
@@ -124,7 +124,7 @@ container create 'user'
 end
 ```
 
-```sky
+```spell
 container into ::my_list
   add item 'a'.
   add item 'b'.
@@ -136,7 +136,7 @@ say ::my_list:3 ~ 'c'
 say ::my_list:'-5' ~ '-5'
 ```
 
-```sky
+```spell
 container into ::my_dictionary
   add map 'key1' 'value 1'.
   add map 'key2' '0'.
@@ -148,7 +148,7 @@ say ::my_dictionary:key2 ~ '0'.
 say ::my_dictionary:key3 ~ '3.3333'.
 ```
 
-```sky
+```spell
 container into ::my_own_dataset
   add map 'key1' 'Name'.
 
@@ -167,7 +167,7 @@ say ::my_own_dataset:my_container:1 ~ '1'.
 
 Containers are mutable and can be reopened by using `open`
 
-```sky
+```spell
 container into ::my_list
   add item 'a'.
   add item 'b'.
@@ -189,7 +189,7 @@ say ::my_list:c ~ not found!
 
 You can turn any string literal / record into a container by using lenses
 
-```sky
+```spell
   '5' into @my_number
   @my_number > 5 as boolean into ::my_boolean
 
@@ -198,7 +198,7 @@ You can turn any string literal / record into a container by using lenses
   say ::my_boolean ~ {binary '0' , verbose 'false'}
 ```
 
-```sky
+```spell
   'hello world' into @lowercase.
 
   @lowercase as uppercase into @record ~ convert uppercase container into its string record.
@@ -212,7 +212,7 @@ You can turn any string literal / record into a container by using lenses
 
 Behavior of operators instructions can change depending if an item is lensed into a container or stayed as record
 
-```sky
+```spell
 '5' into @my_number
 
 say @my_number + '5' ~ It would be 55
@@ -235,7 +235,7 @@ This example shows how to return a container as the result of a function and acc
 
 **Script:**
 
-```sky
+```spell
 ~ ~ open json file and add John name
 ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~ function #read_file

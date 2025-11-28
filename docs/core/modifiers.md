@@ -12,7 +12,7 @@ Modifier options differ for each module or core component.
 
 Examples:
 
-```sky
+```spell
 cabinet file list
   with depth '3'
   with hidden
@@ -22,6 +22,6 @@ cabinet file list
 
 This replaces obscure flags with self-explanatory modifiers. You can also chain them inline:
 
-```sky
+```spell
 cabinet file list with depth '3' with hidden without extension filter '[A-Za-z]'
 ```

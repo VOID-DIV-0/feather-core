@@ -4,7 +4,7 @@ This repository implements **nekonomicon**, a custom DSL for scripting and autom
 
 ## Architecture & Structure
 
-- **nekonomicon scripts** use `.sky` files (see `packages/nekonomicon-core-vscode-extension/examples/` for real scripts).
+- **nekonomicon scripts** use `.spell` files (see `packages/nekonomicon-core-vscode-extension/examples/` for real scripts).
 - **Core language**: Rust crates in `packages/nekonomicon-core/` (tokenizer, parser, grammar), with a modular design for extensibility.
 - **Modules**: Each feature (e.g., `cabinet`, `vault`, `math`) is documented in `docs/modules/` and implemented as a language module.
 - **VS Code extension**: Syntax highlighting and language support in `packages/nekonomicon-core-vscode-extension/`.
@@ -24,32 +24,32 @@ This repository implements **nekonomicon**, a custom DSL for scripting and autom
 ## Developer Workflows
 
 - **Build**: Use Cargo for Rust crates (`cargo build` in each `packages/nekonomicon-core-*` directory).
-- **Test**: Run `cargo test` in the relevant package directory. See `tests/` for Rust and `.sky` for script examples.
-- **Debug**: Use Rust's standard debugging tools for core, and VS Code for `.sky` scripts (with the extension).
+- **Test**: Run `cargo test` in the relevant package directory. See `tests/` for Rust and `.spell` for script examples.
+- **Debug**: Use Rust's standard debugging tools for core, and VS Code for `.spell` scripts (with the extension).
 - **Extension packaging**: See `packages/nekonomicon-core-vscode-extension/README.md` for VSIX build/install steps.
 
 ## Project-Specific Patterns
 
 - **Variable assignment**:
-  ```sky
+  ```spell
   'hello' into @text.
   42 into @number.
   ```
 - **Conditionals** (must compute first):
-  ```sky
+  ```spell
   math compare @value > '10' into @is_greater.
   if @is_greater
     say 'Value is greater than 10'.
   end
   ```
 - **Sensitive data**:
-  ```sky
+  ```spell
   vault lock 'password' with secret @pw.
   vault unlock 'password' into @pw.
   sensitive say @pw with risk.
   ```
 - **Functions**:
-  ```sky
+  ```spell
   function greet
     parameter 1 into @name.
     say 'Hello, @{name}!'.
@@ -58,7 +58,7 @@ This repository implements **nekonomicon**, a custom DSL for scripting and autom
   greet 'Alice'.
   ```
 - **Module calls with signatures**:
-  ```sky
+  ```spell
   cabinet read file 'data.txt' into @content trace elapsed timeout 5 seconds on linux.
   ```
 

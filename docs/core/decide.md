@@ -64,7 +64,7 @@ For complex logic, break into multiple lines for clarity.
 
 ### 1. Basic Boolean Composition
 
-```sky
+```spell
 solve @age > 18 into @is_adult.
 solve @country == 'US' into @is_domestic.
 
@@ -73,7 +73,7 @@ decide @is_adult and @is_domestic into @eligible.
 
 ### 2. Multi-Branch Logic
 
-```sky
+```spell
 solve @balance > 0 into @has_funds.
 solve @status == 'active' into @active.
 
@@ -82,7 +82,7 @@ decide @has_funds and @active or @override into @can_proceed.
 
 ### 3. Using NOT and XOR
 
-```sky
+```spell
 solve @score >= 90 into @high_score.
 solve @bonus == 'yes' into @has_bonus.
 
@@ -92,7 +92,7 @@ decide not @blocked and @has_either into @award.
 
 ### 4. Chaining for Readability
 
-```sky
+```spell
 solve @x > 0 into @pos.
 solve @y > 0 into @pos_y.
 
@@ -101,7 +101,7 @@ decide @pos and @pos_y into @both_positive.
 
 ### 5. String Equality
 
-```sky
+```spell
 solve @user == 'admin' into @is_admin.
 decide @is_admin and not @suspended into @can_access.
 ```
