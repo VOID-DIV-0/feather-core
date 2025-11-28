@@ -1,16 +1,16 @@
-# GitHub Copilot Instructions for Feather
+# GitHub Copilot Instructions for nekonomicon
 
-This repository implements **Feather**, a custom DSL for scripting and automation, prioritizing readability, safety, and cross-platform compatibility. AI agents should follow these project-specific conventions and workflows to be productive immediately.
+This repository implements **nekonomicon**, a custom DSL for scripting and automation, prioritizing readability, safety, and cross-platform compatibility. AI agents should follow these project-specific conventions and workflows to be productive immediately.
 
 ## Architecture & Structure
 
-- **Feather scripts** use `.sky` files (see `packages/feather-core-vscode-extension/examples/` for real scripts).
-- **Core language**: Rust crates in `packages/feather-core/` (tokenizer, parser, grammar), with a modular design for extensibility.
+- **nekonomicon scripts** use `.sky` files (see `packages/nekonomicon-core-vscode-extension/examples/` for real scripts).
+- **Core language**: Rust crates in `packages/nekonomicon-core/` (tokenizer, parser, grammar), with a modular design for extensibility.
 - **Modules**: Each feature (e.g., `cabinet`, `vault`, `math`) is documented in `docs/modules/` and implemented as a language module.
-- **VS Code extension**: Syntax highlighting and language support in `packages/feather-core-vscode-extension/`.
+- **VS Code extension**: Syntax highlighting and language support in `packages/nekonomicon-core-vscode-extension/`.
 - **Documentation**: All language rules, patterns, and module APIs are in `docs/` (see especially `core/` and `modules/`).
 
-## Feather Language Conventions
+## nekonomicon Language Conventions
 
 - **English-like, minimal symbols**: Avoid brackets, semicolons, or embedded conditionals.
 - **Explicit logic**: Compute conditions first, then use `if`/`else`/`end` blocks.
@@ -23,10 +23,10 @@ This repository implements **Feather**, a custom DSL for scripting and automatio
 
 ## Developer Workflows
 
-- **Build**: Use Cargo for Rust crates (`cargo build` in each `packages/feather-core-*` directory).
+- **Build**: Use Cargo for Rust crates (`cargo build` in each `packages/nekonomicon-core-*` directory).
 - **Test**: Run `cargo test` in the relevant package directory. See `tests/` for Rust and `.sky` for script examples.
 - **Debug**: Use Rust's standard debugging tools for core, and VS Code for `.sky` scripts (with the extension).
-- **Extension packaging**: See `packages/feather-core-vscode-extension/README.md` for VSIX build/install steps.
+- **Extension packaging**: See `packages/nekonomicon-core-vscode-extension/README.md` for VSIX build/install steps.
 
 ## Project-Specific Patterns
 
@@ -65,7 +65,7 @@ This repository implements **Feather**, a custom DSL for scripting and automatio
 ## Key Files & References
 
 - `docs/` — Language rules, module APIs, and core patterns (see `core/` and `modules/` subfolders)
-- `packages/feather-core-vscode-extension/examples/` — Real Feather scripts
+- `packages/nekonomicon-core-vscode-extension/examples/` — Real nekonomicon scripts
 - `README.md` — Project philosophy and goals
 
 **For advanced patterns, always consult the relevant `docs/` page before suggesting code.**

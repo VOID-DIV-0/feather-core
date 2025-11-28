@@ -1,6 +1,6 @@
-# Feather Syntax Extension for Zed
+# nekonomicon Syntax Extension for Zed
 
-Syntax highlighting and language support for Feather (`.sky`) scripting language in [Zed](https://zed.dev/).
+Syntax highlighting and language support for nekonomicon (`.sky`) scripting language in [Zed](https://zed.dev/).
 
 ## Features
 
@@ -23,19 +23,19 @@ Once published to the Zed extension registry:
 1. Open Zed
 2. Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Linux/Windows)
 3. Type "zed: extensions"
-4. Search for "Feather"
+4. Search for "nekonomicon"
 5. Click Install
 
 ### Option 2: Manual Installation (Local Development)
 
-1. Clone this repository or copy the `feather-core-zed-extension` folder
+1. Clone this repository or copy the `nekonomicon-core-zed-extension` folder
 2. Create the Zed extensions directory if it doesn't exist:
    ```bash
    mkdir -p ~/.config/zed/extensions
    ```
 3. Link or copy the extension to Zed's extensions directory:
    ```bash
-   ln -s /path/to/feather-core/packages/feather-core-zed-extension ~/.config/zed/extensions/feather
+   ln -s /path/to/nekonomicon-core/packages/nekonomicon-core-zed-extension ~/.config/zed/extensions/nekonomicon
    ```
 4. Restart Zed
 
@@ -43,7 +43,7 @@ Once published to the Zed extension registry:
 
 Open any `.sky` file in Zed and the syntax highlighting will be automatically applied.
 
-### Example Feather Code
+### Example nekonomicon Code
 
 ```sky
 ~ This is a comment
@@ -74,9 +74,9 @@ success.
 - **Control flow**: `if`, `else`, `end`, `repeat`, `while`
 - **Results**: `success`, `failure`
 
-## About Feather
+## About nekonomicon
 
-Feather is a custom DSL for scripting and automation that prioritizes readability, safety, and cross-platform compatibility. Learn more at [github.com/VOID-DIV-0/feather-core](https://github.com/VOID-DIV-0/feather-core).
+nekonomicon is a custom DSL for scripting and automation that prioritizes readability, safety, and cross-platform compatibility. Learn more at [github.com/VOID-DIV-0/nekonomicon-core](https://github.com/VOID-DIV-0/nekonomicon-core).
 
 ## License
 

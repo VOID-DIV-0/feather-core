@@ -4,16 +4,16 @@ Input module is an extension of the reserve container `::input`. It provides add
 
 ## Summary Table
 
-| Input Instructions | Syntax Example                                   | Effect                                       | Notes                                                |
-| ------------------ | ------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------- |
-| optional           | `input optional 'name' default 'doe' into @name` | Request specific module version to be used   | Can also uses no module for feather versioning check |
-| required           | `global set silent 'off' `                       | Apply a runtime-wide setting                 |                                                      |
-| reset              | `global reset silent`                            | Clear a runtime-wide setting back to default |                                                      |
+| Input Instructions | Syntax Example                                   | Effect                                       | Notes                                                    |
+| ------------------ | ------------------------------------------------ | -------------------------------------------- | -------------------------------------------------------- |
+| optional           | `input optional 'name' default 'doe' into @name` | Request specific module version to be used   | Can also uses no module for nekonomicon versioning check |
+| required           | `global set silent 'off' `                       | Apply a runtime-wide setting                 |                                                          |
+| reset              | `global reset silent`                            | Clear a runtime-wide setting back to default |                                                          |
 
 # Examples
 
 ```sky
-~ HelloWorld.sky
+~ HelloWorld.purr
 ~~~~~~~~~~~~~~~~~
 global require modules 'input' 'rule' 'say'.
 
@@ -57,4 +57,4 @@ end
 success.
 ```
 
-`feather HelloWorld.sky --is_enabled 'true'`
+`nekonomicon HelloWorld.purr --is_enabled 'true'`

@@ -12,7 +12,7 @@ tags: [boolean, logic, decision, intrinsic]
 
 ## Description
 
-`decide` is Feather's intrinsic for composing boolean logic and making decisions based on previously computed facts. It enables clear, English-like expression of logical conditions, combining boolean records and relational comparisons into a single, readable statement.
+`decide` is nekonomicon's intrinsic for composing boolean logic and making decisions based on previously computed facts. It enables clear, English-like expression of logical conditions, combining boolean records and relational comparisons into a single, readable statement.
 
 Unlike arithmetic (`solve`), which computes numeric results, `decide` is used exclusively for evaluating truth—answering "should this action proceed?" or "does this condition hold?" in your scripts.
 
@@ -20,7 +20,7 @@ Unlike arithmetic (`solve`), which computes numeric results, `decide` is used ex
 
 ## Philosophy
 
-Feather treats boolean logic as a distinct phase of reasoning. Arithmetic and comparisons are handled with `solve`, while all logical composition—AND, OR, NOT, XOR, and multi-branch conditions—are handled with `decide`. This separation keeps scripts explicit, readable, and easy to audit.
+nekonomicon treats boolean logic as a distinct phase of reasoning. Arithmetic and comparisons are handled with `solve`, while all logical composition—AND, OR, NOT, XOR, and multi-branch conditions—are handled with `decide`. This separation keeps scripts explicit, readable, and easy to audit.
 
 - **Explicit:** No hidden type coercion or implicit truthiness. Only boolean records (`'true'` or `'false'`) and relational comparisons are allowed.
 - **English-like:** Reads naturally—`decide @a and not @b into @ok.`
@@ -35,6 +35,7 @@ decide <boolean_expr> into <@result>.
 ```
 
 Where `<boolean_expr>` is:
+
 - A boolean record (`@flag`)
 - A relational comparison (`@a > @b`, `@x == 'foo'`)
 - Logical operators: `and`, `or`, `xor`
@@ -48,14 +49,14 @@ For complex logic, break into multiple lines for clarity.
 
 ## Supported Operators
 
-| Operator | Meaning                | Example                        |
-|----------|------------------------|--------------------------------|
-| and      | Logical AND            | `@a and @b`                    |
-| or       | Logical OR             | `@a or @b`                     |
-| xor      | Logical XOR            | `@a xor @b`                    |
-| not      | Logical NOT (unary)    | `not @a`                       |
-| ==, !=   | Equality, inequality   | `@x == @y`, `@flag != 'true'`  |
-| >, <, >=, <= | Numeric comparison | `@n > 5`, `@score <= 100`      |
+| Operator     | Meaning              | Example                       |
+| ------------ | -------------------- | ----------------------------- |
+| and          | Logical AND          | `@a and @b`                   |
+| or           | Logical OR           | `@a or @b`                    |
+| xor          | Logical XOR          | `@a xor @b`                   |
+| not          | Logical NOT (unary)  | `not @a`                      |
+| ==, !=       | Equality, inequality | `@x == @y`, `@flag != 'true'` |
+| >, <, >=, <= | Numeric comparison   | `@n > 5`, `@score <= 100`     |
 
 ---
 
@@ -119,13 +120,13 @@ decide @is_admin and not @suspended into @can_access.
 
 ## Error Handling
 
-| Error Code           | Description                                      |
-|----------------------|--------------------------------------------------|
-| E-DECIDE-NONBOOL     | Operand is not a boolean or comparison           |
-| E-DECIDE-TYPEMISMATCH| Incompatible types in comparison                 |
-| E-DECIDE-CHAIN       | Improper chaining of relational operators        |
-| E-DECIDE-EMPTY       | No operands supplied                             |
-| E-DECIDE-OPUNKNOWN   | Unknown logical operator                         |
+| Error Code            | Description                               |
+| --------------------- | ----------------------------------------- |
+| E-DECIDE-NONBOOL      | Operand is not a boolean or comparison    |
+| E-DECIDE-TYPEMISMATCH | Incompatible types in comparison          |
+| E-DECIDE-CHAIN        | Improper chaining of relational operators |
+| E-DECIDE-EMPTY        | No operands supplied                      |
+| E-DECIDE-OPUNKNOWN    | Unknown logical operator                  |
 
 ---
 

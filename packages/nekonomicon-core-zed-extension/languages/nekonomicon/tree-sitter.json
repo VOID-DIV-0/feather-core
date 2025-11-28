@@ -1,9 +1,9 @@
 {
   "grammars": [
     {
-      "name": "feather",
-      "camelcase": "Feather",
-      "scope": "source.feather",
+      "name": "nekonomicon",
+      "camelcase": "nekonomicon",
+      "scope": "source.nekonomicon",
       "file-types": ["sky"],
       "path": ".",
       "external-files": []

@@ -1,17 +1,17 @@
 # Homepage
 
-Welcome to the Feather documentation. Here you'll find guides and references for all major language features and modules.
+Welcome to the nekonomicon documentation. Here you'll find guides and references for all major language features and modules.
 Only "versioned" component means they are "final" documentation
 
 # Quickstart
 
-- **WIP** [Quickstart Guide](./quickstart.md) — Get started with Feather scripting in minutes.
+- **WIP** [Quickstart Guide](./quickstart.md) — Get started with nekonomicon scripting in minutes.
 
 # Core
 
 - **WIP** [Clause](./core/clause.md) — Modifiers that change command behavior (safe, sensitive, elevated).
-- **WIP** [Commands](./core/commands.md) — The structure and anatomy of Feather commands.
-- [Results **v0.0.1** ](./core/results.md) — How Feather handles script outcomes and result patterns.
+- **WIP** [Commands](./core/commands.md) — The structure and anatomy of nekonomicon commands.
+- [Results **v0.0.1** ](./core/results.md) — How nekonomicon handles script outcomes and result patterns.
 - **WIP** [Actions](./core/actions.md) — Built-in instructions for controlling script flow and output.
 - **WIP** [Clusters](./core/clusters.md) — Grouping clauses for batch effect.
 - **WIP** [Data](./core/data.md) — Literals, records, containers, and data handling.
@@ -39,7 +39,7 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Script](./modules/script.md) — Running native scripts and commands.
 - **WIP** [Program](./modules/program.md) — Program execution and management.
 - **WIP** [System](./modules/system.md) — System-level operations and information.
-- **WIP** [Global](./modules/globals.md) — Global-level definition for feather's script.
+- **WIP** [Global](./modules/globals.md) — Global-level definition for nekonomicon's script.
 
 ## Data Processing & Utilities
 
@@ -69,4 +69,4 @@ Only "versioned" component means they are "final" documentation
 
 # Examples
 
-- **WIP** [Examples](./examples.md) — Short examples for inspiration and quick view of feather syntax.
+- **WIP** [Examples](./examples.md) — Short examples for inspiration and quick view of nekonomicon syntax.

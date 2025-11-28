@@ -2,7 +2,7 @@
 
 ## Description
 
-Cabinet is Feather’s built-in file and folder management module.  
+Cabinet is nekonomicon’s built-in file and folder management module.  
 It provides a simple, composable interface for common filesystem operations—such as listing, reading, writing, moving, copying, and deleting files and directories—across platforms.
 
 ## Features
@@ -11,7 +11,7 @@ It provides a simple, composable interface for common filesystem operations—su
 - Read and write file contents
 - Create, move, copy, and delete files or directories
 - Supports safe, elevated, and sensitive operations
-- Integrates with Feather’s result pattern and modifiers
+- Integrates with nekonomicon’s result pattern and modifiers
 
 ## Instruction and modifiers list
 
@@ -55,7 +55,7 @@ say @content
 ### Write to a File
 
 ```sky
-cabinet write file '/Users/alex/Documents/notes.txt' with content 'Hello, Feather!'
+cabinet write file '/Users/alex/Documents/notes.txt' with content 'Hello, nekonomicon!'
 ```
 
 ### Delete a File

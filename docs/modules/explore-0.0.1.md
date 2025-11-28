@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `explore` module provides a flexible and expressive query language for data exploration within Feather. It enables users to retrieve, filter, transform, and aggregate data from various data sources using a rich set of clauses and reducers. The module is designed to support complex data querying scenarios while maintaining clarity and composability.
+The `explore` module provides a flexible and expressive query language for data exploration within nekonomicon. It enables users to retrieve, filter, transform, and aggregate data from various data sources using a rich set of clauses and reducers. The module is designed to support complex data querying scenarios while maintaining clarity and composability.
 
 ## Syntax and Signatures
 
@@ -83,7 +83,7 @@ The `into` clause specifies how query results are saved or applied:
 
 ### Basic Query
 
-```feather
+```nekonomicon
 explore from users
         where age > 18
         select id, name, email
@@ -93,7 +93,7 @@ explore from users
 
 ### Using Joins and Group By
 
-```feather
+```nekonomicon
 explore from orders
         join users on orders.user_id = users.id
         where orders.status = "completed"
@@ -104,7 +104,7 @@ explore from orders
 
 ### Using Reducers and Destination
 
-```feather
+```nekonomicon
 explore  from sales
         where date >= "2023-01-01"
         group by product_id

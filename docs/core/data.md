@@ -1,6 +1,6 @@
 # Data
 
-For feather, the goal was to simplify the experience of manipulating scripting data without losing security, type safety and simplicity.
+For nekonomicon, the goal was to simplify the experience of manipulating scripting data without losing security, type safety and simplicity.
 
 There is 4 type of data:
 
@@ -31,7 +31,7 @@ success.
 
 ### Multiline Literals
 
-Feather also supports **multiline literals** using the same single-quote syntax:
+nekonomicon also supports **multiline literals** using the same single-quote syntax:
 
 **_Example_**
 
@@ -45,7 +45,7 @@ success.
 
 ### Numerical/Decimal Literals
 
-Feather supports numerical literals. They do not require the string quote syntax but internally are processed as string.
+nekonomicon supports numerical literals. They do not require the string quote syntax but internally are processed as string.
 
 **_Example_**
 
@@ -58,7 +58,7 @@ success.
 
 ### boolean Literals
 
-Feather supports boolean literals. They do not require the string quote syntax but internally are processed as string.
+nekonomicon supports boolean literals. They do not require the string quote syntax but internally are processed as string.
 
 **_Example_**
 
@@ -97,6 +97,16 @@ success @var_3.
 ```
 
 ## Containers
+
+```
+::response:users[0]:name.
+         ↑      ↑ ↑    ↑
+         |      | |    └─ terminator
+         |      | └────── map key
+         |      └──────── array index
+         └─────────────── map key
+
+```
 
 Even if most of the time string are use on the superficial way, most instruction will use
 
@@ -262,7 +272,7 @@ This example shows how to return a container as the result of a function and acc
 
 ### Anatomy of Result structure
 
-A result container in Feather is a predefined structure that holds the outcome of a script or function. You can access its fields using lenses or direct keys.
+A result container in nekonomicon is a predefined structure that holds the outcome of a script or function. You can access its fields using lenses or direct keys.
 
 ```
 Container ::Result

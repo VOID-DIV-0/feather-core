@@ -12,13 +12,13 @@ tags: [arithmetic, comparison, intrinsic]
 
 ## Description
 
-`solve` is Feather's intrinsic for evaluating arithmetic expressions and performing comparisons. It is used to compute numeric results or to compare values, producing either a numeric record or a boolean record. All logic and string operations are handled elsewhere—`solve` is strictly for numbers and comparisons.
+`solve` is nekonomicon's intrinsic for evaluating arithmetic expressions and performing comparisons. It is used to compute numeric results or to compare values, producing either a numeric record or a boolean record. All logic and string operations are handled elsewhere—`solve` is strictly for numbers and comparisons.
 
 ---
 
 ## Philosophy
 
-Feather separates arithmetic and comparison from logic and string manipulation. Use `solve` for all numeric calculations and direct comparisons. Use `decide` for boolean logic, and the `text` module for any string operations.
+nekonomicon separates arithmetic and comparison from logic and string manipulation. Use `solve` for all numeric calculations and direct comparisons. Use `decide` for boolean logic, and the `text` module for any string operations.
 
 - **Explicit:** Only numeric operations and comparisons are allowed.
 - **Minimal:** No string concatenation, no boolean logic, no side effects.
@@ -34,6 +34,7 @@ solve <comparison_expr> into <@result>.
 ```
 
 Where:
+
 - `<arithmetic_expr>` uses numbers, records, and arithmetic operators: `+ - * / %`
 - `<comparison_expr>` uses numbers, records, and comparison operators: `> < >= <= == !=`
 
@@ -43,19 +44,19 @@ No parentheses are supported. For complex calculations, break into multiple line
 
 ## Supported Operators
 
-| Operator | Meaning           | Example                  |
-|----------|-------------------|--------------------------|
-| +        | Addition          | `@a + @b`                |
-| -        | Subtraction       | `@a - @b`                |
-| *        | Multiplication    | `@a * @b`                |
-| /        | Division          | `@a / @b`                |
-| %        | Modulus           | `@a % @b`                |
-| >        | Greater than      | `@a > @b`                |
-| <        | Less than         | `@a < @b`                |
-| >=       | Greater or equal  | `@a >= @b`               |
-| <=       | Less or equal     | `@a <= @b`               |
-| ==       | Equality          | `@a == @b`               |
-| !=       | Inequality        | `@a != @b`               |
+| Operator | Meaning          | Example    |
+| -------- | ---------------- | ---------- |
+| +        | Addition         | `@a + @b`  |
+| -        | Subtraction      | `@a - @b`  |
+| \*       | Multiplication   | `@a * @b`  |
+| /        | Division         | `@a / @b`  |
+| %        | Modulus          | `@a % @b`  |
+| >        | Greater than     | `@a > @b`  |
+| <        | Less than        | `@a < @b`  |
+| >=       | Greater or equal | `@a >= @b` |
+| <=       | Less or equal    | `@a <= @b` |
+| ==       | Equality         | `@a == @b` |
+| !=       | Inequality       | `@a != @b` |
 
 ---
 
@@ -111,13 +112,13 @@ solve @double == 20 into @is_twenty.
 
 ## Error Handling
 
-| Error Code           | Description                                      |
-|----------------------|--------------------------------------------------|
-| E-SOLVE-NONNUM       | Non-numeric operand in arithmetic                |
-| E-SOLVE-DIVZERO      | Division by zero                                 |
-| E-SOLVE-CHAIN        | Multiple comparison operators in one expression  |
-| E-SOLVE-BADOP        | Unsupported operator                             |
-| E-SOLVE-TYPEMISMATCH | Incompatible types in comparison                 |
+| Error Code           | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| E-SOLVE-NONNUM       | Non-numeric operand in arithmetic               |
+| E-SOLVE-DIVZERO      | Division by zero                                |
+| E-SOLVE-CHAIN        | Multiple comparison operators in one expression |
+| E-SOLVE-BADOP        | Unsupported operator                            |
+| E-SOLVE-TYPEMISMATCH | Incompatible types in comparison                |
 
 ---
 

@@ -1,6 +1,6 @@
 # Flow
 
-In feather, the usage of "flow" instructions enable to control the logic based on conditions. Compared to many languages, it's not allowed to embbed condition inside the conditional statement.
+In nekonomicon, the usage of "flow" instructions enable to control the logic based on conditions. Compared to many languages, it's not allowed to embbed condition inside the conditional statement.
 
 ---
 
@@ -34,7 +34,7 @@ In feather, the usage of "flow" instructions enable to control the logic based o
 
 ## Conditionals and Loops
 
-Feather supports straightforward flow control with English-like keywords.
+nekonomicon supports straightforward flow control with English-like keywords.
 
 ### all
 

@@ -3,10 +3,10 @@ use pest_derive::Parser;
 use pest::iterators::Pair;
 
 #[derive(Parser)]
-#[grammar = "grammar/feather.pest"]
-pub struct FeatherParser;
+#[grammar = "grammar/nekonomicon.pest"]
+pub struct nekonomiconParser;
 
-/// Abstract Syntax Tree (AST) representation for the Feather language.
+/// Abstract Syntax Tree (AST) representation for the nekonomicon language.
 #[derive(Debug, Clone)]
 pub enum AbstractTreeNode {
     Command {
@@ -43,7 +43,7 @@ pub enum DataNode {
 }
 
 pub fn parse(input: &str) -> Result<Vec<AbstractTreeNode>, Box<dyn std::error::Error>> {
-    let parsed = FeatherParser::parse(Rule::command, input)?
+    let parsed = nekonomiconParser::parse(Rule::command, input)?
         .next()
         .unwrap();
     

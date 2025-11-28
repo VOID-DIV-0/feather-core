@@ -1,0 +1,28 @@
+{
+  "name": "nekonomicon-syntax",
+  "displayName": "nekonomicon Sky Syntax",
+  "description": "TextMate grammar for nekonomicon (.sky) scripting language.",
+  "version": "0.0.3",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nekonomicon",
+        "aliases": ["nekonomicon", "nekonomicon"],
+        "extensions": [".sky"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nekonomicon",
+        "scopeName": "source.nekonomicon",
+        "path": "./syntaxes/nekonomicon.tmLanguage.json"
+      }
+    ]
+  }
+}

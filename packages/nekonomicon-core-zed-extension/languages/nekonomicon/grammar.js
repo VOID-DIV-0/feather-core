@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: "feather",
+  name: "nekonomicon",
 
   rules: {
     source_file: ($) => repeat($._statement),

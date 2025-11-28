@@ -1,6 +1,3 @@
 [workspace]
-members = [
-    "packages/feather-core",
-    "packages/feather-core-cabinet",
-]
-name = "feather"
+members = ["packages/nekonomicon-core", "packages/nekonomicon-core-cabinet"]
+name = "nekonomicon"

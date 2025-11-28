@@ -2,7 +2,7 @@
 
 ### `with` / `without`
 
-Feather uses readable keywords alongside `with` / `without` so modifiers stay intuitive, memorable, and easy to chain.
+nekonomicon uses readable keywords alongside `with` / `without` so modifiers stay intuitive, memorable, and easy to chain.
 
 Modifier options differ for each module or core component.
 

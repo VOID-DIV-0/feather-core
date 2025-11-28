@@ -1,6 +1,6 @@
 # Vault
 
-The Vault module is the core of Feather’s secret management and sensitivity system. It provides secure handling of secrets, automatic masking, and explicit egress control with `sensitive` and `with risk`.
+The Vault module is the core of nekonomicon’s secret management and sensitivity system. It provides secure handling of secrets, automatic masking, and explicit egress control with `sensitive` and `with risk`.
 
 ---
 

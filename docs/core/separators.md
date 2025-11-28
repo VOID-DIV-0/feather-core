@@ -1,8 +1,8 @@
-# Separators in Feather
+# Separators in nekonomicon
 
 ## Argument Separators
 
-In Feather, the comma `,` is used as an argument separator to distinguish multiple arguments within a single command. This helps the interpreter understand where one argument ends and another begins.
+In nekonomicon, the comma `,` is used as an argument separator to distinguish multiple arguments within a single command. This helps the interpreter understand where one argument ends and another begins.
 
 For example:
 

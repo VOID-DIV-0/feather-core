@@ -1,5 +1,5 @@
-use feather_core::tokenize; // Import the tokenize function
-use feather_core::token::{TokenType::*};
+use nekonomicon_core::tokenize; // Import the tokenize function
+use nekonomicon_core::token::{TokenType::*};
 
 #[test]
 fn tokenize_skips_comment_at_end_of_line() {

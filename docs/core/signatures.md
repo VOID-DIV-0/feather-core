@@ -2,7 +2,7 @@
 
 ## Description
 
-Signatures are instructions that allow you to control command execution, output, and error handling in Feather scripts. They are appended to commands and can be combined for advanced behavior.
+Signatures are instructions that allow you to control command execution, output, and error handling in nekonomicon scripts. They are appended to commands and can be combined for advanced behavior.
 
 ---
 
@@ -41,7 +41,7 @@ Restricts command execution to a specific operating system. Only runs the comman
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 
 say 'I am on linux.' on linux.
@@ -64,7 +64,7 @@ Prints the command and its arguments before execution. Useful for debugging and 
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 
 say 'I am on linux.' trace on linux.
@@ -90,7 +90,7 @@ Measures and reports the time taken to execute a command. Useful for profiling a
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 
 cabinet copy file '/tmp/a.txt' to '/tmp/b.txt' trace elapsed.
@@ -117,7 +117,7 @@ Sets a maximum allowed execution time for a command. If the command does not com
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 
 cabinet read file '/tmp/large_file.txt' timeout 5 seconds. ~ can also use '5'
@@ -140,7 +140,7 @@ Silent provide a way to reduce the noise of the output by hiding the output when
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 
 cabinet delete file '/tmp/old.log' silent.

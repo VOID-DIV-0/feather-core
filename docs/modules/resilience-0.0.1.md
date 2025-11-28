@@ -1,6 +1,6 @@
 # Resilience
 
-The `resilience` module provides advanced error handling and reliability features for Feather scripts. It enables your automation to gracefully handle failures, retries, timeouts, fallbacks, and circuit breaking, making scripts robust and production-ready.
+The `resilience` module provides advanced error handling and reliability features for nekonomicon scripts. It enables your automation to gracefully handle failures, retries, timeouts, fallbacks, and circuit breaking, making scripts robust and production-ready.
 
 ## Features
 

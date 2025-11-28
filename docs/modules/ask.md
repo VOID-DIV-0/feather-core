@@ -14,7 +14,7 @@ The `ask` module provides interactive prompts for user input. It allows you to r
 
 ## Signatures
 
-```feather
+```nekonomicon
 ask(prompt: string) -> string
 ask(prompt: string, default: any) -> any
 ask(prompt: string, schema: Schema) -> any
@@ -32,28 +32,28 @@ ask(prompt: string, { hidden: true }) -> string
 
 ### 1. Simple Prompt
 
-```feather
+```nekonomicon
 let name = ask("What is your name?")
 say("Hello, " + name + "!")
 ```
 
 ### 2. Prompt with Default Value
 
-```feather
+```nekonomicon
 let color = ask("Favorite color?", "blue")
 say("You chose: " + color)
 ```
 
 ### 3. Prompt with Schema Validation
 
-```feather
+```nekonomicon
 let age = ask("Enter your age:", "number")
 say("You are " + age + " years old.")
 ```
 
 #### With Boolean Schema
 
-```feather
+```nekonomicon
 let subscribe = ask("Subscribe to newsletter?", "boolean")
 if subscribe {
   say("Thank you for subscribing!")
@@ -62,14 +62,14 @@ if subscribe {
 
 #### With Regex Schema
 
-```feather
+```nekonomicon
 let email = ask("Enter your email:", /.+@.+\..+/)
 say("Email recorded: " + email)
 ```
 
 ### 4. Hidden Input (Password)
 
-```feather
+```nekonomicon
 let pw = ask("Enter your password:", { hidden: true })
 say("Password accepted.")
 ```
@@ -82,7 +82,7 @@ say("Password accepted.")
 - If a `schema` is provided, the input is validated and (if possible) coerced to the schema type. Invalid input will re-prompt the user.
 - When `{ hidden: true }` is used, input is not shown on the screen (useful for sensitive data).
 - Only one of `default`, `schema`, or `options` may be provided as the second argument. For combined schema/options, use an options object:
-  ```feather
+  ```nekonomicon
   let pin = ask("Enter 4-digit PIN:", { schema: /^\d{4}$/, hidden: true })
   ```
 - The prompt string should be concise and clear.

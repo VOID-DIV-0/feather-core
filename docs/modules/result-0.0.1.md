@@ -1,6 +1,6 @@
 # Result
 
-Feather scripts must explicitly declare their outcome. This keeps scripts predictable and self-documenting.
+nekonomicon scripts must explicitly declare their outcome. This keeps scripts predictable and self-documenting.
 
 - Use `success` to mark the script as completed successfully.
 - Use `failure` to mark the script as failed.
@@ -16,7 +16,7 @@ Feather scripts must explicitly declare their outcome. This keeps scripts predic
 | success | `success 'Hello World!'`  | Stops execution and marks script as successful | Must be last signature  |
 | failure | `failure ::error:message` | Stops execution and marks script as failed     | Can combine with others |
 
-If a Feather script or function reaches the end **without calling `success`**, it will automatically be marked as a failure. This enforces explicit intent and ensures that scripts never exit silently.
+If a nekonomicon script or function reaches the end **without calling `success`**, it will automatically be marked as a failure. This enforces explicit intent and ensures that scripts never exit silently.
 
 The `safe` modifier integrates with this pattern: any instructions of a command marked `safe` will not stop the script if it fails.
 
@@ -28,7 +28,7 @@ The `success` instruction marks the script or the function as successfully compl
 
 - It can be called with no parameters to indicate success.
 - It can return either a literal, a record or a container.
-- If a Feather script does not call `success` anywhere, it will automatically be marked as a failure when it reaches the end.
+- If a nekonomicon script does not call `success` anywhere, it will automatically be marked as a failure when it reaches the end.
 
 Use `success` to explicitly signal that the script or the function has finished and everything worked as expected.
 
@@ -39,7 +39,7 @@ Use `success` to explicitly signal that the script or the function has finished 
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 global require modules 'bool' 'say'.
 
@@ -71,7 +71,7 @@ If the result is not defined at the end of a sky script or of a function, it's a
 **_Examples_**
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 global require modules 'say'.
 
@@ -84,7 +84,7 @@ say 'Hello World!'. ~ script will fails due to missing success.
 ```
 
 ```sky
-~ Script.sky
+~ Script.purr
 ~~~~~~~~~~~~~
 global require modules 'say'.
 

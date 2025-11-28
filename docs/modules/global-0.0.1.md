@@ -1,25 +1,25 @@
 # Global
 
-Feather supports a module that provide modifier options that have effects on the whole script. Some are unique keywords, other related to existing module. They applies the moment you enable the feature.
+nekonomicon supports a module that provide modifier options that have effects on the whole script. Some are unique keywords, other related to existing module. They applies the moment you enable the feature.
 
 ## Summary Table
 
-| Global Instructions | Syntax Example                               | Effect                                       | Notes                                                |
-| ------------------- | -------------------------------------------- | -------------------------------------------- | ---------------------------------------------------- |
-| require             | `global require module 'cabinet' >= '2.1.0'` | Request specific module version to be used   | Can also uses no module for feather versioning check |
-| set                 | `global set silent 'off' `                   | Apply a runtime-wide setting                 |                                                      |
-| reset               | `global reset silent`                        | Clear a runtime-wide setting back to default |                                                      |
+| Global Instructions | Syntax Example                               | Effect                                       | Notes                                                    |
+| ------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------------------- |
+| require             | `global require module 'cabinet' >= '2.1.0'` | Request specific module version to be used   | Can also uses no module for nekonomicon versioning check |
+| set                 | `global set silent 'off' `                   | Apply a runtime-wide setting                 |                                                          |
+| reset               | `global reset silent`                        | Clear a runtime-wide setting back to default |                                                          |
 
-### `require feather {version}`
+### `require nekonomicon {version}`
 
 **_Properties_**
 
-- `version ['literal']`: Minimum Feather version require.
+- `version ['literal']`: Minimum nekonomicon version require.
 
 **_Examples_**
 
 ```sky
-global require feather >= '0.0.1'.
+global require nekonomicon >= '0.0.1'.
 ```
 
 ### `require module {module_name} <keyword_logical_operator> {version}`

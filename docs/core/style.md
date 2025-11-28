@@ -1,4 +1,4 @@
-# Feather Style Guidelines
+# nekonomicon Style Guidelines
 
 ## General Philosophy
 
@@ -31,13 +31,13 @@
 
 ### Short single-line
 
-```feather
+```nekonomicon
 module example with arg1, arg2 without flag
 ```
 
 ### Wrapped multiline with separators
 
-```feather
+```nekonomicon
 module example with
   arg1,
   arg2,
@@ -49,7 +49,7 @@ without
 
 ### Complex module with grouped modifiers (`with`, `without`)
 
-```feather
+```nekonomicon
 module complex
   with
     arg1,

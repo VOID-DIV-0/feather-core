@@ -28,7 +28,7 @@ Show the basic syntax or command structure.
 
 ### Examples
 
-Provide one or more code examples (use `sky` code block for Feather scripts).
+Provide one or more code examples (use `sky` code block for nekonomicon scripts).
 
 ```sky
 example code here

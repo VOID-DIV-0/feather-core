@@ -136,6 +136,8 @@ It's possible to wait for a specific set of async tasks to complete using `wait 
 Here are examples of both:
 
 ```sky
+import cabinet.
+
 async 'file1' cabinet read file 'my_file1.txt'.
 async 'file2' cabinet read file 'my_file2.txt'.
 wait all 'file1' 'file2'.
@@ -143,6 +145,8 @@ success.
 ```
 
 ```sky
+import cabinet.
+
 async 'file1' cabinet read file 'my_file1.txt'.
 async 'file2' cabinet read file 'my_file2.txt'.
 wait any 'file1' 'file2'.
@@ -156,7 +160,7 @@ success.
 
 ### What is egress context?
 
-Egress context refers to any situation where sensitive data could potentially leave the secure environment of the Feather script and become observable or accessible outside of it. This includes, but is not limited to:
+Egress context refers to any situation where sensitive data could potentially leave the secure environment of the nekonomicon script and become observable or accessible outside of it. This includes, but is not limited to:
 
 - Outputting to the console (e.g., printing, logging)
 - Writing to files (including temp files, logs, or exports)
@@ -166,7 +170,7 @@ Egress context refers to any situation where sensitive data could potentially le
 - Storing in environment variables or other process-wide state
 - Any other action that makes data observable outside the current secure context
 
-Egress-friendly commands are explicitly designed to handle sensitive data without risking exposure. These commands have built-in safeguards to ensure that sensitive information is never logged, displayed, or transmitted insecurely. In Feather, a command is only considered egress-friendly if it is clearly marked as sensitive-aware in its documentation.
+Egress-friendly commands are explicitly designed to handle sensitive data without risking exposure. These commands have built-in safeguards to ensure that sensitive information is never logged, displayed, or transmitted insecurely. In nekonomicon, a command is only considered egress-friendly if it is clearly marked as sensitive-aware in its documentation.
 By default, all commands are treated as egress-hostile, which is unsafe for handling sensitive data in an egress context unless they are explicitly documented as egress-friendly.
 
 #### Why use the sensitive clause?
@@ -174,9 +178,12 @@ By default, all commands are treated as egress-hostile, which is unsafe for hand
 The `sensitive` clause is used to explicitly mark commands that handle sensitive data, allowing the use of vaulted variables and ensuring that such data is treated with the necessary security precautions. It helps prevent accidental exposure of sensitive information by enforcing restrictions on how and where this data can be used.
 
 ```sky
+import text.
+
 sensitive ask 'What is my password?' with mask into !@ephemeral_pw.
 
-text length !@ephemeral_pw into !@length.
+~ No egress context here, so safe to use sensitive variable
+sensitive text length !@ephemeral_pw into !@length.
 
 ~ This is marked due to outputting sensitive data.
 !!! sensitive say 'You entered a password of length !@length characters.'.
@@ -199,7 +206,7 @@ The `elevated` clause serves as an explicit marker and validator for commands th
 
 ### How it works
 
-When Feather encounters an `elevated` command:
+When nekonomicon encounters an `elevated` command:
 
 1. It checks if the script is running with elevated privileges (admin/root/sudo).
 2. If privileges are insufficient, it fails immediately with a clear error message.

@@ -1,6 +1,6 @@
 # Sinks
 
-Sinks define how data is stored or validated in Feather. They determine whether bindings are mutable or immutable, and whether data conforms to expected schemas.
+Sinks define how data is stored or validated in nekonomicon. They determine whether bindings are mutable or immutable, and whether data conforms to expected schemas.
 
 ---
 

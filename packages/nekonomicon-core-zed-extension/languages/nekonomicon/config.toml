@@ -1,4 +1,4 @@
-name = "Feather"
-grammar = "feather"
+name = "nekonomicon"
+grammar = "nekonomicon"
 path_suffixes = ["sky"]
 line_comments = ["~"]

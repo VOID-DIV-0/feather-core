@@ -1,4 +1,4 @@
-use feather_core::parser::{parser, AbstractTreeNode, DataNode};
+use nekonomicon_core::parser::{parser, AbstractTreeNode, DataNode};
 
 #[test]
 fn parses_simple_module() {
@@ -29,7 +29,7 @@ fn parses_data_text() {
 
 
 mod signature_tests {
-    use feather_core::parser::{parser, AbstractTreeNode, SignatureNode};
+    use nekonomicon_core::parser::{parser, AbstractTreeNode, SignatureNode};
 
     #[test]
     fn parses_signatures() {

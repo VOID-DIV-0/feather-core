@@ -1,4 +1,4 @@
-~ Feather Deployment Script Example
+~ nekonomicon Deployment Script Example
 
 ~ Step 1: Load configuration and secrets
 cabinet read file 'config/env.txt' into @env_raw.

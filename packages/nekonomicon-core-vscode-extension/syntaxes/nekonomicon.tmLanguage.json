@@ -1,31 +1,31 @@
 {
-  "name": "Feather",
-  "scopeName": "source.feather",
+  "name": "nekonomicon",
+  "scopeName": "source.nekonomicon",
   "fileTypes": ["sky"],
   "patterns": [
     {
-      "name": "string.quoted.single.feather",
+      "name": "string.quoted.single.nekonomicon",
       "begin": "'",
       "end": "'",
       "patterns": [
         {
-          "name": "variable.scalar.interpolation.feather",
+          "name": "variable.scalar.interpolation.nekonomicon",
           "begin": "@\\{",
           "end": "\\}",
           "patterns": [
             {
-              "name": "variable.scalar.interpolation.inner.feather",
+              "name": "variable.scalar.interpolation.inner.nekonomicon",
               "match": "[a-zA-Z_][a-zA-Z0-9_]*"
             }
           ]
         },
         {
-          "name": "variable.projection.interpolation.feather",
+          "name": "variable.projection.interpolation.nekonomicon",
           "begin": "::\\{",
           "end": "\\}",
           "patterns": [
             {
-              "name": "variable.projection.interpolation.inner.feather",
+              "name": "variable.projection.interpolation.inner.nekonomicon",
               "match": "[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*"
             }
           ]
@@ -33,55 +33,55 @@
       ]
     },
     {
-      "name": "comment.line.tilde.feather",
+      "name": "comment.line.tilde.nekonomicon",
       "match": "~.*$"
     },
     {
-      "name": "support.function.signature.feather",
+      "name": "support.function.signature.nekonomicon",
       "match": "[ \\t]*\\b(trace|elapsed|timeout|silent|on)\\b"
     },
     {
-      "name": "keyword.control.feather",
+      "name": "keyword.control.nekonomicon",
       "match": "[ \\t]*\\b(if|else|else if|end|repeat|while|increase|decrease|success|failure)\\b"
     },
     {
-      "name": "keyword.special.feather",
+      "name": "keyword.special.nekonomicon",
       "match": "[ \\t]*\\b(is|as|into|with|without)\\b"
     },
     {
-      "name": "entity.name.namespace.module.feather",
+      "name": "entity.name.namespace.module.nekonomicon",
       "match": "^[ \\t]*([a-zA-Z][a-zA-Z0-9_-]*)"
     },
     {
-      "name": "constant.language.boolean.feather",
+      "name": "constant.language.boolean.nekonomicon",
       "match": "\\b(true|false)\\b"
     },
     {
-      "name": "constant.numeric.feather",
+      "name": "constant.numeric.nekonomicon",
       "match": "\\b\\d+\\b"
     },
     {
-      "name": "constant.numeric.decimal.feather",
+      "name": "constant.numeric.decimal.nekonomicon",
       "match": "\\b\\d+\\.\\d+\\b"
     },
     {
-      "name": "variable.scalar.feather",
+      "name": "variable.scalar.nekonomicon",
       "match": "@[a-zA-Z_][a-zA-Z0-9_]*"
     },
     {
-      "name": "variable.projection.feather",
+      "name": "variable.projection.nekonomicon",
       "match": "::[a-zA-Z_][a-zA-Z0-9_]*(?::[a-zA-Z_][a-zA-Z0-9_]*)+"
     },
     {
-      "name": "variable.object.feather",
+      "name": "variable.object.nekonomicon",
       "match": "::[a-zA-Z_][a-zA-Z0-9_]*"
     },
     {
-      "name": "keyword.operator.relation.feather",
+      "name": "keyword.operator.relation.nekonomicon",
       "match": "\\b(is)\\b"
     },
     {
-      "name": "punctuation.terminator.feather",
+      "name": "punctuation.terminator.nekonomicon",
       "match": "\\.(?=\\s*$)"
     }
   ],
