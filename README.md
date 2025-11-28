@@ -2,7 +2,8 @@
   <img src="./logo.png" width="50%" height="33%" alt="Nekonomicon Logo">
 </div>
 
-> **!Important:** The image is generated using [DALL·E](https://openai.com/dall-e-2) for the purpose of temporary concept illustration.
+> [!Important]
+> The image is generated using [DALL·E](https://openai.com/dall-e-2) for the purpose of temporary concept illustration.
 
 # What is Nekonomicon?
 
