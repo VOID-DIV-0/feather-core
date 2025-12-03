@@ -9,7 +9,7 @@ Syntax highlighting and language support for nekonomicon (`.spell`) scripting la
 - Recognition of:
   - Keywords: `if`, `else`, `end`, `repeat`, `while`, `success`, `failure`
   - Clauses: `safe`, `async`, `sensitive`, `<!>sensitive`, `elevated`
-  - Variables: `@variable` (scalar), `::container` (container), `!@sealed` (sealed)
+  - Variables: `@variable` (scalar), `::container` (container), `@!sealed` (sealed)
   - Projections: `::container:field`
   - Signatures: `trace`, `elapsed`, `timeout`, `silent`, `on`
   - String interpolation: `@{var}`, `::{container:field}`
@@ -66,7 +66,7 @@ success.
 - **Comments**: Lines starting with `~`
 - **Variables**:
   - Scalar: `@variable`
-  - Sealed: `!@variable`
+  - Sealed: `@!variable`
   - Container: `::container`
   - Sealed container: `!::container`
   - Projection: `::container:field`

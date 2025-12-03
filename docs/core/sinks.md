@@ -27,9 +27,9 @@ say @greeting.              ~ Output: hi
 **Binding into a sealed variable**
 
 ```spell
-'hello' into !@hello. ~ Make the variable hello sealed.
-string concat !@hello ' world' into @result. ~ OK: Reading from sealed variable
-'new' into !@hello. ~ ERROR: Cannot modify sealed variable
+'hello' into @!hello. ~ Make the variable hello sealed.
+string concat @!hello ' world' into @result. ~ OK: Reading from sealed variable
+'new' into @!hello. ~ ERROR: Cannot modify sealed variable
 ```
 
 **Binding into an unsealed container**
@@ -104,15 +104,15 @@ safe @invalid_data is &user_schema.  ~ Script continues, validation result in re
 'john@example.com' into @email.
 @email is &email_schema.             ~ Validate after assignment
 
-'admin' into !@role.
-!@role is &role_schema.               ~ Validate sealed value
+'admin' into @!role.
+@!role is &role_schema.               ~ Validate sealed value
 ```
 
 **Validate-and-assign (atomic operation):**
 
 ```spell
 user_input 'email' is &email_schema into @email.           ~ Validate then assign to mutable
-config_read 'api_key' is &api_key_schema into !@api_key.   ~ Validate then seal
+config_read 'api_key' is &api_key_schema into @!api_key.   ~ Validate then seal
 safe @raw_data is &data_schema into @clean_data.           ~ Continue on validation failure
 ```
 
@@ -121,7 +121,7 @@ safe @raw_data is &data_schema into @clean_data.           ~ Continue on validat
 ## Best Practices
 
 1. **Use `into @ | ::` for working bindings** that need to change during script execution.
-2. **Use `into !@ | !::` for configuration and constants** to prevent accidental modification.
+2. **Use `into @! | !::` for configuration and constants** to prevent accidental modification.
 3. **Use `is` after data input or computation** to ensure data integrity.
 4. **Use `is ... into` for validate-and-assign** when you want only validated data stored.
 5. **Seal security-sensitive values** like API keys or passwords to prevent tampering.
@@ -135,8 +135,8 @@ safe @raw_data is &data_schema into @clean_data.           ~ Continue on validat
 ### Double Sealing
 
 ```spell
-'value' into !@constant.
-'new' into !@constant.    ~ ERROR: Cannot modify sealed binding
+'value' into @!constant.
+'new' into @!constant.    ~ ERROR: Cannot modify sealed binding
 ```
 
 ### Validation with Assignment
@@ -144,14 +144,14 @@ safe @raw_data is &data_schema into @clean_data.           ~ Continue on validat
 ```spell
 'invalid' is &user_schema into @user.         ~ ERROR: Validation fails, @user not created
 safe 'invalid' is &user_schema into @user.    ~ Script continues, @user remains unset
-'valid_data' is &user_schema into !@user.     ~ Validates then seals the binding
+'valid_data' is &user_schema into @!user.     ~ Validates then seals the binding
 ```
 
 ### Reading vs Writing Sealed Bindings
 
 ```spell
-'data' into !@sealed.
-say !@sealed.             ~ OK: Reading with ! prefix
+'data' into @!sealed.
+say @!sealed.             ~ OK: Reading with ! prefix
 say @sealed.              ~ OK: Reading without ! prefix (both work)
 'new' into @sealed.       ~ ERROR: Cannot modify sealed binding
 ```
@@ -172,14 +172,14 @@ say !::data:(0).                         ~ OK: Reading from sealed container
 
 ```spell
 ~ Configuration (immutable)
-'https://api.example.com' is &url_schema into !@api_base.    ~ Validate and seal
-'production' is &environment_schema into !@environment.     ~ Validate and seal
+'https://api.example.com' is &url_schema into @!api_base.    ~ Validate and seal
+'production' is &environment_schema into @!environment.     ~ Validate and seal
 
 ~ Working variables (mutable)
 user_input 'endpoint' is &path_schema into @endpoint.       ~ Validate user input
 
 ~ Build URL
-text concat !@api_base, @endpoint into @full_url.
+text concat @!api_base, @endpoint into @full_url.
 
 ~ Validate before use
 @full_url is &url_schema.

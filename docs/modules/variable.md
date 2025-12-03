@@ -1,17 +1,17 @@
-record delete @rec. # remove record entirely (unset/clear)
-record exists @rec into @ok. # check if record is bound and non-empty
-record empty @rec into @ok. # check if value == ''
-record length @rec into @len. # number of characters
-record matches @rec 'regex' into @ok.
-record is-numeric @rec into @ok.
-record is-integer @rec into @ok.
-record is-decimal @rec into @ok.
-record is-date @rec 'YYYY-MM-DD' into @ok.
-record lens @rec as integer into @out. # throws if invalid
-record try-lens @rec as integer into @out ok @ok. # sets @ok true/false
-record lens @rec as decimal into @out.
-record lens @rec as json into ::container.
-record ensure @a default 'my_default_value' overwrite @a
+variable delete @rec. # remove variable entirely (unset/clear)
+variable exists @rec into @ok. # check if variable is bound and non-empty
+variable empty @rec into @ok. # check if value == ''
+variable length @rec into @len. # number of characters
+variable matches @rec 'regex' into @ok.
+variable is-numeric @rec into @ok.
+variable is-integer @rec into @ok.
+variable is-decimal @rec into @ok.
+variable is-date @rec 'YYYY-MM-DD' into @ok.
+variable lens @rec as integer into @out. # throws if invalid
+variable try-lens @rec as integer into @out ok @ok. # sets @ok true/false
+variable lens @rec as decimal into @out.
+variable lens @rec as json into ::container.
+variable ensure @a default 'my_default_value' overwrite @a
 
 • Destination / slot: the place after into.
 • Scalar slot: @name (always text). (single value)

@@ -10,8 +10,6 @@ status: stable
 
 Clauses are optional instructions placed at the start of a command. They alter the behavior of the targeted command until the terminator. Clauses let you control error handling, parallelism, security, and permissions for each command in a simple, readable way.
 
-Clauses can be applied to both built-in commands and user-defined functions. They can also be grouped with [clusters](./clusters.md) for applying the same behavior to multiple commands.
-
 ## Summary Table
 
 | Clause        | Minimal Syntax           | Effect                                              | When to Use                                           |
@@ -21,8 +19,6 @@ Clauses can be applied to both built-in commands and user-defined functions. The
 | sensitive     | sensitive <command>.     | Allow/taint variables as sensitive/!!!              | Working with vault data, passwords, secrets           |
 | !!! sensitive | !!! sensitive <command>. | Allow use of sensitive variables for egress context | Controlled logging/output of sensitive data with risk |
 | elevated      | elevated <command>.      | Run with admin rights                               | System modifications, privileged operations           |
-
----
 
 ## Anatomy
 
@@ -50,8 +46,6 @@ Common combinations:
 - `elevated safe` — Privileged operations that may not be available on all platforms
 - `!!! sensitive elevated` — Secure privileged egress operations
 
----
-
 ## Clause `safe`
 
 Safe clause allows a command to fail without halting the entire script. Instead of stopping execution, the command logs a warning, prints the failure reason, and continues with the next instruction.
@@ -61,10 +55,10 @@ Safe clause allows a command to fail without halting the entire script. Instead 
 Here's an example of using the `safe` clause to check battery status across different operating systems without halting the script if a command fails:
 
 ```spell
-2 into !@count. ~ sealed record.
+2 into @!count. ~ sealed record.
 
 ~ While loop to check battery status every 5 seconds.
-repeat !@count
+repeat @!count
   safe script 'pmset -g batt' on mac.
   safe script 'WMIC Path Win32_Battery Get EstimatedChargeRemaining' on windows.
   safe script 'acpi -b' on linux.
@@ -87,8 +81,6 @@ Now checking battery status...
 Battery status: 85% (on battery)
 [SUCC] Script completed successfully.
 ```
-
----
 
 ## Clause `async`
 
@@ -154,8 +146,6 @@ stop
 success.
 ```
 
----
-
 ## Clause `sensitive` and `!!! sensitive`
 
 ### What is egress context?
@@ -180,22 +170,22 @@ The `sensitive` clause is used to explicitly mark commands that handle sensitive
 ```spell
 import text.
 
-sensitive ask 'What is my password?' with mask into !@ephemeral_pw.
+sensitive ask 'What is my password?' with mask into @!ephemeral_pw.
 
 ~ No egress context here, so safe to use sensitive variable
-sensitive text length !@ephemeral_pw into !@length.
+sensitive text length @!ephemeral_pw into @!length.
 
 ~ This is marked due to outputting sensitive data.
-!!! sensitive say 'You entered a password of length !@length characters.'.
+!!! sensitive say 'You entered a password of length @!length characters.'.
 success.
 ```
 
 ```spell
 sensitive vault lock 'my_password' with 'Password123$'.
 
-sensitive vault unlock 'my_password' into !@retrieved_password.
+sensitive vault unlock 'my_password' into @!retrieved_password.
 
-!!! sensitive say 'Retrieved password from vault: ' !@retrieved_password.
+!!! sensitive say 'Retrieved password from vault: ' @!retrieved_password.
 
 success.
 ```
@@ -256,8 +246,6 @@ If the script is not running with elevated privileges, it will fail with:
 - **`elevated` prompts**: May trigger UAC/sudo prompts depending on OS configuration.
 - **`sensitive` scope**: Sensitive taint propagates through variables and must be explicitly allowed in egress contexts.
 
----
-
 ## Best Practices
 
 ✅ **DO:**
@@ -270,17 +258,13 @@ If the script is not running with elevated privileges, it will fail with:
 
 ❌ **DON'T:**
 
-- Mix clause clusters with flow control blocks (if/repeat/etc.)
 - Use `!!! sensitive` without explicit `with risk` documentation
-- Nest clause clusters inside other clusters
+- Nest clause blocks inside other blocks
 - Forget to handle async task results with `wait`
 - Use `elevated` for commands that don't truly need admin rights
 
----
-
 ## Related Pages
 
-- [Clusters](./clusters.md) — Applying clauses to multiple commands
 - [Signatures](./signatures.md) — Command modifiers like `trace`, `timeout`, `on <os>`
 - [Vault](../modules/vault-0.0.1.md) — Secure storage requiring `sensitive` clause
 - [Wait](./wait.md) — Synchronization for async operations

@@ -61,8 +61,8 @@ add 5 10.  # Simple, ordered arguments
 
 ```spell
 function deploy_service
-  parameter environment into !@env.
-  parameter version into !@ver.
+  parameter environment into @!env.
+  parameter version into @!ver.
   parameter rollback into @can_rollback.
 
   say 'Deploying @{ver} to @{env}'.
@@ -78,7 +78,7 @@ deploy_service with environment 'production'
 
 ```spell
 function greet
-  parameter 1 into !@name.          # Required positional
+  parameter 1 into @!name.          # Required positional
   parameter 2 into @surname.        # Required positional
   parameter title into @title.      # Optional named
   parameter formal into @is_formal. # Optional named
@@ -93,7 +93,7 @@ greet 'John' 'Doe' with title 'Dr.' with formal true. # All parameters
 
 ```spell
 function connect_db
-  parameter 1 into !@host.
+  parameter 1 into @!host.
   safe parameter 2 into @port.      # Optional positional
   parameter timeout into @timeout.  # Optional named
 
@@ -118,11 +118,11 @@ connect_db 'localhost' with timeout '30s'.    # Default port, custom timeout
 import assert.
 
 function secure_operation
-  parameter 1 into !@api_key.       # Sealed (readonly)
-  parameter action into !@action.   # Sealed named parameter
+  parameter 1 into @!api_key.       # Sealed (readonly)
+  parameter action into @!action.   # Sealed named parameter
 
-  assert !@api_key is &string.
-  assert !@action is &string.
+  assert @!api_key is &string.
+  assert @!action is &string.
 
   # api_key and action cannot be modified within function
   say 'Executing @{action} with secure key'.
@@ -138,14 +138,14 @@ secure_operation 'secret123' with action 'deploy'.
 - **Missing positional:** Required positional parameters must be provided or function fails
 - **Parameter gaps:** Positional parameters must be numbered sequentially (1, 2, 3...) without gaps
 - **Mixed styles:** Cannot mix positional and named parameter declarations in the same function
-- **Sealed parameters:** Using `!@` prevents modification within the function body
+- **Sealed parameters:** Using `@!` prevents modification within the function body
 
 ## Best Practices
 
 - Use positional parameters for simple, obvious arguments (2-3 parameters max)
 - Use named parameters for complex functions with many options
 - Use mixed calls when you have required core parameters plus optional configuration
-- Always seal security-sensitive parameters with `!@`
+- Always seal security-sensitive parameters with `@!`
 - End all functions with explicit `success` or `fail`
 - Use descriptive parameter names that match the function's purpose
 - Prefer named parameters for boolean flags and optional configuration
