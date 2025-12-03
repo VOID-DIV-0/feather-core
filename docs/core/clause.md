@@ -88,7 +88,7 @@ The `async` clause allows a command to run asynchronously in the background, ena
 
 When a command is marked with `async`, it starts executing immediately, and the script continues to the next instruction without waiting for the async command to finish. You can use the `wait` command later in the script to synchronize and ensure that all async tasks have completed before proceeding.
 
-### 2. Async Clause
+### Async Clause
 
 Here is an example of using the `async` clause to run two long-running tasks in parallel, the wait command is used to wait all currently running async tasks to complete before proceeding:
 
@@ -117,7 +117,7 @@ success.
 
 This would result with hello being printed first, followed by world after a 5-second delay, even if fn_world is started before say 'hello'.
 
-### 4. Async with wait all/any
+### Async with wait all/any
 
 It's possible to wait for a specific set of async tasks to complete using `wait all` or `wait any`:
 
@@ -259,7 +259,6 @@ If the script is not running with elevated privileges, it will fail with:
 ❌ **DON'T:**
 
 - Use `!!! sensitive` without explicit `with risk` documentation
-- Nest clause blocks inside other blocks
 - Forget to handle async task results with `wait`
 - Use `elevated` for commands that don't truly need admin rights
 
