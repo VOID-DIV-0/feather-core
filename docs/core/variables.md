@@ -1,14 +1,19 @@
 ---
-version: 0.2.0
-title: variables
+title: Variables
+slug: variables
+category: core
 status: stable
+version: 0.2.0
+since: 0.0.1
+summary: Variable types and data storage with records, sealed, and nullable variants.
+tags: [variables, records, data, storage]
 ---
 
 # Variables
 
-Variables in nekonomicon are used to store and manipulate data throughout the script. They can hold different types of values, including strings, numbers, and booleans. Variables are defined using the `@` symbol followed by the variable name.
+## Description
 
----
+Variables in nekonomicon are used to store and manipulate data throughout the script. They can hold different types of values, including strings, numbers, and booleans. Variables are defined using the `@` symbol followed by the variable name.
 
 ## Variable Types
 
