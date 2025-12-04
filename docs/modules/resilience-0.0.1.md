@@ -1,3 +1,14 @@
+---
+title: Resilience Module
+slug: resilience
+category: module
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Retry, timeout, and circuit breaker patterns.
+tags: [resilience, retry, timeout, circuit-breaker]
+---
+
 # Resilience
 
 The `resilience` module provides advanced error handling and reliability features for nekonomicon scripts. It enables your automation to gracefully handle failures, retries, timeouts, fallbacks, and circuit breaking, making scripts robust and production-ready.

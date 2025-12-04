@@ -1,3 +1,14 @@
+---
+title: Binary Module
+slug: binary
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Binary data operations.
+tags: [binary, bytes, data]
+---
+
 # Module: `binary`
 
 ## Description

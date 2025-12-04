@@ -1,3 +1,14 @@
+---
+title: Sinks
+slug: sinks
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Output targets for command results using into keyword.
+tags: [sinks, into, output, assignment]
+---
+
 # Sinks
 
 Sinks define how data is stored or validated in nekonomicon. They determine whether bindings are mutable or immutable, and whether data conforms to expected schemas.

@@ -1,3 +1,14 @@
+---
+title: Global Module
+slug: global
+category: module
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Global-level definitions for nekonomicon scripts.
+tags: [global, configuration, settings]
+---
+
 # Global
 
 nekonomicon supports a module that provide modifier options that have effects on the whole script. Some are unique keywords, other related to existing module. They applies the moment you enable the feature.

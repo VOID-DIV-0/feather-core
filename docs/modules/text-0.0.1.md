@@ -1,3 +1,14 @@
+---
+title: Text Module
+slug: text
+category: module
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: String and pattern operations for text manipulation.
+tags: [text, string, pattern, format]
+---
+
 # Text
 
 ## Description

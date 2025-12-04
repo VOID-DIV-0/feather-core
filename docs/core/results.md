@@ -1,3 +1,14 @@
+---
+title: Results
+slug: results
+category: core
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Script outcome declarations with success and fail patterns.
+tags: [results, success, fail, outcome]
+---
+
 # Result
 
 nekonomicon scripts must explicitly declare their outcome. This keeps scripts predictable and self-documenting.

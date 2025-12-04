@@ -1,3 +1,14 @@
+---
+title: Signatures
+slug: signatures
+category: core
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Command execution control, output, and error handling modifiers.
+tags: [signatures, modifiers, trace, timeout, silent, platform]
+---
+
 # Signatures
 
 ## Description

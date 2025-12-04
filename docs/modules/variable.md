@@ -1,3 +1,14 @@
+---
+title: Variable Module
+slug: variable-module
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Variable management and introspection.
+tags: [variable, introspection, metadata]
+---
+
 variable delete @rec. # remove variable entirely (unset/clear)
 variable exists @rec into @ok. # check if variable is bound and non-empty
 variable empty @rec into @ok. # check if value == ''

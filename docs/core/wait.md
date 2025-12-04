@@ -1,3 +1,14 @@
+---
+title: Wait
+slug: wait
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Synchronization and delay operations for async tasks.
+tags: [wait, async, synchronization, delay]
+---
+
     •	wait <time> <unit>. — pause the current script thread.
     •	Units: ms | seconds | minutes | hours.
     •	wait 'tag'. — block until all tasks in group 'tag' finish (success or failure).

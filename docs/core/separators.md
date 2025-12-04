@@ -1,3 +1,14 @@
+---
+title: Separators
+slug: separators
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Command and statement separators.
+tags: [separators, syntax, punctuation]
+---
+
 # Separators in nekonomicon
 
 ## Argument Separators

@@ -1,3 +1,14 @@
+---
+title: Time Module
+slug: time
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Time and date operations.
+tags: [time, date, datetime, timestamp]
+---
+
 time
 • time now into ::t
 • time parse '2025-08-08T12:00:00Z' into ::t

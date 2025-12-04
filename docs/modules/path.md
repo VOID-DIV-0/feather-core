@@ -1,3 +1,14 @@
+---
+title: Path Module
+slug: path
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: File path manipulation and utilities.
+tags: [path, filesystem, utilities]
+---
+
 # Module `path`
 
 ## Description

@@ -1,3 +1,14 @@
+---
+title: Container
+slug: container
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Structured data containers for complex data types.
+tags: [container, data-structure, array, map, nested]
+---
+
 ```spell
 ~ Simple array
 array 'a' 'b' 'c' into ::fruits.
