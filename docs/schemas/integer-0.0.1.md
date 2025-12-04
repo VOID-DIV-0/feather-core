@@ -1,3 +1,14 @@
+---
+title: Integer Schema
+slug: integer-schema
+category: schema
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Integer primitive schema for whole numbers.
+tags: [schema, integer, number, primitive]
+---
+
 # Schema `integer`
 
 Decimal is a primitive scalar schema for floating point number.

@@ -1,3 +1,14 @@
+---
+title: Bool Schema
+slug: bool-schema
+category: schema
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Boolean primitive schema for true/false values.
+tags: [schema, bool, boolean, primitive]
+---
+
 # Schema `bool`
 
 Bool is a primitive scalar (numerical/textual) [schema](../core/schema-0.0.1.md). It's expected to have either 'true', 'false' scalar value.

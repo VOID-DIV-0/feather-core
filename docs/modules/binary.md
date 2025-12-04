@@ -9,7 +9,7 @@ summary: Binary data operations.
 tags: [binary, bytes, data]
 ---
 
-# Module: `binary`
+# Binary
 
 ## Description
 

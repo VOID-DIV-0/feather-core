@@ -1,3 +1,14 @@
+---
+title: Decimal Schema
+slug: decimal-schema
+category: schema
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Decimal primitive schema for floating-point numbers.
+tags: [schema, decimal, float, number, primitive]
+---
+
 # Schema `decimal`
 
 Decimal is a primitive scalar schema for floating point number.

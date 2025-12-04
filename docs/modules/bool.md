@@ -9,18 +9,14 @@ summary: Boolean logic operations and evaluations.
 tags: [bool, boolean, logic, eval, any, all]
 ---
 
-# Module `bool`
+# Bool
 
 ## Description
 
 The `bool` module enables boolean logic operations on record or container values.
 
-## Features
 
-- Evaluate boolean conditions using expressions.
-- Combine multiple boolean values using `all` or `any`.
-
-## Instructions and Modifiers Table
+## Summary Table
 
 | Instruction             | Modifiers / Options | Description                       |
 | ----------------------- | ------------------- | --------------------------------- |
