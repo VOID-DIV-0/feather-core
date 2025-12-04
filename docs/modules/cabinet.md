@@ -1,4 +1,15 @@
-# Module `cabinet`
+---
+title: Cabinet Module
+slug: cabinet
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: File and folder management operations across platforms.
+tags: [cabinet, file, folder, filesystem, io]
+---
+
+# Cabinet
 
 ## Description
 
@@ -13,7 +24,7 @@ It provides a simple, composable interface for common filesystem operations—su
 - Supports safe, elevated, and sensitive operations
 - Integrates with nekonomicon’s result pattern and modifiers
 
-## Instruction and modifiers list
+## Summary Table
 
 - `list` `file`
   - `with`:
