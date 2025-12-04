@@ -11,6 +11,12 @@ tags: [result, error, success, fail]
 
 # Result
 
+# Result
+
+## Description
+
+The Result module provides result type patterns and error handling utilities for expressing success and failure states.
+
 nekonomicon scripts must explicitly declare their outcome. This keeps scripts predictable and self-documenting.
 
 - Use `success` to mark the script as completed successfully.

@@ -11,6 +11,12 @@ tags: [vault, secrets, security, sensitive]
 
 # Vault
 
+# Vault
+
+## Description
+
+The Vault module is the core of nekonomicon's secret management and sensitivity system, providing secure handling of secrets with explicit egress control.
+
 The Vault module is the core of nekonomicon’s secret management and sensitivity system. It provides secure handling of secrets, automatic masking, and explicit egress control with `sensitive` and `with risk`.
 
 ---

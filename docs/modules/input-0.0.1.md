@@ -11,6 +11,12 @@ tags: [input, interaction, prompt]
 
 # Input
 
+# Input
+
+## Description
+
+The Input module provides user input and interaction utilities for collecting data during script execution.
+
 Input module is an extension of the reserve container `::input`. It provides additional feature to simplify the access of the script or function arguments.
 
 ## Summary Table

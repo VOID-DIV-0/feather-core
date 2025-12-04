@@ -9,3 +9,10 @@ summary: Type definitions and validation schemas.
 tags: [schema, types, validation]
 ---
 
+
+# Schema
+
+## Description
+
+Schemas define type validation rules and structures in nekonomicon, enabling type safety and data validation throughout scripts.
+

@@ -9,3 +9,10 @@ summary: Error handling and reporting.
 tags: [error, exception, handling]
 ---
 
+
+# Error
+
+## Description
+
+The Error module provides utilities for error handling, reporting, and custom error creation in nekonomicon scripts.
+

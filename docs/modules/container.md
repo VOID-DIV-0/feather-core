@@ -9,6 +9,13 @@ summary: Container data structures and utilities.
 tags: [container, data-structure, collection]
 ---
 
+
+# Container
+
+## Description
+
+The Container module provides utilities for working with container data structures beyond basic container syntax.
+
 list / map (containers)
 • list add ::xs 'item'.
 • list remove ::xs 'item'.

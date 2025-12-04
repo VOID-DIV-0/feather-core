@@ -9,3 +9,10 @@ summary: Program execution and management.
 tags: [program, process, execution]
 ---
 
+
+# Program
+
+## Description
+
+The Program module provides operations for executing and managing external programs, handling process lifecycle and communication.
+

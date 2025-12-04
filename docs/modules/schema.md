@@ -9,3 +9,10 @@ summary: Schema validation and type operations.
 tags: [schema, validation, types]
 ---
 
+
+# Schema
+
+## Description
+
+The Schema module provides operations for schema validation, type checking, and custom schema definition.
+

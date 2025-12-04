@@ -9,3 +9,10 @@ summary: System-level operations and information.
 tags: [system, os, platform, info]
 ---
 
+
+# System
+
+## Description
+
+The System module provides access to system-level information and operations, including platform details, resource monitoring, and system commands.
+

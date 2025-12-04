@@ -9,3 +9,10 @@ summary: Module import and dependency management.
 tags: [import, modules, dependencies]
 ---
 
+
+# Import
+
+## Description
+
+The import instruction enables loading and using external modules in nekonomicon scripts, providing access to extended functionality beyond the core language features.
+

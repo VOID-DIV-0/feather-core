@@ -9,3 +9,10 @@ summary: Key-value pair collections and operations.
 tags: [map, dictionary, key-value, collection]
 ---
 
+
+# Map
+
+## Description
+
+The Map module provides operations for working with key-value pair collections, including insertion, retrieval, and iteration.
+

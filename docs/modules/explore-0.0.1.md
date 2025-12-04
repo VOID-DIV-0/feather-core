@@ -11,6 +11,12 @@ tags: [explore, introspection, debug, inspect]
 
 # explore 0.0.1
 
+# Explore
+
+## Description
+
+The Explore module provides data exploration and introspection utilities for examining runtime values, structures, and metadata.
+
 ## Overview
 
 The `explore` module provides a flexible and expressive query language for data exploration within nekonomicon. It enables users to retrieve, filter, transform, and aggregate data from various data sources using a rich set of clauses and reducers. The module is designed to support complex data querying scenarios while maintaining clarity and composability.

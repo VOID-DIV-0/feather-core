@@ -9,6 +9,13 @@ summary: JSON parsing and serialization operations.
 tags: [json, parse, serialize, data-format]
 ---
 
+
+# JSON
+
+## Description
+
+The JSON module provides operations for parsing JSON data, serializing containers to JSON, and working with JSON structures.
+
 ```json stream open 'my_file.json' into @st.
 while not @st:eof
   json stream read @st with tabulation into ::obj.

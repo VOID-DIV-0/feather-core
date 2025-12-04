@@ -9,3 +9,10 @@ summary: Task scheduling and cron-like operations.
 tags: [schedule, cron, tasks, timing]
 ---
 
+
+# Schedule
+
+## Description
+
+The Schedule module provides capabilities for scheduling tasks, cron-like operations, and time-based automation.
+

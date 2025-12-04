@@ -9,6 +9,13 @@ summary: Time and date operations.
 tags: [time, date, datetime, timestamp]
 ---
 
+
+# Time
+
+## Description
+
+The Time module provides operations for working with dates, times, timestamps, and time-based calculations.
+
 time
 • time now into ::t
 • time parse '2025-08-08T12:00:00Z' into ::t

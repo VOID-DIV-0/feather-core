@@ -9,7 +9,13 @@ summary: Code style and formatting conventions for nekonomicon scripts.
 tags: [style, formatting, conventions, best-practices]
 ---
 
-# nekonomicon Style Guidelines
+# Style Guide
+
+## Description
+
+Code style and formatting conventions for writing clean, readable, and maintainable nekonomicon scripts.
+
+## Style Guidelines
 
 ## General Philosophy
 

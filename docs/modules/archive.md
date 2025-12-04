@@ -9,3 +9,10 @@ summary: Archive and compression operations.
 tags: [archive, compression, zip, tar]
 ---
 
+
+# Archive
+
+## Description
+
+The Archive module provides operations for creating, extracting, and managing compressed archives such as ZIP and TAR files.
+

@@ -9,6 +9,13 @@ summary: Variable management and introspection.
 tags: [variable, introspection, metadata]
 ---
 
+
+# Variable
+
+## Description
+
+The Variable module provides introspection and metadata operations for variables, including type inspection and variable management utilities.
+
 variable delete @rec. # remove variable entirely (unset/clear)
 variable exists @rec into @ok. # check if variable is bound and non-empty
 variable empty @rec into @ok. # check if value == ''

@@ -9,3 +9,10 @@ summary: File operations and utilities.
 tags: [file, filesystem, io]
 ---
 
+
+# File
+
+## Description
+
+The File module provides operations for working with individual files, including metadata access, permissions, and file-specific utilities.
+

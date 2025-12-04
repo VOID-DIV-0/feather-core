@@ -9,3 +9,10 @@ summary: Directory management and navigation.
 tags: [directory, folder, filesystem]
 ---
 
+
+# Directory
+
+## Description
+
+The Directory module provides operations for managing and navigating filesystem directories, including creation, deletion, and listing operations.
+

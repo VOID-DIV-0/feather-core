@@ -10,6 +10,13 @@ tags: [rule, logic, automation, conditions]
 ---
 
 
+# Rule
+
+## Description
+
+The Rule module provides a framework for defining and evaluating rule-based logic and automation patterns.
+
+
 
 ```spell
 ~~~

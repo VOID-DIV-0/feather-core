@@ -9,3 +9,10 @@ summary: Environment variable access and control.
 tags: [environment, env, variables]
 ---
 
+
+# Environment
+
+## Description
+
+The Environment module provides access to environment variables, allowing scripts to read and manipulate system environment configuration.
+
