@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions for nekonomicon
 
-This repository implements **nekonomicon**, a custom DSL for scripting and automation, prioritizing readability, safety, and cross-platform compatibility. AI agents should follow these project-specific conventions and workflows to be productive immediately.
+This repository implements **nekonomicon**, a custom language for scripting and automation, prioritizing readability, safety, and cross-platform compatibility. AI agents should follow these project-specific conventions and workflows to be productive immediately.
 
 ## Architecture & Structure
 

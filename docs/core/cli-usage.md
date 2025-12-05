@@ -53,6 +53,34 @@ It supports modifiers like:
 - `with(out) verbose`: enables or disables verbose output
 - `with(out) silence`: enables or disables silent mode
 - `with(out) colors`: enables or disables colored output
+- `with(out) timestamps`: enables or disables timestamps in logs
+- `with mode 'type'`: enables or disables pretty printing of results, where 'type' can be `minimal`, `pretty`, `educative` or `json`
+
+### An example with educative display mode
+
+```
+╭─ ERROR ────────────────────────────────────────────────────────╮
+│                                                                │
+│   'hello' into @age &integer.                                  │
+│   ~~~~~~~           ~~~~~~~~                                   │
+│      │                  │                                      │
+│      │                  └─ schema requires: integer            │
+│      └─ this value: 'hello'                                    │
+│                                                                │
+├─ WHY? ─────────────────────────────────────────────────────────┤
+│                                                                │
+│   The &integer schema expects a string containing only         │
+│   digits (0-9), optionally with a leading minus sign.          │
+│                                                                │
+│   'hello' contains letters, which are not valid.               │
+│                                                                │
+├─ FIX ──────────────────────────────────────────────────────────┤
+│                                                                │
+│   • Use a valid integer: '42' into @age &integer.              │
+│   • Or remove the schema: 'hello' into @age.                   │
+│                                                                │
+╰────────────────────────────────────────────────────────────────╯
+```
 
 A cli example with modifiers:
 

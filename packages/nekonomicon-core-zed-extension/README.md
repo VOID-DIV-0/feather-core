@@ -76,7 +76,7 @@ success.
 
 ## About nekonomicon
 
-nekonomicon is a custom DSL for scripting and automation that prioritizes readability, safety, and cross-platform compatibility. Learn more at [github.com/VOID-DIV-0/nekonomicon-core](https://github.com/VOID-DIV-0/nekonomicon-core).
+nekonomicon is a new language for scripting and automation that prioritizes readability, safety, and cross-platform compatibility. Learn more at [github.com/VOID-DIV-0/nekonomicon-core](https://github.com/VOID-DIV-0/nekonomicon-core).
 
 ## License
 

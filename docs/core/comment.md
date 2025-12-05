@@ -20,14 +20,14 @@ set '3' into @value. ~ this set the value to 3.
 
 ## Multiline Comments
 
-For longer explanations or documentation, nekonomicon supports multiline comments. Enclose the comment text within `~{` and `}~` to create a block comment that spans multiple lines.
+For longer explanations or documentation, nekonomicon supports multiline comments. Enclose the comment text within `~~~` and `~~~` to create a block comment that spans multiple lines.
 
 ```spell
-~{
+~~~
     This is a multiline comment.
     It can span multiple lines.
     Use it to explain complex logic or provide detailed information.
-}~
+~~~
 
 say 'Hello, World!'.
 ```
