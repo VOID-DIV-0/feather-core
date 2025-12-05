@@ -15,6 +15,14 @@ tags: [container, data-structure, array, map, nested]
 
 Containers are structured data types in nekonomicon that allow for complex data organization including arrays, maps, and nested structures.
 
+Container support following sub node types:
+
+- **Value**: A single scalar value.
+- **Array**: An ordered list of values.
+- **Container**: A nested container structure.
+
+Container can be created using the `container` block and accessed via projections. For simpler cases, you can produce arrays directly using the `array` intrinsic.
+
 ## Anatomy
 
 ### Syntax
@@ -158,8 +166,8 @@ container
 into ::!an_account.
 
 container
-array 'red' 'green' 'blue' into :colors
-map 'name' 'Canvas1' 'size' 'large' into :metadata
+  array 'red' 'green' 'blue' into :colors
+
 into ::artwork.
 
 ```
