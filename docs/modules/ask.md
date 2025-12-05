@@ -1,90 +1,127 @@
-# ask
-
-The `ask` module provides interactive prompts for user input. It allows you to request input from users, optionally providing a default value, validating input against a schema, or hiding input (e.g., for passwords).
-
+---
+title: Ask Module
+slug: ask
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Interactive user input prompts with validation and masking support.
+tags: [ask, input, prompt, user-interaction]
 ---
 
-## Sink Rules
+# Ask
 
-- **Sink:** `ask` always produces a single value from the user's input.
-- **Type:** The output type is determined by the input or by validation schema (e.g., string, number, boolean).
-- **Blocking:** Prompts block execution until user input is received.
+## Description
 
----
+The Ask module provides interactive prompts for user input. It allows you to request input from users, optionally providing a default value, validating input against a schema, or hiding input (e.g., for passwords). The module blocks execution until user input is received.
 
-## Signatures
+## Summary Table
 
-```nekonomicon
-ask(prompt: string) -> string
-ask(prompt: string, default: any) -> any
-ask(prompt: string, schema: Schema) -> any
-ask(prompt: string, { hidden: true }) -> string
+| Instruction | Minimal Syntax | Effect | Key Modifiers |
+| ----------- | -------------- | ------ | ------------- |
+| ask | ask @prompt into @input. | Prompt user for input | with default, with schema, with mask |
+
+## Anatomy
+
+Ask commands follow this structure:
+
+```
+ask <prompt> [with <modifier>] into <sink>.
 ```
 
-- **prompt:** The message displayed to the user.
-- **default:** (Optional) Value to use if the user presses enter without input.
-- **schema:** (Optional) Validation schema (e.g., `"number"`, `"boolean"`, regex, or custom object) to enforce input type or format.
-- **options:** (Optional) Object with flags, e.g., `{ hidden: true }` to hide input.
+- `<prompt>`: Message displayed to the user (record or literal)
+- `[with <modifier>]`: Optional qualifiers (default, schema, mask)
+- `into <sink>`: Target variable for user input
 
----
+## Syntax
+
+```
+ask <prompt> [with default <value>] [with schema <type>] [with mask] into <target>.
+```
 
 ## Examples
 
 ### 1. Simple Prompt
 
-```nekonomicon
-let name = ask("What is your name?")
-say("Hello, " + name + "!")
+```spell
+ask 'What is your name?' into @name.
+say 'Hello, @{name}!'.
 ```
 
 ### 2. Prompt with Default Value
 
-```nekonomicon
-let color = ask("Favorite color?", "blue")
-say("You chose: " + color)
+```spell
+ask 'Favorite color?' with default 'blue' into @color.
+say 'You chose: @{color}'.
 ```
 
 ### 3. Prompt with Schema Validation
 
-```nekonomicon
-let age = ask("Enter your age:", "number")
-say("You are " + age + " years old.")
+```spell
+ask 'Enter your age:' with schema integer into @age.
+say 'You are @{age} years old.'.
 ```
 
-#### With Boolean Schema
+### 4. Prompt with Boolean Schema
 
-```nekonomicon
-let subscribe = ask("Subscribe to newsletter?", "boolean")
-if subscribe {
-  say("Thank you for subscribing!")
-}
+```spell
+ask 'Subscribe to newsletter?' with schema bool into @subscribe.
+
+if @subscribe
+  say 'Thank you for subscribing!'.
+end
 ```
 
-#### With Regex Schema
+### 5. Hidden Input (Password)
 
-```nekonomicon
-let email = ask("Enter your email:", /.+@.+\..+/)
-say("Email recorded: " + email)
+```spell
+sensitive ask 'Enter your password:' with mask into @!password.
+say 'Password accepted.'.
 ```
 
-### 4. Hidden Input (Password)
+### 6. Combined Validation and Masking
 
-```nekonomicon
-let pw = ask("Enter your password:", { hidden: true })
-say("Password accepted.")
+```spell
+sensitive ask 'Enter 4-digit PIN:' with schema integer with mask into @!pin.
+say 'PIN set successfully.'.
 ```
 
----
+### 7. Multiple Prompts
 
-## Notes
+```spell
+ask 'Enter username:' into @username.
+sensitive ask 'Enter password:' with mask into @!password.
 
-- If a `default` is provided and the user submits empty input, the default is returned.
-- If a `schema` is provided, the input is validated and (if possible) coerced to the schema type. Invalid input will re-prompt the user.
-- When `{ hidden: true }` is used, input is not shown on the screen (useful for sensitive data).
-- Only one of `default`, `schema`, or `options` may be provided as the second argument. For combined schema/options, use an options object:
-  ```nekonomicon
-  let pin = ask("Enter 4-digit PIN:", { schema: /^\d{4}$/, hidden: true })
-  ```
-- The prompt string should be concise and clear.
+say 'Account created for @{username}.'.
+success.
+```
 
----
+## Edge Cases
+
+- If a default is provided and the user submits empty input, the default is returned.
+- If a schema is provided, the input is validated and coerced to the schema type. Invalid input will re-prompt the user.
+- When `with mask` is used, input is not shown on the screen (useful for sensitive data).
+- The module blocks execution until valid input is received.
+- Empty input without a default will re-prompt the user.
+
+## Best Practices
+
+- Use `sensitive` clause when prompting for passwords or secrets.
+- Always store masked input in sealed variables (`@!`) to prevent accidental modification.
+- Provide clear, concise prompt strings.
+- Use schemas to validate input type early.
+- Combine `with mask` with vault operations for secure secret handling.
+- Consider providing defaults for optional configuration values.
+
+## Common Errors
+
+- **ASK-001**: Invalid schema type
+- **ASK-002**: User cancelled prompt (Ctrl+C)
+- **ASK-003**: Input validation failed
+
+## Related Pages
+
+- [Variables](../core/variables.md) — Record types and sealed variables
+- [Vault](./vault-0.0.1.md) — Secret storage
+- [Clause](../core/clause.md) — Sensitive clause usage
+- [Schema](../core/schema.md) — Type validation

@@ -1,15 +1,22 @@
-# Module `bool`
+---
+title: Bool Module
+slug: bool
+category: module
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Boolean logic operations and evaluations.
+tags: [bool, boolean, logic, eval, any, all]
+---
+
+# Bool
 
 ## Description
 
 The `bool` module enables boolean logic operations on record or container values.
 
-## Features
 
-- Evaluate boolean conditions using expressions.
-- Combine multiple boolean values using `all` or `any`.
-
-## Instructions and Modifiers Table
+## Summary Table
 
 | Instruction             | Modifiers / Options | Description                       |
 | ----------------------- | ------------------- | --------------------------------- |

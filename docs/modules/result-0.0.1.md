@@ -1,4 +1,21 @@
+---
+title: Result Module
+slug: result-module
+category: module
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Result type and error handling patterns.
+tags: [result, error, success, fail]
+---
+
 # Result
+
+# Result
+
+## Description
+
+The Result module provides result type patterns and error handling utilities for expressing success and failure states.
 
 nekonomicon scripts must explicitly declare their outcome. This keeps scripts predictable and self-documenting.
 

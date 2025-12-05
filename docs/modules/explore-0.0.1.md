@@ -1,4 +1,21 @@
+---
+title: Explore Module
+slug: explore
+category: module
+status: stable
+version: 0.0.1
+since: 0.0.1
+summary: Data exploration and introspection utilities.
+tags: [explore, introspection, debug, inspect]
+---
+
 # explore 0.0.1
+
+# Explore
+
+## Description
+
+The Explore module provides data exploration and introspection utilities for examining runtime values, structures, and metadata.
 
 ## Overview
 

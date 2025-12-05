@@ -1,3 +1,14 @@
+---
+title: Flow Control
+slug: flow
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Conditional logic and loops for script control flow.
+tags: [flow, conditionals, loops, if, while, repeat]
+---
+
 # Flow
 
 In nekonomicon, the usage of "flow" instructions enable to control the logic based on conditions. Compared to many languages, it's not allowed to embbed condition inside the conditional statement.

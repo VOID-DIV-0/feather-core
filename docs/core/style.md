@@ -1,4 +1,21 @@
-# nekonomicon Style Guidelines
+---
+title: Style Guide
+slug: style
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Code style and formatting conventions for nekonomicon scripts.
+tags: [style, formatting, conventions, best-practices]
+---
+
+# Style Guide
+
+## Description
+
+Code style and formatting conventions for writing clean, readable, and maintainable nekonomicon scripts.
+
+## Style Guidelines
 
 ## General Philosophy
 

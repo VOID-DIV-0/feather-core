@@ -1,3 +1,14 @@
+---
+title: Literals
+slug: literals
+category: core
+status: wip
+version: 0.0.1
+since: 0.0.1
+summary: Fixed value representations including strings, numbers, and booleans.
+tags: [literals, strings, numbers, booleans, constants]
+---
+
 # Literals
 
 In nekonomicon, literals are used to represent fixed values directly in the code. They can be of various types, including strings, numbers, and booleans. Below are the different types of literals supported in nekonomicon. At the end, they are all formatted as text internally but modules and commands interpret them based on context.
