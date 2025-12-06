@@ -1,3 +1,10 @@
 [workspace]
-members = ["packages/nekonomicon-core", "packages/nekonomicon-core-cabinet"]
-name = "nekonomicon"
+members = [
+    "packages/nekonomicon-core",
+    "packages/nekonomicon-core-cabinet",
+    "packages/nekonomicon-core-math",
+    "packages/nekonomicon-core-list",
+    "packages/nekonomicon-core-text",
+    "packages/nekonomicon-core-http"
+]
+resolver = "2"
