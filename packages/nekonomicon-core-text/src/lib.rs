@@ -153,20 +153,22 @@ pub fn reverse(s: &str) -> String {
 
 /// Pad string to length with character (left padding)
 pub fn pad_left(s: &str, width: usize, pad_char: char) -> String {
-    if s.len() >= width {
+    let char_count = s.chars().count();
+    if char_count >= width {
         s.to_string()
     } else {
-        let padding = pad_char.to_string().repeat(width - s.len());
+        let padding = pad_char.to_string().repeat(width - char_count);
         format!("{}{}", padding, s)
     }
 }
 
 /// Pad string to length with character (right padding)
 pub fn pad_right(s: &str, width: usize, pad_char: char) -> String {
-    if s.len() >= width {
+    let char_count = s.chars().count();
+    if char_count >= width {
         s.to_string()
     } else {
-        let padding = pad_char.to_string().repeat(width - s.len());
+        let padding = pad_char.to_string().repeat(width - char_count);
         format!("{}{}", s, padding)
     }
 }
@@ -295,6 +297,10 @@ mod tests {
         assert_eq!(pad_left("5", 3, '0'), "005");
         assert_eq!(pad_right("5", 3, '0'), "500");
         assert_eq!(pad_left("hello", 3, '0'), "hello"); // No padding needed
+        
+        // Unicode character test
+        assert_eq!(pad_left("こ", 3, '0'), "00こ"); // One Unicode char, pad to 3
+        assert_eq!(pad_right("こ", 3, '0'), "こ00"); // One Unicode char, pad to 3
     }
 
     #[test]
