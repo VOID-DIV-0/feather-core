@@ -2,28 +2,49 @@
 title: Modifiers
 slug: modifiers
 category: core
-status: wip
-version: 0.0.1
+status: stable
+version: 0.1.0
 since: 0.0.1
-summary: Command behavior modifiers using with and without keywords.
-tags: [modifiers, with, without, options]
+summary: Command behavior modifiers using with, without, and on keywords.
+tags: [modifiers, with, without, on, options, global, platform]
 ---
 
 # Modifiers
 
 ## Description
 
-### `with` / `without`
+nekonomicon uses readable keywords `with`, `without`, and `on` so modifiers stay intuitive, memorable, and easy to chain. Modifiers control both command-specific behavior and global execution settings.
 
-nekonomicon uses readable keywords alongside `with` / `without` so modifiers stay intuitive, memorable, and easy to chain.
+## Types of Modifiers
 
-Modifier options differ for each module or core component.
+### Command-Specific Modifiers
 
-- Use `with <option>` to enable an option or specify its value.
-- Use `without <option>` to disable an option.
-- Repeating the same option (for example `with depth '3'` followed by `with depth '5'`) is a compile-time error.
+These modifiers are specific to individual commands or modules:
 
-Examples:
+- Use `with <option>` to enable an option or specify its value
+- Use `without <option>` to disable an option
+- Repeating the same option is a compile-time error
+
+### Global Modifiers
+
+These modifiers work with any command and control execution behavior:
+
+- `with silence` / `without silence` - Control output verbosity
+- `with trace` / `without trace` - Enable/disable command tracing
+- `with timeout '<duration>'` - Set execution time limits
+- `with retry '<count>'` - Set retry attempts for failed commands
+
+### Platform Selectors
+
+Control which platforms a command runs on:
+
+- `on linux` - Execute only on Linux systems
+- `on mac` - Execute only on macOS systems
+- `on windows` - Execute only on Windows systems
+
+## Examples
+
+### Command-Specific Modifiers
 
 ```spell
 cabinet file list
@@ -33,8 +54,31 @@ cabinet file list
   filter '[A-Za-z]'.
 ```
 
-This replaces obscure flags with self-explanatory modifiers. You can also chain them inline:
+### Global Modifiers
 
 ```spell
-cabinet file list with depth '3' with hidden without extension filter '[A-Za-z]'
+vault unlock 'api-key'
+  with timeout '10s'
+  with retry '3'
+  with silence
+  on linux
+  into @key.
 ```
+
+### Combined Usage
+
+```spell
+cabinet copy file '/important/data' to '/backup/location'
+  with compression
+  with verification
+  with trace
+  with timeout '5m'
+  on linux.
+```
+
+## Syntax Rules
+
+- All modifiers appear after the main command operands
+- Global modifiers can be combined with command-specific modifiers
+- Platform selectors (`on <platform>`) should appear last
+- Modifiers can be chained inline or across multiple lines for readability

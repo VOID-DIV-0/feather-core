@@ -22,7 +22,7 @@ Intrinsic commands are built-in commands that provide core functionality within 
 #### Syntax
 
 ```spell
-[clause(s)] <intrinsic> [instruction(s)...] [modifiers...] [signatures...].
+[clause(s)] <intrinsic> [instruction(s)...] [modifiers...] [on platform].
 ```
 
 Where:
@@ -30,14 +30,14 @@ Where:
 [clause]: optional prepositions that modify command's execution context.
 [intrinsic]: The core action to be performed.
 [instruction(s)]: inputs required by the command.
-[modifier(s)]: optional keywords that alter the command's behavior.
-[signature(s)]: Generic behavioral flags that modify how the command operates.
+[modifier(s)]: optional keywords that alter the command's behavior using `with`/`without`.
+[on platform]: optional platform selector that must appear last.
 [.]: Terminator indicating the end of the command.
 
 #### Example
 
 ```spell
-say 'Hello, World!' silent trace on linux.
+say 'Hello, World!' with silence with trace on linux.
 ```
 
 ### Module Command
@@ -47,7 +47,7 @@ Module commands are provided by specific modules and extend the functionality of
 #### Syntax
 
 ```spell
-[clause(s)] <module> <action> [instruction(s)...] [modifier(s)...] [signature(s)...].
+[clause(s)] <module> <action> [instruction(s)...] [modifier(s)...] [on platform].
 ```
 
 Where:
@@ -56,8 +56,8 @@ Where:
 - [module]: The module providing the action.
 - [action]: The specific operation the module performs.
 - [instruction(s)]: inputs required by the action.
-- [modifier(s)]: optional keywords that alter the action's behavior.
-- [signature(s)]: Generic behavioral flags that modify how the action operates.
+- [modifier(s)]: optional keywords that alter the action's behavior using `with`/`without`.
+- [on platform]: optional platform selector that must appear last.
 - [.]: Terminator indicating the end of the command.
 
 #### Example
@@ -66,8 +66,8 @@ Where:
 import cabinet.
 
 cabinet read file 'config.txt' into @content.
-cabinet write file 'output.txt' with @content.
-safe cabinet delete file 'temp.txt' silent on linux.
+cabinet write file 'output.txt' with content @content.
+safe cabinet delete file 'temp.txt' with silence on linux.
 ```
 
 ### Block Command
@@ -112,7 +112,7 @@ function <function_name> [parameter(s)...]
     ...
 end
 
-[clause(s)] <function_name> [argument(s)...] [signature(s)...].
+[clause(s)] <function_name> [argument(s)...] [modifier(s)...] [on platform].
 ```
 
 ## Syntaxic Sugar
@@ -120,7 +120,7 @@ end
 ### Multiline
 
 ```spell
-safe sensitive cabinet delete file '/root/very/long/folder' with force as result into ::operation_result silent chrono on linux.
+safe sensitive cabinet delete file '/root/very/long/folder' with force into ::operation_result with silence with trace on linux.
 say 'that is a long command!'.
 success.
 ```
@@ -130,6 +130,7 @@ Compared to
 ```spell
 safe sensitive cabinet delete file '/root/very/long/folder' with force
                                                             into ::result
-                                                            silent chrono
+                                                            with silence
+                                                            with trace
                                                             on linux.
 ```

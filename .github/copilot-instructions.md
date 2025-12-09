@@ -18,7 +18,6 @@ This repository implements **nekonomicon**, a custom language for scripting and 
 - **Security**: Use `vault`, `sensitive` for secrets and sensitive data.
 - **All commands end with `.`**
 - **Clauses**: `safe`, `sensitive`, `elevated`, `async` must appear at the start of a command.
-- **Signatures**: `trace`, `elapsed`, `timeout`, `silent`, `on <os>` can be combined at the end of commands (see `docs/core/signatures.md`).
 - **No embedded conditionals**: Always compute and store results before using them in flow control.
 
 ## Developer Workflows

@@ -2,16 +2,17 @@
 title: Flow Control
 slug: flow
 category: core
-status: wip
-version: 0.0.1
+status: stable
+version: 0.1.0
 since: 0.0.1
 summary: Conditional logic and loops for script control flow.
-tags: [flow, conditionals, loops, if, while, repeat]
+tags:
+  [flow, conditionals, loops, if, any, all, exclusive, decide, while, repeat]
 ---
 
 # Flow
 
-In nekonomicon, the usage of "flow" instructions enable to control the logic based on conditions. Compared to many languages, it's not allowed to embbed condition inside the conditional statement.
+nekonomicon provides clear, context-based flow control that prioritizes readability. Conditions are expressed using explicit keywords that make the intent obvious.
 
 ---
 
@@ -19,89 +20,235 @@ In nekonomicon, the usage of "flow" instructions enable to control the logic bas
 
 ### Conditional
 
-| Instruction                           | Syntax Example | Effect | Notes |
-| ------------------------------------- | -------------- | ------ | ----- |
-| if/else if {condition} ... end        | ``             |        |       |
-| any {condition1} {condition2} ... end | ``             |        |       |
-| all {condition1} {condition2} ... end | ``             |        |       |
+| Instruction  | Syntax Example                                     | Effect                                | Notes                        |
+| ------------ | -------------------------------------------------- | ------------------------------------- | ---------------------------- |
+| if           | `if @condition`                                    | True if single variable is true       | Simple single variable check |
+| if any       | `if any @flag1 @flag2 @flag3`                      | True if at least one variable is true | Requires 2+ variables        |
+| if all       | `if all @check1 @check2 @check3`                   | True if all variables are true        | Requires 2+ variables        |
+| if none      | `if none @error1 @error2 @error3`                  | True if all variables are false       | Requires 2+ variables        |
+| if exclusive | `if exclusive @dev @prod`                          | True if exactly one variable is true  | Requires 2+ variables        |
+| if decide    | `if decide @score > 85 and @status equals 'ready'` | True if complex expression is true    | Full expression support      |
 
 ### Loops
 
-| Instruction                                        | Syntax Example | Effect | Notes |
-| -------------------------------------------------- | -------------- | ------ | ----- |
-| while {condition} ... end                          | ``             |        |       |
-| do ... while {condition} end                       | ``             |        |       |
-| repeat {value} ... end                             | ``             |        |       |
-| increase {iterator} by {value} to {target} ... end | ``             |        |       |
-| decrease {iterator} by {value} to {target} ... end | ``             |        |       |
-| foreach from ::container into {iterator} ... end   | ``             |        |       |
+| Instruction | Syntax Example                        | Effect                         | Notes                      |
+| ----------- | ------------------------------------- | ------------------------------ | -------------------------- |
+| while       | `while @condition`                    | Repeat while condition is true | Supports conditional logic |
+| while       | `while all @c1 @c2 @c3`               | Repeat while all true          | Supports conditional logic |
+| repeat      | `repeat @count`                       | Repeat fixed number of times   | Structural iteration only  |
+| increase    | `increase @i by '2' to '10'`          | Increment and repeat           | Structural iteration only  |
+| decrease    | `decrease @i by '3' to '0'`           | Decrement and repeat           | Structural iteration only  |
+| foreach     | `foreach from ::container into @item` | Iterate over container         | Structural iteration only  |
 
-- `any`
-- `all`
-- `repeat`
-- `if/else/elseif`
-- `iterate by until`
-- `foreach`
+---
 
-## Conditionals and Loops
+## Conditionals
 
-nekonomicon supports straightforward flow control with English-like keywords.
+nekonomicon provides six types of conditional logic, each with clear intent:
 
-### all
+### `if` - Simple Check
 
-### `if` / `else if` / `else`
-
-Use `if` for conditional logic. `else if` and `else` can be used for additional branches. Always close the block with `end`.
+Check if a single variable is true. The most basic conditional.
 
 ```spell
+decide @user_authenticated into @is_logged_in.
 
-solve @value > 10 into @greater_than_10.
-solve @value > 5 into @greater_than_5.
-
-if @greater_than_10
-  say 'Value is greater than 10'.
-else if @greater_than_5
-  say 'Value is greater than 5'.
+if @is_logged_in
+  say 'Welcome back!'.
 else
-  say 'Value is 5 or less'.
+  say 'Please log in'.
 end
 ```
 
-4. `timeout`
+### `if any` - OR Logic
 
-   • Flow tags (control timing/scope): once, retry 'N', timeout '5s', parallel/sequential
+Check if **at least one** variable is true. Requires at least 2 variables.
+
+```spell
+# Pre-compute your checks
+decide @score > 85 into @high_score.
+decide @attendance >= 0.9 into @good_attendance.
+
+if any @high_score @good_attendance @extra_credit
+  say 'Student qualifies for honors'.
+end
+```
+
+### `if none` - None True (NOR Logic)
+
+Check if **all** variables are false. Requires at least 2 variables.
+
+```spell
+# Pre-compute your error checks
+decide @network_available into @network_ok.
+decide @disk_space > 1000 into @disk_ok.
+decide @memory_usage < 80 into @memory_ok.
+
+if none @validation_error @network_error @auth_error
+  say 'No errors detected, proceeding'.
+else
+  error 'System checks failed'.
+end
+```
+
+### `if all` - AND Logic
+
+Check if **all** variables are true. Requires at least 2 variables.
+
+````spell
+# Pre-compute your checks
+vault check access 'database' into @db_access.
+decide @user_level equals 'admin' into @is_admin.
+
+if all @authenticated @db_access @is_admin
+  say 'Full database access granted'.
+end
+```### `if exclusive` - XOR Logic
+
+Check if **exactly one** variable is true. Requires at least 2 variables.
+
+```spell
+if exclusive @is_development @is_production
+  say 'Valid environment configuration'.
+else
+  error 'Cannot be both dev and prod, or neither'.
+end
+````
+
+### `if decide` - Complex Expressions
+
+For complex conditions that need full expression evaluation.
+
+```spell
+if decide @score > 85 and @attendance >= 0.9 and @status equals 'active'
+  say 'Complex condition met'.
+end
+```
+
+## Loops
 
 ### `repeat`
 
-Repeat a block a fixed number of times. Close with `end`.
+Repeat a block a fixed number of times. The count must be a variable or literal.
 
 ```spell
+'5' into @count.
 repeat @count
-  say 'looping'
+  say 'Iteration in progress'.
 end
 ```
 
 ### `while`
 
-Repeat a block while a condition is true.
+Repeat a block while a condition is true. Supports the same conditional logic as `if` statements.
+
+#### Simple Condition
 
 ```spell
-while @count > '0'
-  say 'count is @{count}'
-  decrease @count to '1'
+'10' into @counter.
+decide @counter > 0 into @should_continue.
+
+while @should_continue
+  say 'Counter is @{counter}'.
+  calculate @counter - 1 into @counter.
+  decide @counter > 0 into @should_continue.
+end
+```
+
+#### Multi-Variable Conditions
+
+```spell
+# Continue while all systems are operational
+while all @network_ok @database_ok @cache_ok
+  # Process requests
+  say 'All systems operational'.
+  # Re-check system status
+  check_network_status into @network_ok.
+  check_database_status into @database_ok.
+  check_cache_status into @cache_ok.
+end
+
+# Continue while any work remains
+while any @pending_uploads @pending_downloads @pending_processing
+  say 'Work in progress'.
+  process_next_item.
+  check_work_status into @pending_uploads @pending_downloads @pending_processing.
 end
 ```
 
 ### `increase` and `decrease`
 
-Increment or decrease a value up to or down to a target, executing the block each step.
+Increment or decrement a value in steps, executing the block each iteration.
 
 ```spell
 increase @i by '2' to '10'
-  say 'increase: @{i}'
+  say 'Current value: @{i}'.
 end
 
-decrease @i by '3' to '0'
-  say 'decrease: @{i}'
+decrease @countdown by '1' to '0'
+  say '@{countdown} seconds remaining'.
+end
+```
+
+### `foreach`
+
+Iterate over containers, binding each element to a variable.
+
+```spell
+foreach from ::names into @name
+  say 'Hello, @{name}!'.
+end
+```
+
+## Control Flow Rules
+
+### Conditional Logic
+
+1. **Simple conditions** use `any`, `all`, `none`, or `exclusive` with variables only
+2. **Multi-variable conditions** (`any`, `all`, `none`, `exclusive`) require at least 2 variables
+3. **Single variable checks** use simple `if @variable` or `while @variable`
+4. **Complex conditions** require `decide` for full expression evaluation
+5. **Conditional support** available in `if` statements and `while` loops
+
+### Structural Iteration
+
+6. **Structural loops** (`repeat`, `increase`, `decrease`, `foreach`) use fixed parameters only
+7. **No conditional logic** in structural loops - they follow predetermined iteration patterns
+8. **All blocks** must be closed with `end`
+9. **Variables** must be pre-computed for conditional logic
+
+## Examples
+
+### Authentication Flow
+
+```spell
+vault check token @user_token into @valid_token.
+decide @user_role equals 'admin' into @is_admin.
+decide @session_time < 3600 into @session_valid.
+
+if all @valid_token @is_admin @session_valid
+  say 'Admin access granted'.
+else
+  error 'Access denied'.
+end
+```
+
+### Environment Check
+
+```spell
+if exclusive @development @staging @production
+  say 'Valid environment configuration'.
+else
+  error 'Invalid environment state'.
+end
+```
+
+### Complex Business Logic
+
+```spell
+if decide @order_total > 100 and @customer_tier equals 'premium' and @stock_available >= @quantity
+  say 'Order approved with premium processing'.
+else
+  say 'Order requires manual review'.
 end
 ```
