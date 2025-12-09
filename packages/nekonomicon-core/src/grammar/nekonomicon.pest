@@ -1,0 +1,12 @@
+// Simple grammar: only support "say 'text'."
+command = { SOI ~ say_command ~ EOI }
+
+say_command = { "say" ~ string_literal ~ "." }
+
+string_literal = { "'" ~ (escape | (!"'" ~ ANY))* ~ "'" }
+
+escape = { "\\'" | "\\\\" }
+
+// Whitespace and comments  
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+COMMENT = _{ "~" ~ (!"\n" ~ ANY)* }

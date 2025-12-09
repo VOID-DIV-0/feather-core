@@ -10,7 +10,7 @@ status: stable
 
 | Command         | Description                              |
 | --------------- | ---------------------------------------- |
-| `neko purr`     | Get the version of the neko interpreter  |
+| `neko story`    | Get the version of the neko interpreter  |
 | `neko help`     | Display help information                 |
 | `neko conjure`  | Run a nekonomicon script (.spell file)   |
 | `neko summon`   | Install a nekonomicon module             |
@@ -25,7 +25,7 @@ status: stable
 To check the version of the neko interpreter installed on your system, use the following command:
 
 ```bash
-neko purr
+neko story
 ```
 
 ## Display Help Information

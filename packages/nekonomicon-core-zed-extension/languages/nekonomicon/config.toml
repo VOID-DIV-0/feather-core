@@ -1,4 +1,0 @@
-name = "nekonomicon"
-grammar = "nekonomicon"
-path_suffixes = ["spell"]
-line_comments = ["~"]

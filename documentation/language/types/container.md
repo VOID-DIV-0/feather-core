@@ -16,6 +16,7 @@ tags: [container, data-structure, array, map, nested, projection]
 Containers are nekonomicon's structured data type, identified by the `::` symbol. They allow you to organize complex data into hierarchies with named fields, arrays, and nested structures—like JSON objects or dictionaries in other languages, but with nekonomicon's explicit, readable syntax.
 
 Use containers when you need to:
+
 - **Group related data** (e.g., user profile with name, email, age)
 - **Store collections** (e.g., list of colors, array of scores)
 - **Build nested structures** (e.g., configuration with multiple sections)
@@ -27,18 +28,18 @@ Containers complement records (`@variable`): use records for single values, cont
 
 ## Summary Table
 
-| Pattern              | Syntax                                  | Effect                                  | Notes                            |
-| -------------------- | --------------------------------------- | --------------------------------------- | -------------------------------- |
-| Container Definition | `container ... into ::name.`            | Create structured data                  | Supports fields, arrays, nesting |
-| Field Access         | `::container:field`                     | Access named field                      | Navigate with `:` separator      |
-| Index Access         | `::container#0`                         | Access array element by position        | Zero-indexed                     |
-| Chained Access       | `::users:profile:email`                 | Navigate nested structure               | Chain projections                |
-| Mixed Access         | `::data:colors#1`                       | Access array within field               | Combine field and index          |
-| Sealed Container     | `::!const`                              | Immutable container                     | All fields inherit seal          |
-| Nullable Container   | `::?maybe`                              | Container that can be null              | Per-node nullability             |
-| Nullable Field       | `::user:?optional_field`                | Field that might not exist              | Does not chain to parent         |
-| Array Field          | `array 'a' 'b' 'c' into :items`         | Store ordered list in field             | Use `array` intrinsic            |
-| Nested Container     | `container ... into :section`           | Container within container              | Unlimited nesting depth          |
+| Pattern              | Syntax                          | Effect                           | Notes                            |
+| -------------------- | ------------------------------- | -------------------------------- | -------------------------------- |
+| Container Definition | `container ... into ::name.`    | Create structured data           | Supports fields, arrays, nesting |
+| Field Access         | `::container:field`             | Access named field               | Navigate with `:` separator      |
+| Index Access         | `::container#0`                 | Access array element by position | Zero-indexed                     |
+| Chained Access       | `::users:profile:email`         | Navigate nested structure        | Chain projections                |
+| Mixed Access         | `::data:colors#1`               | Access array within field        | Combine field and index          |
+| Sealed Container     | `::!const`                      | Immutable container              | All fields inherit seal          |
+| Nullable Container   | `::?maybe`                      | Container that can be null       | Per-node nullability             |
+| Nullable Field       | `::user:?optional_field`        | Field that might not exist       | Does not chain to parent         |
+| Array Field          | `array 'a' 'b' 'c' into :items` | Store ordered list in field      | Use `array` intrinsic            |
+| Nested Container     | `container ... into :section`   | Container within container       | Unlimited nesting depth          |
 
 ---
 
@@ -390,16 +391,14 @@ say ::document:views.        ~ Outputs: 1000
 
 ```spell
 container
-  array
-    array 1 2 3
-    array 4 5 6
-    array 7 8 9
-  into :matrix
-into ::data.
+  array 1 2 3 into :row_0
+  array 4 5 6 into :row_1
+  array 7 8 9 into :row_2
+into ::matrix.
 
-say ::data:matrix#0#0.       ~ Outputs: 1
-say ::data:matrix#1#2.       ~ Outputs: 6
-say ::data:matrix#2#1.       ~ Outputs: 8
+say ::matrix:row_0#0.    ~ 1
+say ::matrix:row_1#2.    ~ 6
+say ::matrix:row_2#1.    ~ 8
 ```
 
 ---
@@ -413,6 +412,7 @@ say ::data:matrix#2#1.       ~ Outputs: 8
 3. **Seal configuration data:** Use `::!` for data that shouldn't change during script execution.
 
 4. **Check nullable fields before access:** Always use `decide` to check if nullable fields exist:
+
    ```spell
    decide ::user:?phone is not null into @has_phone.
    if @has_phone
@@ -423,6 +423,7 @@ say ::data:matrix#2#1.       ~ Outputs: 8
 5. **Use arrays for ordered collections:** When the order matters or you need indexed access, use arrays. For named data, use fields.
 
 6. **Document complex structures:** Add comments explaining nested structures:
+
    ```spell
    container
      container
@@ -508,18 +509,18 @@ say ::data#0.                ~ ERROR: E-CTNR-INVALID-PROJ
 
 ## Error Handling
 
-| Error Code                     | Description                                   | Solution                                                |
-| ------------------------------ | --------------------------------------------- | ------------------------------------------------------- |
-| E-CTNR-SEAL-INHERITED          | Attempting to seal field in sealed container  | Remove `!` from field—it inherits seal from parent      |
-| E-CTNR-INVALID-PROJ            | Invalid projection syntax or type mismatch    | Check field name spelling and use correct projection    |
-| E-CTNR-NULL-ACCESS             | Accessing null container without checking     | Use `decide ::?container is not null` before access     |
-| E-CTNR-SEALED                  | Attempting to modify sealed container         | Remove seal or create new container                     |
-| E-CTNR-FIELD-NOT-FOUND         | Accessing non-existent field                  | Check field name or define field before accessing       |
-| E-CTNR-INDEX-OUT-OF-BOUNDS     | Array index exceeds array length              | Verify index is within bounds (0 to length-1)           |
-| E-CTNR-TYPE-MISMATCH           | Projection type doesn't match node type       | Use `:field` for named nodes, `#index` for arrays       |
-| E-CTNR-UNDEFINED               | Container referenced before definition        | Define container with `container ... into ::name` first |
-| E-CTNR-DUPLICATE-FIELD         | Field name used multiple times in container   | Use unique field names within container                 |
-| E-CTNR-INVALID-IDENTIFIER      | Container identifier has invalid characters   | Use alphanumeric characters and underscores only        |
+| Error Code                 | Description                                  | Solution                                                |
+| -------------------------- | -------------------------------------------- | ------------------------------------------------------- |
+| E-CTNR-SEAL-INHERITED      | Attempting to seal field in sealed container | Remove `!` from field—it inherits seal from parent      |
+| E-CTNR-INVALID-PROJ        | Invalid projection syntax or type mismatch   | Check field name spelling and use correct projection    |
+| E-CTNR-NULL-ACCESS         | Accessing null container without checking    | Use `decide ::?container is not null` before access     |
+| E-CTNR-SEALED              | Attempting to modify sealed container        | Remove seal or create new container                     |
+| E-CTNR-FIELD-NOT-FOUND     | Accessing non-existent field                 | Check field name or define field before accessing       |
+| E-CTNR-INDEX-OUT-OF-BOUNDS | Array index exceeds array length             | Verify index is within bounds (0 to length-1)           |
+| E-CTNR-TYPE-MISMATCH       | Projection type doesn't match node type      | Use `:field` for named nodes, `#index` for arrays       |
+| E-CTNR-UNDEFINED           | Container referenced before definition       | Define container with `container ... into ::name` first |
+| E-CTNR-DUPLICATE-FIELD     | Field name used multiple times in container  | Use unique field names within container                 |
+| E-CTNR-INVALID-IDENTIFIER  | Container identifier has invalid characters  | Use alphanumeric characters and underscores only        |
 
 ---
 
