@@ -12,7 +12,8 @@ Only "versioned" component means they are "final" documentation
 
 ### Syntax
 
-- **WIP** [Commands](./language/syntax/command.md) — The structure and anatomy of nekonomicon commands.
+[Commands **v0.1.0**](./language/syntax/command.md) — The structure and anatomy of nekonomicon commands with unified modifiers.
+
 - **WIP** [Comments](./language/syntax/comment.md) — Single-line and multiline comment syntax.
 - **WIP** [Literals](./language/syntax/literals.md) — String, number, and boolean literals.
 - **WIP** [Separators](./language/syntax/separators.md) — Command terminators and delimiters.
@@ -29,7 +30,7 @@ Only "versioned" component means they are "final" documentation
 
 - **WIP** [Calculate](./language/intrinsics/calculate.md) — Arithmetic expressions and operations.
 - **WIP** [Decide](./language/intrinsics/decide.md) — Comparisons, boolean logic, and schema checks.
-- **WIP** [Flow](./language/intrinsics/flow.md) — Conditionals, loops, and control flow.
+  [Flow **v0.1.0**](./language/intrinsics/flow.md) — Conditionals, loops, and control flow with context-based logic.
 - **WIP** [Functions](./language/intrinsics/function.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Input](./language/intrinsics/input.md) — Script and function parameter handling.
 - [Results **v0.0.1**](./language/intrinsics/results.md) — How nekonomicon handles script outcomes and result patterns.
@@ -39,8 +40,7 @@ Only "versioned" component means they are "final" documentation
 
 - **WIP** [Clause](./language/features/clause.md) — Modifiers that change command behavior (safe, sensitive, elevated).
 - **WIP** [Import](./language/features/import.md) — Module importing and dependency management.
-- **WIP** [Modifiers](./language/features/modifiers.md) — Enhancing commands with options (with, without).
-- [Signatures **v0.0.1**](./language/features/signatures.md) — Platform targeting, telemetry, and execution control.
+- [Modifiers **v0.1.0**](./language/features/modifiers.md) — Enhancing commands with options (with, without, on platform).
 - **WIP** [Sinks](./language/features/sinks.md) — Output targets and variable assignment.
 
 ## Modules
@@ -112,9 +112,3 @@ Only "versioned" component means they are "final" documentation
 - **WIP** [Script](./modules/utility/script.md) — Running native scripts and commands.
 - **WIP** [Time](./modules/utility/time.md) — Time and date operations.
 - **WIP** [Variable](./modules/utility/variable.md) — Variable manipulation utilities.
-
-## Schemas
-
-- **WIP** [Bool **v0.0.1**](./schemas/bool.md) — Boolean schema validation.
-- **WIP** [Integer **v0.0.1**](./schemas/integer.md) — Integer schema validation.
-- **WIP** [Decimal **v0.0.1**](./schemas/decimal.md) — Decimal schema validation.

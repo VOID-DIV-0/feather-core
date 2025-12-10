@@ -2,8 +2,9 @@
   "name": "nekonomicon-syntax",
   "displayName": "nekonomicon spell Syntax",
   "description": "TextMate grammar for nekonomicon (.spell) scripting language.",
-  "version": "0.0.3",
-  "publisher": "your-name",
+  "version": "0.0.4",
+  "repository": { "type": "git", "url": "https://github.com/VOID-DIV-0/nekonomicon"},
+  "publisher": "VOID DIV0",
   "engines": {
     "vscode": "^1.50.0"
   },
@@ -12,7 +13,7 @@
     "languages": [
       {
         "id": "nekonomicon",
-        "aliases": ["nekonomicon", "nekonomicon"],
+        "aliases": ["Nekonomicon", "nekonomicon", "Neko", "neko"],
         "extensions": [".spell"],
         "configuration": "./language-configuration.json"
       }

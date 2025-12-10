@@ -1,3 +1,7 @@
+~~~
+    These are old spell file, might not be great or invalid
+~~~
+
 global require modules 'cabinet' 'text' 'bool' 'vault' 'say'.
 
 cabinet read file 'user_config.json' as json into ::config.

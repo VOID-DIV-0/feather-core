@@ -1,4 +1,6 @@
-~ nekonomicon Deployment Script Example
+~~~
+    These are old spell file, might not be great or invalid
+~~~
 
 ~ Step 1: Load configuration and secrets
 cabinet read file 'config/env.txt' into @env_raw.

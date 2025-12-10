@@ -1,3 +1,7 @@
+~~~
+    These are old spell file, might not be great or invalid
+~~~
+
 global require modules 'input' 'rule' 'say'.
 
 input required 'is_enabled' into @is_enabled.
