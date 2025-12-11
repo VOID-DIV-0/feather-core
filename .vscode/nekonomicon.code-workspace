@@ -10,9 +10,13 @@
             "path": "../packages/nekonomicon-core-cli"
         },
         {
+            "name": "VSCode Extension",
+            "path": "../packages/nekonomicon-core-vscode-extension"
+        },
+        {
             "name": "Purrgatory",
-            "path": "../infrastructure/purrgatory"
-        }
+            "path": "../infrastructure"
+        },
         {
             "name": "Documentation",
             "path": "../Documentation"
@@ -36,14 +40,13 @@
         "editor.formatOnType": false,
         
         // Rust analyzer settings
-        "rust-analyzer.checkOnSave.command": "clippy",
         "rust-analyzer.cargo.features": "all",
         "rust-analyzer.inlayHints.chainingHints.enable": true,
         "rust-analyzer.inlayHints.parameterHints.enable": true,
         
         // File associations
         "files.associations": {
-            "*.spell": "plaintext",
+            "*.spell": "nekonomicon",
         },
         
         // Formatting
@@ -84,9 +87,11 @@
         "recommendations": [
             "rust-lang.rust-analyzer",
             "tamasfe.even-better-toml",
-            "serayuzgur.crates",
             "vadimcn.vscode-lldb",
-            "jinxdash.prettier-rust"
+            "jinxdash.prettier-rust",
+            "parthr2031.colorful-comments",
+            "void-div0.nekonomicon-syntax",
+            "chrisbeard.rustdocstring"
         ]
     }
 }

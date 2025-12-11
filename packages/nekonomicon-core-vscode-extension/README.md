@@ -10,6 +10,6 @@ You can expand the grammar as nekonomicon evolves!
 ## On mac
 
 1. brew install npm
-   Run vsce package in your extension folder to create a .vsix file (install the vsce tool with npm install -g vsce if needed).
-   In VS Code, open the command palette and select “Extensions: Install from VSIX...”.
-   Choose your .vsix file and install.
+2. Run vsce package in your extension folder to create a .vsix file (install the vsce tool with npm install -g vsce if needed).
+3. In VS Code, open the command palette and select “Extensions: Install from VSIX...”.
+4. Choose your .vsix file and install.

@@ -15,6 +15,8 @@ This repository implements **nekonomicon**, a custom language for scripting and 
 - **English-like, minimal symbols**: Avoid brackets, semicolons, or embedded conditionals.
 - **Explicit logic**: Compute conditions first, then use `if`/`else`/`end` blocks.
 - **Type safety**: Use `@variable` for records (scalars), `::container` for structured data, and projections like `::container:field`.
+- **Sealed variables**: Variables are immutable by using ! for constants (e.g., `@!constant`).
+- **Nullable variables**: Use ? for nullable types (e.g., `@?variable`).
 - **Security**: Use `vault`, `sensitive` for secrets and sensitive data.
 - **All commands end with `.`**
 - **Clauses**: `safe`, `sensitive`, `elevated`, `async` must appear at the start of a command.
@@ -51,7 +53,7 @@ This repository implements **nekonomicon**, a custom language for scripting and 
   ```spell
   function greet
     parameter 1 into @name.
-    say 'Hello, @{name}!'.
+    say 'Hello, @!{name}'.
     success.
   end
   greet 'Alice'.

@@ -2,19 +2,32 @@
   "name": "nekonomicon-syntax",
   "displayName": "nekonomicon spell Syntax",
   "description": "TextMate grammar for nekonomicon (.spell) scripting language.",
-  "version": "0.0.4",
-  "repository": { "type": "git", "url": "https://github.com/VOID-DIV-0/nekonomicon"},
-  "publisher": "VOID DIV0",
+  "version": "0.0.18",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VOID-DIV-0/nekonomicon"
+  },
+  "publisher": "void-div0",
   "engines": {
     "vscode": "^1.50.0"
   },
-  "categories": ["Programming Languages"],
+  "categories": [
+    "Programming Languages",
+    "Themes"
+  ],
   "contributes": {
     "languages": [
       {
         "id": "nekonomicon",
-        "aliases": ["Nekonomicon", "nekonomicon", "Neko", "neko"],
-        "extensions": [".spell"],
+        "aliases": [
+          "Nekonomicon",
+          "nekonomicon",
+          "Neko",
+          "neko"
+        ],
+        "extensions": [
+          ".spell"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -23,6 +36,13 @@
         "language": "nekonomicon",
         "scopeName": "source.nekonomicon",
         "path": "./syntaxes/nekonomicon.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Nekonomicon Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nekonomicon-dark.json"
       }
     ]
   }

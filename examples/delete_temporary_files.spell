@@ -1,0 +1,45 @@
+~~~ 
+    Demo spell showcasing variables and containers
+    This spell manages a simple user database
+~~~
+
+'Alice' into @!username.
+'alice@example.com' into @!email.
+25 into @!age.
+
+~ Create user profile container
+container
+  @!username into :name
+  @!email into :email
+  @!age into :age
+  'premium' into :account_type
+  true into :active
+  container
+    'John Doe' into :name
+    'john@example.com' into :email
+  into :emergency_contact
+into ::user_profile.
+
+~ Create preferences container
+container
+  'dark' into :theme
+  array 'red' 'blue' 'green' into :favorite_colors
+  container
+    true into :email_notifications
+    false into :sms_notifications
+  into :notifications
+into ::preferences.
+
+say 'User Profile Created:'.
+say 'Name: @{::user_profile:name}'.
+say 'Email: @{::user_profile:email}'.
+say 'Age: @{::user_profile:age}'.
+say 'Account Type: @{::user_profile:account_type}'.
+say 'Emergency Contact: @{::user_profile:emergency_contact:name}'.
+
+say 'Preferences:'.
+say 'Theme: @{::preferences:theme}'.
+say 'Favorite Colors: @{::preferences:favorite_colors#0}, @{::preferences:favorite_colors#1}'.
+say 'Email notifications: @{::preferences:notifications:email_notifications}'.
+
+success.
