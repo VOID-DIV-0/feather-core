@@ -1,4 +1,3 @@
 //! Module for CLI commands
-pub mod story;
-
-pub use story::story_handler;
+pub mod command_help;
+pub mod command_story;

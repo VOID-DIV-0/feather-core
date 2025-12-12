@@ -1,12 +1,7 @@
 ---
-title: Modifiers
-slug: modifiers
-category: core
-status: stable
 version: 0.1.0
-since: 0.0.1
-summary: Command behavior modifiers using with, without, and on keywords.
-tags: [modifiers, with, without, on, options, global, platform]
+title: modifiers
+status: stable
 ---
 
 # Modifiers

@@ -98,6 +98,41 @@ neko summon <module-name>
 
 Replace `<module-name>` with the name of the module you wish to install. This command will download and install the specified module, making its features available for use in your nekonomicon scripts.
 
+### Module Versioning
+
+Nekonomicon distinguishes between **Standard Library (STD) modules** and **external modules**:
+
+**STD Modules (versionless):**
+Built-in modules managed by nekonomicon releases. Always use the version bundled with your nekonomicon installation.
+
+```bash
+neko summon cabinet      # STD module, no version needed
+neko summon vault        # STD module, no version needed
+neko summon network      # STD module, no version needed
+```
+
+**External Modules (versioned):**
+Third-party modules require explicit version specification using semantic versioning.
+
+```bash
+# Specific version
+neko summon mymodule:1.2.3
+neko summon company/auth:2.0.0
+neko summon github/user/tool:0.5.1
+
+# Latest version
+neko summon mymodule:latest
+neko summon mymodule              # Defaults to :latest
+```
+
+**Version format:**
+
+- STD modules: `module-name` (no version)
+- External modules: `module-name:version` or `namespace/module-name:version`
+- Omitting version for external modules defaults to `:latest`
+
+### Removing Modules
+
 You can also remove an installed module using:
 
 ```bash
@@ -106,11 +141,15 @@ neko unsummon <module-name>
 
 Similarly, replace `<module-name>` with the name of the module you wish to remove.
 
+### Listing Installed Modules
+
 To get list of all installed modules, use:
 
 ```bash
 neko grimoire
 ```
+
+This displays all summoned modules with their versions (for external modules).
 
 ## Validating a Nekonomicon Script
 

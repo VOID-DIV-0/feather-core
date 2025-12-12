@@ -77,6 +77,10 @@ For complex logic, break into multiple lines for clarity.
 | is bool    | Type check           | `@flag is bool`         |
 | is &Schema | Container schema     | `::user is &UserSchema` |
 
+### String Comparisons
+
+
+
 ---
 
 ## Examples

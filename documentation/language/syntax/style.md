@@ -28,13 +28,7 @@ Code style and formatting conventions for writing clean, readable, and maintaina
 - Keep statements on a single line if they are short.
 - Use multiline formatting if the line exceeds approximately 80–100 characters.
 
-## Arguments with Separators
-
-- Use commas to separate arguments clearly.
-- If arguments fit comfortably on one line, keep them single-line.
-- For longer argument lists, use multiline formatting with each argument aligned vertically.
-
-## Modifiers (`with` / `without` / `select`)
+## Modifiers (`with` / `without` / `on`)
 
 - Place modifiers on new lines, indented.
 - Align modifiers vertically for improved readability.
@@ -43,6 +37,10 @@ Code style and formatting conventions for writing clean, readable, and maintaina
 
 - Group multiple modifiers together using commas.
 - Separate grouped modifiers onto new lines with proper indentation.
+
+## Sealed
+
+- Favor using the `!` suffix to either variables or containers to indicate immutability and clarity of intent.
 
 ## Examples
 

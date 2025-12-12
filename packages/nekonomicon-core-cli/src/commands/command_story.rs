@@ -9,20 +9,24 @@
 /// ```
 /// use crate::...;
 ///
-/// let _ = story_handler();
+/// let _ = command_help_handler();
 /// ```
-pub fn story_handler(args: &[String]) {
+pub fn command_story_handler(arguments: &[String]) {
     // Default format
     let mut style = "normal";
 
     // Parse for "with style <value>"
-    let mut i = 0;
-    while i < args.len() {
-        if args[i] == "with" && i + 2 < args.len() && args[i + 1] == "style" {
-            style = args[i + 2].as_str();
+    let mut index = 0;
+
+    while index < arguments.len() {
+        if arguments[index] == "with"
+            && index + 2 < arguments.len()
+            && arguments[index + 1] == "style"
+        {
+            style = arguments[index + 2].as_str();
             break;
         }
-        i += 1;
+        index += 1;
     }
 
     match style {

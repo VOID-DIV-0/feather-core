@@ -1,12 +1,7 @@
 ---
-title: Invoke
-slug: invoke
-category: core
-status: stable
 version: 0.1.0
-since: 0.0.1
-summary: Load external modules into script scope for use.
-tags: [invoke, modules, dependencies, summon]
+title: invoke
+status: stable
 ---
 
 # Invoke
@@ -16,6 +11,8 @@ tags: [invoke, modules, dependencies, summon]
 The `invoke` instruction loads external modules into your script's scope, making their functionality available for use. Modules must be summoned (installed) before they can be invoked.
 
 By default, **no modules are loaded**—you must explicitly invoke each module you need. This ensures scripts only have access to declared dependencies, improving security, auditability, and portability.
+
+Contrary to summoning (which is done globally via the CLI), invoking is versionless and done per-script. This separation allows you to control which modules are available in each script without affecting the global environment.
 
 **Key concepts:**
 
@@ -156,6 +153,82 @@ nekonomicon ships with **no modules loaded by default**. Core modules include:
 
 1. Summon it: `neko summon <module>`
 2. Invoke it in your spell: `invoke <module>.`
+
+---
+
+## Module Versioning
+
+nekonomicon uses a **version-at-summon** model: versions are specified when summoning, not when invoking.
+
+### STD Modules (Standard Library)
+
+Built-in modules are **versionless**—they're managed by nekonomicon releases and always use the bundled version.
+
+**Summoning:**
+
+```bash
+neko summon cabinet
+neko summon vault
+neko summon network
+```
+
+**Invoking:**
+
+```spell
+invoke cabinet.          ~ Uses nekonomicon's bundled version
+invoke vault.            ~ Uses nekonomicon's bundled version
+```
+
+### External Modules
+
+Third-party modules require **explicit versioning** when summoning.
+
+**Summoning:**
+
+```bash
+# Specific version (recommended for production)
+neko summon mymodule:1.2.3
+neko summon company/auth:2.0.0
+neko summon github/user/tool:0.5.1
+
+# Latest version
+neko summon mymodule:latest
+neko summon mymodule              # Defaults to :latest
+```
+
+**Invoking (always versionless):**
+
+```spell
+invoke mymodule.         ~ Uses whatever version was summoned (e.g., 1.2.3)
+invoke company/auth.     ~ Uses whatever version was summoned (e.g., 2.0.0)
+```
+
+### Why Invoke is Versionless
+
+- **Separation of concerns**: Summoning manages installation/versions, invoking loads modules
+- **Clean scripts**: No version clutter in spell files
+- **Version locked at summon**: Scripts use whatever version was summoned
+- **Reproducible**: Document summoned versions in Dockerfile/CI, scripts stay clean
+
+**Example workflow:**
+
+```dockerfile
+# Dockerfile locks versions
+FROM nekonomicon/nekonomicon:latest
+RUN neko summon cabinet           # STD module, versionless
+RUN neko summon mymodule:1.2.3    # External module, versioned
+RUN neko conjure script.spell
+```
+
+```spell
+~~~ script.spell uses locked versions ~~~
+invoke cabinet mymodule.          ~ Clean, no versions
+
+cabinet read file 'data.txt' into @data.
+mymodule process @data into @result.
+
+success.
+```
 
 ---
 
