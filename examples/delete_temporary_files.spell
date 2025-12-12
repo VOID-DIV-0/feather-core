@@ -3,43 +3,40 @@
     This spell manages a simple user database
 ~~~
 
-'Alice' into @!username.
-'alice@example.com' into @!email.
-25 into @!age.
+ask 'Enter your name:' into @!username.
+ask 'Enter your email:' into @!email.
 
-~ Create user profile container
-container
+decide @!username equals '' into @!username_is_empty.
+decide @!email equals '' or @!email is missing '@' into @!email_is_invalid.
+
+if @!email_is_invalid or @!username_is_empty
+  fail 'Email cannot be empty.'.
+end. 
+
+
+say 'Creating user profile...'.
+container into ::!user_profile ~ sealed container
   @!username into :name
   @!email into :email
   @!age into :age
   'premium' into :account_type
   true into :active
-  container
+  array into :preferences
+   'newsletter'
+   'notifications' 
+  end.
+  container into :emergency_contact
     'John Doe' into :name
     'john@example.com' into :email
-  into :emergency_contact
-into ::user_profile.
-
-~ Create preferences container
-container
-  'dark' into :theme
-  array 'red' 'blue' 'green' into :favorite_colors
-  container
-    true into :email_notifications
-    false into :sms_notifications
-  into :notifications
-into ::preferences.
+   end.
+end.
 
 say 'User Profile Created:'.
-say 'Name: @{::user_profile:name}'.
-say 'Email: @{::user_profile:email}'.
-say 'Age: @{::user_profile:age}'.
-say 'Account Type: @{::user_profile:account_type}'.
-say 'Emergency Contact: @{::user_profile:emergency_contact:name}'.
+say 'Name:' ::!user_profile:name.
+say 'Email: ' ::!user_profile:email.
+say 'Age: ' ::!user_profile:age.
+say 'Account Type: ' ::!user_profile:account_type.
+say 'Preferences:' ::!user_profile:preferences#0 ', ' ::!user_profile:preferences#1.
+say 'Emergency Contact: ' ::!user_profile:emergency_contact:name 'with the email' ::!user_profile:emergency_contact:email.
 
-say 'Preferences:'.
-say 'Theme: @{::preferences:theme}'.
-say 'Favorite Colors: @{::preferences:favorite_colors#0}, @{::preferences:favorite_colors#1}'.
-say 'Email notifications: @{::preferences:notifications:email_notifications}'.
-
-success.
+success 'User profile successfully created.'.

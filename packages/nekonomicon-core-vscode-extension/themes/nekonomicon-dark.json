@@ -88,7 +88,7 @@
     {
       "scope": "keyword.operator.comparison.nekonomicon",
       "settings": {
-        "foreground": "#F5DAB6FF",
+        "foreground": "#FFBF6CFF",
         "fontStyle": ""
       }
     },

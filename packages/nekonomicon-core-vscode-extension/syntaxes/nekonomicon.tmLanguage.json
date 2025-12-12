@@ -10,7 +10,7 @@
     },
     {
       "name": "comment.line.nekonomicon",
-      "match": "^\\s*~.*$"
+      "match": "~.*$"
     },
     {
       "name": "variable.scalar.nekonomicon",
@@ -18,7 +18,7 @@
     },
     {
       "name": "variable.container.nekonomicon",
-      "match": "::[!?]?[a-zA-Z_][a-zA-Z0-9_]*(?:(:[!?]?[a-zA-Z_][a-zA-Z0-9_]*|#[0-9]+))*"
+      "match": ":?:[!?]?[a-zA-Z_][a-zA-Z0-9_]*(?:(:[!?]?[a-zA-Z_][a-zA-Z0-9_]*|#[0-9]+))*"
     },
     {
       "name": "constant.boolean.nekonomicon",
@@ -35,7 +35,7 @@
     },
     {
       "name": "keyword.control.intrinsic.nekonomicon",
-      "match": "\\b(say|ask|into|if|else|while|decide|end|with|all|on|import)\\b"
+      "match": "\\b(say|ask|into|if|else|while|decide|end|with|all|on|import|container|array)\\b"
     },
     {
       "name": "keyword.control.intrinsic.fail.nekonomicon",
@@ -55,7 +55,7 @@
     },
     {
       "name": "keyword.operator.logical.nekonomicon",
-      "match": "\\b(and|or|not|is|all|any|none|exclusive)\\b"
+      "match": "\\b(equals|and|or|not|is|all|any|none|exclusive|missing|null)\\b"
     }
   ],
 
