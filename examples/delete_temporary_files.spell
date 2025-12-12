@@ -11,25 +11,21 @@ decide @!email equals '' or @!email is missing '@' into @!email_is_invalid.
 
 if @!email_is_invalid or @!username_is_empty
   fail 'Email cannot be empty.'.
-end. 
-
+end
 
 say 'Creating user profile...'.
-container into ::!user_profile ~ sealed container
-  @!username into :name
-  @!email into :email
-  @!age into :age
-  'premium' into :account_type
-  true into :active
-  array into :preferences
-   'newsletter'
-   'notifications' 
-  end.
-  container into :emergency_contact
-    'John Doe' into :name
-    'john@example.com' into :email
-   end.
-end.
+
+container 
+  :name @!username 
+  :email @!email
+  :age @!age
+  :account_type 'premium'
+  :active true
+  :preferences 'newsletter' 'notifications' 
+  :emergency_contact
+    :name 'John Doe' 
+    :email 'john@example.com'
+into ::!user_profile. ~ immutable container
 
 say 'User Profile Created:'.
 say 'Name:' ::!user_profile:name.

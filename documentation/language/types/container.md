@@ -28,18 +28,24 @@ Containers complement records (`@variable`): use records for single values, cont
 
 ## Summary Table
 
-| Pattern              | Syntax                          | Effect                           | Notes                            |
-| -------------------- | ------------------------------- | -------------------------------- | -------------------------------- |
-| Container Definition | `container ... into ::name.`    | Create structured data           | Supports fields, arrays, nesting |
-| Field Access         | `::container:field`             | Access named field               | Navigate with `:` separator      |
-| Index Access         | `::container#0`                 | Access array element by position | Zero-indexed                     |
-| Chained Access       | `::users:profile:email`         | Navigate nested structure        | Chain projections                |
-| Mixed Access         | `::data:colors#1`               | Access array within field        | Combine field and index          |
-| Sealed Container     | `::!const`                      | Immutable container              | All fields inherit seal          |
-| Nullable Container   | `::?maybe`                      | Container that can be null       | Per-node nullability             |
-| Nullable Field       | `::user:?optional_field`        | Field that might not exist       | Does not chain to parent         |
-| Array Field          | `array 'a' 'b' 'c' into :items` | Store ordered list in field      | Use `array` intrinsic            |
-| Nested Container     | `container ... into :section`   | Container within container       | Unlimited nesting depth          |
+| Pattern              | Syntax                        | Effect                            | Notes                            |
+| -------------------- | ----------------------------- | --------------------------------- | -------------------------------- |
+| Container Definition | `container ... into ::name.`  | Create structured data            | Contextual parsing for structure |
+| Field Assignment     | `:field value`                | Assign single value to field      | Direct field-value assignment    |
+| Array Assignment     | `:field value1 value2 value3` | Assign multiple values as array   | Multiple values = array          |
+| Nested Container     | `:field :subfield value`      | Create nested container           | Projection after projection      |
+| Field Access         | `::container:field`           | Access named field                | Navigate with `:` separator      |
+| Index Access         | `::container#0`               | Access array element by position  | Zero-indexed                     |
+| Safe Field Access    | `::container:?field`          | Safe access to optional field     | Returns null if missing          |
+| Safe Index Access    | `::container#?0`              | Safe access to array element      | Returns null if out of bounds    |
+| Scalar as Array      | `::scalar_field#0`            | Treat scalar as single-item array | Future-proof field evolution     |
+| Chained Access       | `::users:profile:email`       | Navigate nested structure         | Chain projections                |
+| Scalar as Array      | `::scalar_field#0`            | Treat scalar as single-item array | Future-proof field evolution     |
+| Chained Access       | `::users:profile:email`       | Navigate nested structure         | Chain projections                |
+| Mixed Access         | `::data:colors#1`             | Access array within field         | Combine field and index          |
+| Sealed Container     | `::!const`                    | Immutable container               | All fields inherit seal          |
+| Nullable Container   | `::?maybe`                    | Container that can be null        | Per-node nullability             |
+| Nullable Field       | `::user:?optional_field`      | Field that might not exist        | Does not chain to parent         |
 
 ---
 
@@ -92,7 +98,7 @@ Prefix with `!` to make the container constant (immutable). Once defined, neithe
 
 ```spell
 container
-  'value' into :!field       ~ ❌ E-CTNR-SEAL-INHERITED
+  :!field 'value'      ~ ❌ E-CTNR-SEAL-INHERITED
 into ::!parent.              ~ Already sealed at root
 ```
 
@@ -102,31 +108,33 @@ into ::!parent.              ~ Already sealed at root
 
 ### Creating Containers
 
-Use the `container` block to define structured data:
+Use the `container` block to define structured data. The structure is determined contextually:
 
 ```spell
 container
-  'value1' into :field1
-  'value2' into :field2
+  :field1 'value1'                    ~ Single value = scalar field
+  :colors 'red' 'blue' 'green'        ~ Multiple values = array field
+  :contact                            ~ Nested container
+    :name 'John Doe'
+    :email 'john@example.com'
 into ::my_container.
 ```
 
 ### Container Node Types
 
-Containers support three types of child nodes:
+Containers support three types of child nodes determined by context:
 
-1. **Value nodes** — Store scalar data in named fields
-2. **Array nodes** — Store ordered lists using the `array` intrinsic
-3. **Container nodes** — Store nested container structures
+1. **Value nodes** — Single value after projection creates scalar field
+2. **Array nodes** — Multiple values after projection creates array
+3. **Container nodes** — Projection followed by more projections creates nested structure
 
 ```spell
 container
-  'Alex' into :name                        ~ Value node
-  array 'red' 'blue' 'green' into :colors  ~ Array node
-  container                                 ~ Nested container node
-    'admin@example.com' into :email
-    true into :verified
-  into :profile
+  :name 'Alex'                             ~ Value node (single value)
+  :colors 'red' 'blue' 'green'             ~ Array node (multiple values)
+  :profile                                 ~ Nested container node (projections follow)
+    :email 'admin@example.com'
+    :verified true
 into ::user.
 ```
 
@@ -192,15 +200,77 @@ Combine field and index projections to navigate complex structures:
 
 ---
 
+## Safe Access Patterns
+
+nekonomicon provides safe access operators for defensive programming and future-proof code.
+
+### Safe Field Access (`?field`)
+
+Use `?` prefix to safely access fields that might not exist:
+
+```spell
+container
+  :name 'Alice'
+  :email 'alice@example.com'
+into ::user.
+
+say ::user:name.        ~ ✅ 'Alice' (field exists)
+say ::user:phone.       ~ ❌ ERROR: Field not found
+say ::user:?phone.      ~ ✅ null (safe access)
+```
+
+### Safe Index Access (`#?index`)
+
+Use `#?` to safely access array elements that might be out of bounds:
+
+```spell
+container
+  :tags 'red' 'blue'    ~ Array with 2 elements
+into ::data.
+
+say ::data:tags#0.      ~ ✅ 'red' (valid index)
+say ::data:tags#5.      ~ ❌ ERROR: Index out of bounds
+say ::data:tags#?5.     ~ ✅ null (safe access)
+```
+
+### Chained Safe Access
+
+Combine safe operators for maximum defensive programming:
+
+```spell
+~ Triple-safe: field might not exist, index might be out of bounds, nested field might not exist
+say ::data:?optional_array#?3:?name.
+```
+
+### Scalar-to-Array Compatibility
+
+Access scalar fields with array syntax for future-proof code:
+
+```spell
+~ Today: scalar field
+container
+  :tag 'red'
+into ::data.
+
+say ::data:tag#0.       ~ ✅ 'red' (treats scalar as 1-element array)
+
+~ Tomorrow: expand to array
+'blue' 'green' into ::data:tag.
+
+say ::data:tag#0.       ~ ✅ 'red' (same code still works!)
+```
+
+---
+
 ## Examples
 
 ### 1. Simple Container
 
 ```spell
 container
-  'Alice' into :name
-  'alice@example.com' into :email
-  30 into :age
+  :name 'Alice'
+  :email 'alice@example.com'
+  :age 30
 into ::user.
 
 say ::user:name.             ~ Outputs: Alice
@@ -212,8 +282,8 @@ say ::user:age.              ~ Outputs: 30
 
 ```spell
 container
-  array 'apple' 'banana' 'cherry' into :fruits
-  array 10 20 30 40 50 into :scores
+  :fruits 'apple' 'banana' 'cherry'        ~ Multiple values = array
+  :scores 10 20 30 40 50                   ~ Multiple values = array
 into ::data.
 
 say ::data:fruits#0.         ~ Outputs: apple
@@ -225,15 +295,13 @@ say ::data:scores#4.         ~ Outputs: 50
 
 ```spell
 container
-  'MyApp' into :name
-  container
-    'localhost' into :host
-    '5432' into :port
-  into :database
-  container
-    'info' into :level
-    true into :enabled
-  into :logging
+  :name 'MyApp'
+  :database                               ~ Projection followed by projections = nested container
+    :host 'localhost'
+    :port '5432'
+  :logging                               ~ Another nested container
+    :level 'info'
+    :enabled true
 into ::config.
 
 say ::config:name.                    ~ Outputs: MyApp
@@ -245,9 +313,9 @@ say ::config:logging:enabled.         ~ Outputs: true
 
 ```spell
 container
-  'localhost' into :host
-  '5432' into :port
-  'postgres' into :database
+  :host 'localhost'
+  :port '5432'
+  :database 'postgres'
 into ::!db_config.
 
 ~ ✅ Reading is allowed
@@ -275,9 +343,9 @@ end
 
 ```spell
 container
-  'John Doe' into :name
-  'john@example.com' into :email
-  null into :?phone                 ~ Optional field
+  :name 'John Doe'
+  :email 'john@example.com'
+  :?phone null                      ~ Optional field (nullable)
 into ::contact.
 
 decide ::contact:?phone is null into @no_phone.
@@ -331,19 +399,16 @@ say ::users:user2:age.       ~ Outputs: 30
 
 ```spell
 container
-  'API Config' into :title
-  container
-    'https://api.example.com' into :base_url
-    'v2' into :version
-    container
-      'Bearer' into :type
-      null into :?token
-    into :auth
-  into :api
-  container
-    array 'error' 'warning' 'info' into :levels
-    '/var/log/app.log' into :file
-  into :logging
+  :title 'API Config'
+  :api
+    :base_url 'https://api.example.com'
+    :version 'v2'
+    :auth
+      :type 'Bearer'
+      :?token null
+  :logging
+    :levels 'error' 'warning' 'info'    ~ Multiple values = array
+    :file '/var/log/app.log'
 into ::app_config.
 
 ~ Navigate deeply nested structures
@@ -360,10 +425,10 @@ input 'Enter your email: ' into @email.
 input 'Enter your age: ' into @age.
 
 container
-  @name into :name
-  @email into :email
-  @age into :age
-  'active' into :status
+  :name @name
+  :email @email
+  :age @age
+  :status 'active'
 into ::new_user.
 
 say 'Created user: @{::new_user:name}'.
@@ -374,8 +439,8 @@ say 'Status: @{::new_user:status}'.
 
 ```spell
 container
-  'draft' into :status
-  0 into :views
+  :status 'draft'
+  :views 0
 into ::document.
 
 say ::document:status.       ~ Outputs: draft
@@ -391,14 +456,77 @@ say ::document:views.        ~ Outputs: 1000
 
 ```spell
 container
-  array 1 2 3 into :row_0
-  array 4 5 6 into :row_1
-  array 7 8 9 into :row_2
+  :row_0 1 2 3                        ~ Multiple values = array
+  :row_1 4 5 6                        ~ Multiple values = array
+  :row_2 7 8 9                        ~ Multiple values = array
 into ::matrix.
 
 say ::matrix:row_0#0.    ~ 1
 say ::matrix:row_1#2.    ~ 6
 say ::matrix:row_2#1.    ~ 8
+```
+
+### 13. Safe Access Patterns
+
+```spell
+container
+  :name 'Alice'
+  :tags 'developer' 'admin'
+  :profile
+    :verified true
+into ::user.
+
+~ Safe field access
+say ::user:?phone.                    ~ null (field doesn't exist)
+say ::user:?name.                     ~ 'Alice' (field exists)
+
+~ Safe index access
+say ::user:tags#?5.                   ~ null (out of bounds)
+say ::user:tags#?1.                   ~ 'admin' (valid index)
+
+~ Chained safe access
+say ::user:?settings:?theme.          ~ null (settings field doesn't exist)
+say ::user:?profile:?verified.        ~ true (both fields exist)
+```
+
+### 14. Field-to-Array Evolution
+
+```spell
+~ Start with scalar
+container
+  :status 'active'
+into ::user.
+
+~ Code written for future arrays
+say ::user:status#0.                  ~ 'active' (scalar treated as array)
+
+~ Later: expand to array
+'active' 'verified' 'premium' into ::user:status.
+
+~ Same code still works!
+say ::user:status#0.                  ~ 'active' (first element of array)
+say ::user:status#2.                  ~ 'premium' (third element)
+```
+
+### 15. Defensive Container Access
+
+```spell
+~ Accessing dynamic/external data safely
+container
+  :api_response
+    :status 'success'
+    :data 'item1' 'item2'
+into ::response.
+
+~ Defensive programming
+decide ::response:?api_response:?status equals 'success' into @success.
+decide ::response:?api_response:?data#?0 is not null into @has_data.
+
+if @success and @has_data
+  say 'First item: ' ::response:api_response:data#0.
+else
+  say 'No data available or API error.'.
+end
 ```
 
 ---
@@ -407,11 +535,27 @@ say ::matrix:row_2#1.    ~ 8
 
 1. **Use descriptive field names:** Choose clear, meaningful names like `:user_email` over `:e`.
 
-2. **Keep structures flat when possible:** Deeply nested containers can be hard to read. Consider breaking into multiple containers.
+2. **Use safe access for uncertain data:** When accessing external data or optional fields, use `?` and `#?`:
 
-3. **Seal configuration data:** Use `::!` for data that shouldn't change during script execution.
+   ```spell
+   ~ Unsafe
+   say ::api_data:result:items#0.
 
-4. **Check nullable fields before access:** Always use `decide` to check if nullable fields exist:
+   ~ Safe
+   say ::api_data:?result:?items#?0.
+   ```
+
+3. **Future-proof with array syntax:** Even for scalar fields, consider using `#0` if the field might become an array:
+
+   ```spell
+   say ::user:tag#0.     ~ Works for both scalar and array
+   ```
+
+4. **Keep structures flat when possible:** Deeply nested containers can be hard to read. Consider breaking into multiple containers.
+
+5. **Seal configuration data:** Use `::!` for data that shouldn't change during script execution.
+
+6. **Check nullable fields before access:** Always use `decide` to check if nullable fields exist:
 
    ```spell
    decide ::user:?phone is not null into @has_phone.
@@ -420,26 +564,25 @@ say ::matrix:row_2#1.    ~ 8
    end
    ```
 
-5. **Use arrays for ordered collections:** When the order matters or you need indexed access, use arrays. For named data, use fields.
+7. **Use arrays for ordered collections:** When the order matters or you need indexed access, use arrays. For named data, use fields.
 
-6. **Document complex structures:** Add comments explaining nested structures:
+8. **Document complex structures:** Add comments explaining nested structures:
 
    ```spell
    container
-     container
-       'value' into :field1  ~ Purpose of field1
-       'value' into :field2  ~ Purpose of field2
-     into :section          ~ Purpose of section
+     :section          ~ Purpose of section
+       :field1 'value' ~ Purpose of field1
+       :field2 'value' ~ Purpose of field2
    into ::config.
    ```
 
-7. **Avoid over-nesting:** More than 3-4 levels deep may indicate your structure needs refactoring.
+9. **Avoid over-nesting:** More than 3-4 levels deep may indicate your structure needs refactoring.
 
-8. **Use consistent naming:** Pick a style (snake_case recommended) and stick with it across your containers.
+10. **Use consistent naming:** Pick a style (snake_case recommended) and stick with it across your containers.
 
-9. **Consider immutability early:** If data won't change, seal it at creation with `::!` rather than trying to protect it later.
+11. **Consider immutability early:** If data won't change, seal it at creation with `::!` rather than trying to protect it later.
 
-10. **Validate complex structures:** Use schemas (see [Schema](./schema.md)) to validate container structure and types.
+12. **Validate complex structures:** Use schemas (see [Schema](./schema.md)) to validate container structure and types.
 
 ---
 
