@@ -12,7 +12,7 @@ Only "versioned" component means they are "final" documentation
 
 ### Syntax
 
-[Commands **v0.1.0**](./language/syntax/command.md) — The structure and anatomy of nekonomicon commands with unified modifiers.
+[Commands](./language/syntax/command.md) — The structure and anatomy of nekonomicon commands with unified modifiers.
 
 - **WIP** [Comments](./language/syntax/comment.md) — Single-line and multiline comment syntax.
 - **WIP** [Literals](./language/syntax/literals.md) — String, number, and boolean literals.
@@ -30,17 +30,17 @@ Only "versioned" component means they are "final" documentation
 
 - **WIP** [Calculate](./language/intrinsics/calculate.md) — Arithmetic expressions and operations.
 - **WIP** [Decide](./language/intrinsics/decide.md) — Comparisons, boolean logic, and schema checks.
-  [Flow **v0.1.0**](./language/intrinsics/flow.md) — Conditionals, loops, and control flow with context-based logic.
+  [Flow](./language/intrinsics/flow.md) — Conditionals, loops, and control flow with context-based logic.
 - **WIP** [Functions](./language/intrinsics/function.md) — Defining and using functions, parameters, and return values.
 - **WIP** [Input](./language/intrinsics/input.md) — Script and function parameter handling.
-- [Results **v0.0.1**](./language/intrinsics/results.md) — How nekonomicon handles script outcomes and result patterns.
+- [Results](./language/intrinsics/results.md) — How nekonomicon handles script outcomes and result patterns.
 - **WIP** [Wait](./language/intrinsics/wait.md) — Delays and timing control.
 
 ### Features
 
-- **WIP** [Clause](./language/features/clause.md) — Modifiers that change command behavior (safe, sensitive, elevated).
-- **WIP** [Import](./language/features/import.md) — Module importing and dependency management.
-- [Modifiers **v0.1.0**](./language/features/modifiers.md) — Enhancing commands with options (with, without, on platform).
+- [Clause](./language/features/clause.md) — Modifiers that change command behavior (safe, sensitive, elevated).
+- [Invoke](./language/features/invoke.md) — Module importing and dependency management.
+- [Modifiers](./language/features/modifiers.md) — Enhancing commands with options (with, without, on platform).
 - **WIP** [Sinks](./language/features/sinks.md) — Output targets and variable assignment.
 
 ## Modules

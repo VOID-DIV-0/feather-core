@@ -128,7 +128,7 @@ It's possible to wait for a specific set of async tasks to complete using `wait 
 Here are examples of both:
 
 ```spell
-import cabinet.
+invoke cabinet.
 
 async 'file1' cabinet read file 'my_file1.txt'.
 async 'file2' cabinet read file 'my_file2.txt'.
@@ -137,7 +137,7 @@ success.
 ```
 
 ```spell
-import cabinet.
+invoke cabinet.
 
 async 'file1' cabinet read file 'my_file1.txt'.
 async 'file2' cabinet read file 'my_file2.txt'.
@@ -168,7 +168,7 @@ By default, all commands are treated as egress-hostile, which is unsafe for hand
 The `sensitive` clause is used to explicitly mark commands that handle sensitive data, allowing the use of vaulted variables and ensuring that such data is treated with the necessary security precautions. It helps prevent accidental exposure of sensitive information by enforcing restrictions on how and where this data can be used.
 
 ```spell
-import text.
+invoke text.
 
 sensitive ask 'What is my password?' with mask into @!ephemeral_pw.
 
