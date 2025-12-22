@@ -1,0 +1,39 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+  "icon_theme": "Catppuccin Mocha",
+  "disable_ai": false,
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Frappé",
+    "dark": "Catppuccin Mocha"
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "catppuccin": true,
+    "toml": true,
+    "git-firefly": true,
+    "catppuccin-icons": true,
+    "csharp": true,
+    "markdown-oxide": true
+  },
+  "file_scan_exclusions": [
+    "**/*.cs.uid",
+    "**/bin",
+    "**/obj",
+    "**/*.tscn",
+    "**/.godot"
+  ],
+  "tab_size": 2,
+  "format_on_save": "on",
+  "terminal": {
+    "shell": {
+      "program": "C:\\Git\\bin\\bash.exe"
+    }
+  }
+}
